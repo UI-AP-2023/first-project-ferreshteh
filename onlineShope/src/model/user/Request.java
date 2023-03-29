@@ -13,5 +13,12 @@ public class Request {
     public void setArticles(ArrayList<Article> articles){
         this.articles.addAll(articles);
     }
+    public String getInfo(){
+        return info;
+    }
+    public ArrayList<Article> getArticle(){
+        return articles;
+    }
+
 
 }

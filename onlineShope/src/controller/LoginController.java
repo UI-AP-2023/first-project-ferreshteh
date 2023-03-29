@@ -8,7 +8,6 @@ import view.MenoUser;
 import view.Messages;
 
 public class LoginController {
-    Customer customer = new Customer();
     AllLists allLists = new AllLists();
     MenoUser menoUser = new MenoUser();
     Login login = new Login();

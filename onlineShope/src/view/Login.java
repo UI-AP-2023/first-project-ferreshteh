@@ -1,6 +1,7 @@
 package view;
 
 import controller.LoginController;
+import model.user.SuperAdmin;
 
 import java.util.Scanner;
 
@@ -34,5 +35,32 @@ public  class Login {
        if(scanner==1){
            login();
        }
+       else if(scanner==3){
+           System.out.println("username");
+           scanNer=sc.next();
+           if(scanNer.equals("admin")){
+
+           }
+       }
     }
+    public void adminMeno(){
+        System.out.println("if you want help >>enter help or enter your order");
+        scanNer=sc.next();
+        if(scanNer.equals("help")){
+            System.out.printf("1-view request 2-view comments 3-Product management 4-viewProducts");
+            scanner=sc.nextInt();
+            if(scanner==1){
+                for(int i = 0; i< SuperAdmin.getInstance().getRequest().size(); i++){
+                    System.out.println(SuperAdmin.getInstance().getRequest().get(i).getInfo());
+                    for(int j=0;j<SuperAdmin.getInstance().getRequest().get(i).getArticle().size();j++){
+                        System.out.println();
+                    }
+                }
+
+
+            }
+
+        }
+    }
+
 }

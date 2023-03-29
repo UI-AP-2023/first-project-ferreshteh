@@ -8,10 +8,14 @@ import java.util.ArrayList;
 
 //----------------------------------------
 public class Customer extends Account {
-private String info;
+    private String info;
     private ArrayList<Article> cart = new ArrayList<>();
     private ArrayList<Factor> factors = new ArrayList<>();
     private double credit;
+
+    public Customer(String info) {
+        super(info);
+    }
 
     public String getInfo() {
         return info;
@@ -28,5 +32,4 @@ private String info;
     public void setFactors(ArrayList<Factor> factor){
         factors.addAll(factor);
     }
-
 }
