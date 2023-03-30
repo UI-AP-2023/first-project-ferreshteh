@@ -7,42 +7,61 @@ import view.Login;
 import view.MenoUser;
 import view.Messages;
 
+import java.util.ArrayList;
+
 public class LoginController {
-    AllLists allLists = new AllLists();
-    MenoUser menoUser = new MenoUser();
-    Login login = new Login();
-    Messages messages=new Messages();
-    String scanNer;
-    int scanner;
+    private ArrayList<Customer> allCostumers = new ArrayList<>();
+
+    public void addCostumer(Customer customer) {
+        allCostumers.add(customer);
+    }
+
+
+    Messages messages = new Messages();
 
     public void setUserInfoEnter(String info) {
+        MenoUser menoUser = new MenoUser();
         int check = 0;
-        for (int i = 0; i < allLists.allCostumers.size(); i++) {
-            if (allLists.allCostumers.get(i).getInfo().equals(info)) {
+        for (int i = 0; i < allCostumers.size(); i++) {
+            if (allCostumers.get(i).getInfo().equals(info)) {
                 menoUser.menoUser();
                 check++;
                 break;
             }
         }
-        if(check==0){
+        if (check == 0) {
             messages.printError();
         }
     }
-    public void setUserInfoRegister(String info){
+
+    public void setUserInfoRegister(String info) {
         int check = 0;
-        for (int i = 0; i < allLists.allCostumers.size(); i++) {
-            if (allLists.allCostumers.get(i).getInfo().equals(info)) {
-                messages.printError();
-                check++;
-                break;
+        if (allCostumers.size() != 0) {
+            for (int i = 0; i < allCostumers.size(); i++) {
+                if (allCostumers.get(i).getInfo().equals(info)) {
+                    messages.printError();
+                    check++;
+                    break;
+                }
             }
-    }
-        if(check==0){
-          if(login.free){
+            if (check == 0) {
 
-          }
-          else{
+                if (Login.getInstance().free) {
 
-          }
-        }
-}}
+                } else {
+                    Request request = new Request();
+                    request.setInfo(info);
+                    request.setArticles(null);
+                }
+            }
+        } else {
+
+            if (Login.getInstance().free) {
+
+            } else {
+                Request request = new Request();
+                request.setInfo(info);
+Login.getInstance().firstMeno();
+            }
+
+    }}}

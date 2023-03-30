@@ -11,8 +11,9 @@ public class Request {
         this.info=info;
     }
     public void setArticles(ArrayList<Article> articles){
+        if(articles!=null){
         this.articles.addAll(articles);
-    }
+    }}
     public String getInfo(){
         return info;
     }
