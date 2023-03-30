@@ -20,10 +20,6 @@ public class SuperCon {
         }
         return instance;
     }
-    LoginController loginController=new LoginController();
-    public void acceptUserRequest(String info, ArrayList<Article>articles){
-        Customer costumer=new Customer(info);
-        costumer.setCart(articles);
-        loginController.addCostumer(costumer);
-    }
+
+
 }

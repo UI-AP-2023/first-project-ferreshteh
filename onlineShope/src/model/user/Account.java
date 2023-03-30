@@ -10,5 +10,6 @@ public abstract class Account {
     public String getInfo(){
         return info;
     }
+
     private String character;
 }
