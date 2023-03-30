@@ -5,6 +5,53 @@ import model.articles.Article;
 import java.util.ArrayList;
 
 public class SuperAdmin extends Account{
+    public ArrayList<Request> getRequests() {
+        return requests;
+    }
+
+    public ArrayList<Article> getArticles() {
+        return articles;
+    }
+
+    public static void setInstance(SuperAdmin instance) {
+        SuperAdmin.instance = instance;
+    }
+
+    SuperAdmin(String info, String character) {
+        super(info, character);
+    }
+
+    @Override
+    public String getInfo() {
+        return super.getInfo();
+    }
+
+    @Override
+    public String getCharacter() {
+        return super.getCharacter();
+    }
+
+    @Override
+    public String toString() {
+        return "SuperAdmin{" +
+                "requests=" + requests +
+                ", articles=" + articles +
+                '}';
+    }
+
+    @Override
+    public void setInfo(String info) {
+        super.setInfo(info);
+    }
+
+    public void setArticles(ArrayList<Article> articles) {
+        this.articles = articles;
+    }
+
+    public void setRequests(ArrayList<Request> requests) {
+        this.requests = requests;
+    }
+
     private static SuperAdmin instance;
     private  SuperAdmin(String info) {
         super(info);

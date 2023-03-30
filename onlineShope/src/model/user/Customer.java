@@ -15,6 +15,43 @@ public class Customer extends Account {
     private String email;
     private static  int number=0;
 
+    public double getCredit() {
+        return credit;
+    }
+
+    public ArrayList<Factor> getFactors() {
+        return factors;
+    }
+
+    public ArrayList<Article> getCart() {
+        return cart;
+    }
+
+    public static int getNumber() {
+        return number;
+    }
+
+
+    public static void setNumber(int number) {
+        Customer.number = number;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public String getId() {
+        return id;
+    }
+
     public void setPassWord(String passWord){
         this.passWord=passWord;
 
@@ -41,6 +78,20 @@ public class Customer extends Account {
         number++;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "info='" + info + '\'' +
+                ", id='" + id + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", cart=" + cart +
+                ", factors=" + factors +
+                ", credit=" + credit +
+                '}';
+    }
+
     public String getInfo() {
         return info;
     }
@@ -56,5 +107,14 @@ public class Customer extends Account {
     }
     public void setFactors(ArrayList<Factor> factor){
         factors.addAll(factor);
+    }
+
+    Customer(String info, String character) {
+        super(info, character);
+    }
+
+    @Override
+    public String getCharacter() {
+        return super.getCharacter();
     }
 }

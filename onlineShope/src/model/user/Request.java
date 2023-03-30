@@ -15,6 +15,19 @@ public class Request {
         if(articles!=null){
         this.articles.addAll(articles);
     }}
+
+    public void setUnAcceptedtId(String unAcceptedtId) {
+        this.unAcceptedtId = unAcceptedtId;
+    }
+
+    public ArrayList<Article> getArticles() {
+        return articles;
+    }
+
+    public String getUnAcceptedtId() {
+        return unAcceptedtId;
+    }
+
     public String getInfo(){
         return info;
     }
