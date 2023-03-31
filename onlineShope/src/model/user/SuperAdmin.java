@@ -80,8 +80,8 @@ public class SuperAdmin extends Account{
         this.articles = articles;
     }
 
-    public void setComments(ArrayList<Comment> comments) {
-        this.comments = comments;
+    public void setComments(Comment comment) {
+        comments.add(comment);
     }
 
     public void setRequests(Request request){

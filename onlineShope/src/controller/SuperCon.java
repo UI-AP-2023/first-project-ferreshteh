@@ -1,13 +1,10 @@
 package controller;
 
 import model.articles.*;
+import model.others.Comment;
 import model.user.Customer;
 import model.user.SuperAdmin;
-import controller.LoginController;
-import view.Login;
 import view.Messages;
-
-import java.util.ArrayList;
 
 public class SuperCon {
 
@@ -53,15 +50,14 @@ public class SuperCon {
         } else if (strings[0].equalsIgnoreCase("edit")) {
             if (strings[2].equalsIgnoreCase("name")) {
                 editName(strings[1], strings[3]);
-            }
-            else if(strings[2].equalsIgnoreCase("price")){
-                editPrice(strings[1],strings[3]);
-            }
-            else if(strings[2].equalsIgnoreCase("exist")){
+            } else if (strings[2].equalsIgnoreCase("price")) {
+                editPrice(strings[1], strings[3]);
+            } else if (strings[2].equalsIgnoreCase("exist")) {
 
-                editExist(strings[2],Integer.parseInt(strings[3]));
+                editExist(strings[2], Integer.parseInt(strings[3]));
+            }
         }
-    }}
+    }
 
     public void addVehicle(String name, String price, String type, int exist, String nameCompany, double capacity, boolean auto) {
         String id;
@@ -101,7 +97,7 @@ public class SuperCon {
         int check = 0;
         for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
             if (SuperAdmin.getInstance().getArticles().get(i).getId().equals(id)) {
-                SuperAdmin.getInstance().getArticles().get(i).setExist(exist));
+                SuperAdmin.getInstance().getArticles().get(i).setExist(exist);
             }
         }
     }
@@ -181,6 +177,62 @@ public class SuperCon {
         id = id + name + price;
         flashMemory.setId(id);
         SuperAdmin.getInstance().setArticles(flashMemory);
+    }
+
+    public void requestsManagement(String function) {
+        String[] strings = function.split(" ", -1);
+        if (strings[0].equalsIgnoreCase("Accept")) {
+            if (strings[1].equalsIgnoreCase("comment")) {
+                acceptComment(strings[3], strings[2]);
+            } else if (strings[1].equalsIgnoreCase("user")) {
+                acceptUser(strings[2]);
+            } else if (strings[1].equalsIgnoreCase("credit")) {
+                acceptCredit(strings[2]);
+            }
+        }
+    }
+
+    public void acceptComment(String idAr, String idUser) {
+        Customer customer = null;
+        Comment comment = null;
+        for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
+            if (LoginController.getInstance().getAllCostumers().get(i).getId().equals(idUser)) {
+                customer = LoginController.getInstance().getAllCostumers().get(i);
+                break;
+            }
+        }
+        for (int i = 0; i < SuperAdmin.getInstance().getComments().size(); i++) {
+            if (SuperAdmin.getInstance().getComments().get(i).getIdAr().equals(idAr) && SuperAdmin.getInstance().getComments().get(i).getCustomer().getId().equals(idUser)) {
+                comment = SuperAdmin.getInstance().getComments().get(i);
+            }
+        }
+        for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+            if (SuperAdmin.getInstance().getArticles().get(i).getId().equals(idAr)) {
+                SuperAdmin.getInstance().getArticles().get(i).setComments(comment);
+                comment.setStation("Accepted");
+                SuperAdmin.getInstance().getComments().remove(comment);
+                comment.setCustomer(customer);
+            }
+        }
+    }
+
+    public void acceptUser(String info) {
+        for (int i = 0; i < SuperAdmin.getInstance().getRequests().size(); i++) {
+            if (SuperAdmin.getInstance().getRequests().get(i).getInfo().equals(info)) {
+                LoginController.getInstance().getAllCostumers().add(SuperAdmin.getInstance().getRequests().get(i));
+                SuperAdmin.getInstance().getRequests().remove(SuperAdmin.getInstance().getRequests().get(i));
+                break;
+            }
+        }
+    }
+
+    public void acceptCredit(String idUser) {
+        for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
+            if (LoginController.getInstance().getAllCostumers().get(i).getId().equals(idUser)) {
+                LoginController.getInstance().getAllCostumers().get(i).setCreditRequest(true);
+                LoginController.getInstance().getAllCostumers().get(i).setCredit();
+            }
+        }
     }
 
 

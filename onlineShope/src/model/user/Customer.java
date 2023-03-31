@@ -1,9 +1,7 @@
 package model.user;
 import model.articles.Article;
 import model.others.Factor;
-import model.articles.*;
-import model.user.*;
-import model.others.*;
+
 import java.util.ArrayList;
 
 //----------------------------------------
@@ -71,8 +69,24 @@ public class Customer extends Account {
     private ArrayList<Article> cart = new ArrayList<>();
     private ArrayList<Factor> factors = new ArrayList<>();
     private double credit;
+private  boolean creditRequest=false;
+private double defaultCredit;
 
+    public double getDefaultValidity() {
+        return defaultCredit;
+    }
 
+    public void setDefaultValidity(double defaultValidity) {
+       defaultCredit = defaultValidity;
+    }
+
+    public boolean getCreditRequest() {
+        return creditRequest;
+    }
+
+    public void setCreditRequest(boolean creditRequest) {
+        this.creditRequest = creditRequest;
+    }
 
     @Override
     public String toString() {
@@ -95,9 +109,11 @@ public class Customer extends Account {
     public void setInfo(String info){
         super.setInfo(info);
     }
-    public void setCredit(double money){
-        credit=money;
+
+    public void setCredit() {
+        credit=defaultCredit;
     }
+
     public void setCart(ArrayList<Article> article){
         cart.addAll(article);
     }

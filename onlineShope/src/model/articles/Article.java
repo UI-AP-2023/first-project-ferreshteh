@@ -72,8 +72,8 @@ abstract public class Article {
         this.exist = exist;
     }
 
-    public void setComments(ArrayList<Comment> comments) {
-        this.comments = comments;
+    public void setComments(Comment comment) {
+        comments.add(comment);
     }
 
     public void setType(String type) {

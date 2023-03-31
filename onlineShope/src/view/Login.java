@@ -3,6 +3,7 @@ package view;
 import controller.LoginController;
 import controller.SuperCon;
 import controller.UserController;
+import model.others.Comment;
 import model.user.Customer;
 import model.user.SuperAdmin;
 
@@ -56,8 +57,13 @@ public class Login {
                 }
                 UserController.getInstance().shopping(customer, products);
                 System.out.printf("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-                System.out.printf("|6-Register comments and scores for Kaa |7 View products and filter 8-filter 9-searching 10-exit ");
+                System.out.printf("|6-ADD comments and scores for Kaa |7 View products and filter 8-filter 9-searching 10-exit ");
                 scanner = sc.nextInt();
+            }
+            if(scanner==6){
+                scanNer=sc.next();
+                Comment comment=new Comment(customer,"waiting",customer.getId(),scanNer);
+                SuperAdmin.getInstance().setComments(comment);
             }
         }
     }
