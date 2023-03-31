@@ -1,6 +1,7 @@
 package model.user;
 
 import model.articles.Article;
+import model.others.Comment;
 
 import java.util.ArrayList;
 
@@ -66,8 +67,23 @@ public class SuperAdmin extends Account{
         return instance;
     }
 
+
     private   ArrayList<Request> requests=new ArrayList<>();
     private ArrayList<Article>articles=new ArrayList<>();
+    private ArrayList<Comment> comments=new ArrayList<>();
+
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+
+    public void setArticles(ArrayList<Article> articles) {
+        this.articles = articles;
+    }
+
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
+    }
+
     public void setRequests(Request request){
         requests.add(request);
     }

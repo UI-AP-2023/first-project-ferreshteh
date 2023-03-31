@@ -45,7 +45,7 @@ public class Login {
     public void menoUser() {
         while (scanner != 5) {
             System.out.printf("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-            System.out.printf("|6-Register comments and scores for Kaa |7 View products and filter 8-filter 9-searching 10-exit ");
+            System.out.printf("|6-Register 7-comment |7 View products and filter 8-filter 9-searching 10-exit ");
             scanner = sc.nextInt();
             if (scanner == 1) {
                 System.out.println("numberOfProducts");
