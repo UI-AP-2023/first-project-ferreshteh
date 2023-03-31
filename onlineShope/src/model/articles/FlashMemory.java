@@ -4,12 +4,12 @@ import model.others.Comment;
 
 import java.util.ArrayList;
 
-class FlashMemory extends Storages {
+public class FlashMemory extends Storages {
     private String usbType;
 enum Type{
     USB1,USB2,USB3
 }
-    public FlashMemory(String id, String name, String price, float average, boolean exist, String type, float wight, float side1, float side2, double capacity,String usbType) {
+    public FlashMemory(String id, String name, String price, float average, int exist, String type, float wight, float side1, float side2, double capacity,String usbType) {
         super(id, name, price, average, exist, type, wight, side1, side2, capacity);
         this.usbType=usbType;
     }
@@ -65,7 +65,7 @@ enum Type{
     }
 
     @Override
-    public boolean isExist() {
+    public int isExist() {
         return super.isExist();
     }
 
@@ -100,7 +100,7 @@ enum Type{
     }
 
     @Override
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         super.setExist(exist);
     }
 

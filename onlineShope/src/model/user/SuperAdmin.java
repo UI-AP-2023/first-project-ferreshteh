@@ -44,8 +44,8 @@ public class SuperAdmin extends Account{
         super.setInfo(info);
     }
 
-    public void setArticles(ArrayList<Article> articles) {
-        this.articles = articles;
+    public void setArticles(Article articles) {
+        this.articles.add(articles);
     }
 
     public void setRequests(ArrayList<Request> requests) {

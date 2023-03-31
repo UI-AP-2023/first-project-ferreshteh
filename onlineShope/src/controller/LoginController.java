@@ -1,10 +1,7 @@
 package controller;
 
 import model.user.*;
-import model.articles.*;
-import model.others.*;
 import view.Login;
-import view.MenoUser;
 import view.Messages;
 
 import java.util.ArrayList;
@@ -14,7 +11,12 @@ import java.util.stream.Stream;
 
 public class LoginController {
     String loginName;
+    private ArrayList<Customer> allCostumers = new ArrayList<>();
     private static LoginController instance;
+
+    public ArrayList<Customer> getAllCostumers() {
+        return allCostumers;
+    }
 
     private LoginController(String info) {
         loginName = info;
@@ -27,41 +29,26 @@ public class LoginController {
         return instance;
     }
 
-    private ArrayList<Customer> allCostumers = new ArrayList<>();
-
-    public void addCostumer(Customer customer) {
-        allCostumers.add(customer);
-        for (int i = 0; i < SuperAdmin.getInstance().getRequest().size(); i++) {
-            if (SuperAdmin.getInstance().getRequest().get(i).getInfo().equals(customer.getInfo())) {
-                customer.setCart(SuperAdmin.getInstance().getRequest().get(i).getArticle());
-                String str = customer.getInfo();
-                str = str + customer.getStatic();
-                customer.setId(str);
-            }
-        }
-
-    }
-    // public void addRe
 
 
-    Messages messages = new Messages();
 
-    public void setUserInfoEnter(String info) {
+
+    public Customer setUserInfoEnter(String id) {
 
         int check = 0;
-        for (int i = 0; i < allCostumers.size(); i++) {
-            if (allCostumers.get(i).getInfo().equals(info)) {
-                // menoUser.menoUser();
-                check++;
-                break;
+        for (Customer allCostumer : allCostumers) {
+            if (allCostumer.getId().equals(id)) {
+
+                return allCostumer;
+
             }
         }
-        if (check == 0) {
-            messages.printError();
-        }
+
+       return null;
     }
 
-    public void setUserInfoRegister(String string[]) {
+
+    public void setUserInfoRegister(String[] string) {
         String info = "";
         Pattern pattern = Pattern.compile("^[A-Z].*[1-9]@+.*gmail.com$");
         Matcher matcher1 = pattern.matcher(string[0]);
@@ -70,9 +57,9 @@ public class LoginController {
         Pattern pattern1 = Pattern.compile("\\S{8,}$");
         Pattern pattern2 = Pattern.compile("[A-Z]+");
         Pattern pattern3 = Pattern.compile("[a-z]+");
-        Matcher matcher31=pattern1.matcher(string[2]);
-        Matcher matcher32=pattern2.matcher(string[2]);
-        Matcher matcher33=pattern3.matcher(string[2]);
+        Matcher matcher31 = pattern1.matcher(string[2]);
+        Matcher matcher32 = pattern2.matcher(string[2]);
+        Matcher matcher33 = pattern3.matcher(string[2]);
 //if(matcher1.find()){System.out.println("matcher1");}
 //if(matcher2.find()){System.out.println("2");}
 // if(matcher31.find()){System.out.println("31");}
@@ -83,41 +70,54 @@ public class LoginController {
             info = string[0].substring(0, 3);
             info = info + string[1].substring(8, 11);
             info = info + string[2];
+            System.out.println("ok");
+            System.out.println(info);
+            int check = 0;
+            if (allCostumers.size() != 0) {
+                for (Customer allCostumer : allCostumers) {
+                    if (allCostumer.getInfo().equals(info)) {
+                        Messages.getInstance().printError();
+                        check++;
+                        break;
+                    }
+                }
+                if (check == 0) {
 
-        }
-        else {
-            Messages messages1=new Messages();
-            messages1.printError();
-        }
-        int check = 0;
-        if (allCostumers.size() != 0) {
-            for (int i = 0; i < allCostumers.size(); i++) {
-                if (allCostumers.get(i).getInfo().equals(info)) {
-                    messages.printError();
-                    check++;
-                    break;
+                    if (Login.getInstance().isFree()) {
+
+                    } else {
+                        Request request = new Request(info,"Customer",string[1],string[0],string[2]);
+                        request.setInfo(info);
+                        SuperAdmin.getInstance().setRequests(request);
+                        Messages.getInstance().printWait();
+                        Login.getInstance().firstMeno();
+
+                    }
                 }
             }
-            if (check == 0) {
-
-                if (Login.getInstance().free) {
+            else {
+                if (Login.getInstance().isFree()) {
 
                 } else {
-                    Request request = new Request();
+                    Request request = new Request(info,"Customer",string[1],string[0],string[2]);
                     request.setInfo(info);
+                    SuperAdmin.getInstance().setRequests(request);
+                    Messages.getInstance().printWait();
+                    Login.getInstance().firstMeno();
+
                 }
             }
-        } else {
-
-            if (Login.getInstance().free) {
-
-            } else {
-                Request request = new Request();
-                request.setInfo(info);
-                SuperAdmin.getInstance().setRequests(request);
-                Login.getInstance().firstMeno();
-            }
-
         }
+        else {
+
+            Messages.getInstance().printError();
+        }
+    }
+    public void createId(String info,String[] string){
+        Customer customer=new Customer(info,"Costumer",string[1],string[0],string[2]);
+        String id=customer.getStatic()+info+customer.getStatic();
+        customer.setId(id);
+        allCostumers.add(customer);
+        Messages.getInstance().printId(id);
     }
 }

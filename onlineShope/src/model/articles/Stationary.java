@@ -7,8 +7,8 @@ import java.util.ArrayList;
 abstract class Stationary extends Article{
     private String country;
 
-    public Stationary(String id, String name, String price, float average, boolean exist, String type) {
-        super(id, name, price, average, exist);
+    public Stationary(String id, String name, String price, float average, int exist, String type) {
+        super(id, name, price, average, exist,type);
         setType(type);
     }
 
@@ -28,7 +28,7 @@ abstract class Stationary extends Article{
     }
 
     @Override
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         super.setExist(exist);
     }
 
@@ -63,7 +63,7 @@ abstract class Stationary extends Article{
     }
 
     @Override
-    public boolean isExist() {
+    public int isExist() {
         return super.isExist();
     }
 

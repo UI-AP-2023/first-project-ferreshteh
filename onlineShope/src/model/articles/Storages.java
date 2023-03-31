@@ -8,7 +8,7 @@ import java.util.ArrayList;
 abstract public class Storages extends Digital {
     private double capacity;
 
-    public Storages(String id, String name, String price, float average, boolean exist, String type, float wight, float side1, float side2,double capacity) {
+    public Storages(String id, String name, String price, float average, int exist, String type, float wight, float side1, float side2,double capacity) {
         super(id, name, price, average, exist,type, wight, side1, side2);
         this.capacity=capacity;
         setType(type);
@@ -64,7 +64,7 @@ abstract public class Storages extends Digital {
     }
 
     @Override
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         super.setExist(exist);
     }
 
@@ -99,7 +99,7 @@ abstract public class Storages extends Digital {
     }
 
     @Override
-    public boolean isExist() {
+    public int isExist() {
         return super.isExist();
     }
 

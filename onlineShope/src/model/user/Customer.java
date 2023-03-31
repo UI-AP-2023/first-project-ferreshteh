@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 //----------------------------------------
 public class Customer extends Account {
-    private String info;
+
     private String id;
     private String passWord;
     private String phone;
@@ -72,16 +72,12 @@ public class Customer extends Account {
     private ArrayList<Factor> factors = new ArrayList<>();
     private double credit;
 
-    public Customer(String info) {
 
-        super(info);
-        number++;
-    }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "info='" + info + '\'' +
+                "info='" + super.getInfo() + '\'' +
                 ", id='" + id + '\'' +
                 ", passWord='" + passWord + '\'' +
                 ", phone='" + phone + '\'' +
@@ -93,11 +89,11 @@ public class Customer extends Account {
     }
 
     public String getInfo() {
-        return info;
+        return super.getInfo();
     }
 
     public void setInfo(String info){
-        this.info=info;
+        super.setInfo(info);
     }
     public void setCredit(double money){
         credit=money;
@@ -109,8 +105,9 @@ public class Customer extends Account {
         factors.addAll(factor);
     }
 
-    Customer(String info, String character) {
+    public Customer(String info, String character,String phone,String email,String passWord) {
         super(info, character);
+        number++;
     }
 
     @Override

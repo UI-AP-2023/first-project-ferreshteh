@@ -8,9 +8,11 @@ class Meal extends Article{
     private String production;
     private String expiration;
 
-    public Meal(String id, String name, String price, float average, boolean exist,String production,String expiration) {
-        super(id, name, price, average, exist);
+    public Meal(String id, String name,String type, String price, float average, int exist,String production,String expiration) {
+        super(id, name,price, average, exist,type);
         setType(type);
+        this.production=production;
+        this.expiration=expiration;
     }
 
     @Override
@@ -36,7 +38,7 @@ class Meal extends Article{
         return price;
     }
 
-    public boolean isExist() {
+    public int isExist() {
         return exist;
     }
 
@@ -70,7 +72,7 @@ class Meal extends Article{
         this.price = price;
     }
 
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         this.exist = exist;
     }
 

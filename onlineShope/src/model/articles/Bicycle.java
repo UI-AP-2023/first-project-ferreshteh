@@ -1,15 +1,14 @@
 package model.articles;
 
 import model.others.Comment;
-import view.MenoUser;
 import view.Messages;
 
 import java.util.ArrayList;
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-class Bicycle extends Vehicles {
+public class Bicycle extends Vehicles {
 String bicType;
-    public Bicycle(String id, String name, String price, float average, boolean exist, String type,String nameCompany,String bicType) {
+    public Bicycle(String id, String name, String price, float average, int exist, String type,String nameCompany,String bicType) {
         super(id, name, price, average, exist, type,nameCompany);
         setBicType(bicType);
         setType(type);
@@ -20,6 +19,10 @@ String bicType;
         MOUNTAINOUS, ROAD, URBAN, HYBRID
     }
 
+    @Override
+    public int getNumber() {
+        return super.getNumber();
+    }
 
     @Override
     public String getId() {
@@ -42,7 +45,7 @@ String bicType;
     }
 
     @Override
-    public boolean isExist() {
+    public int isExist() {
         return super.isExist();
     }
 
@@ -77,7 +80,7 @@ String bicType;
     }
 
     @Override
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         super.setExist(exist);
     }
 
@@ -113,8 +116,7 @@ String bicType;
             this.bicType=bicType;
         }
         else {
-            Messages messages=new Messages();
-            messages.printError();
+         Messages.getInstance().printError();
         }
     }
 }

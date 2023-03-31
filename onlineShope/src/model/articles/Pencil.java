@@ -5,9 +5,10 @@ import model.others.Comment;
 import java.util.ArrayList;
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-class Pencil extends Stationary {
-    public Pencil(String id, String name, String price, float average, boolean exist, String type) {
-        super(id, name, price, average, exist, type);
+public class Pencil extends Stationary {
+    public Pencil(String id, String name,String type, String price, float average, int exist, String typePen) {
+        super(id, name, price, average, exist, typePen);
+        setType(type);
     }
 
     @Override
@@ -46,7 +47,7 @@ class Pencil extends Stationary {
     }
 
     @Override
-    public boolean isExist() {
+    public int isExist() {
         return super.isExist();
     }
 
@@ -81,7 +82,7 @@ class Pencil extends Stationary {
     }
 
     @Override
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         super.setExist(exist);
     }
 

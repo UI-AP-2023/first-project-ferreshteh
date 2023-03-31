@@ -4,11 +4,11 @@ import model.others.Comment;
 
 import java.util.ArrayList;
 
-class SSD extends Storages {
+public class SSD extends Storages {
     private double speedWriting;
     private double speedLoading;
 
-    public SSD(String id, String name, String price, float average, boolean exist, String type, float wight, float side1, float side2, double capacity,double speedLoading,double speedWriting) {
+    public SSD(String id, String name, String price, float average, int exist, String type, float wight, float side1, float side2, double capacity,double speedLoading,double speedWriting) {
         super(id, name, price, average, exist, type, wight, side1, side2, capacity);
         this.speedLoading=speedLoading;
         this.speedWriting=speedWriting;
@@ -89,7 +89,7 @@ class SSD extends Storages {
     }
 
     @Override
-    public boolean isExist() {
+    public int isExist() {
         return super.isExist();
     }
 
@@ -124,7 +124,7 @@ class SSD extends Storages {
     }
 
     @Override
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         super.setExist(exist);
     }
 

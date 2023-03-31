@@ -5,13 +5,22 @@ import view.Messages;
 
 import java.util.ArrayList;
 
-public class Article {
+abstract public class Article {
     private String id;
     private float average;
     String name;
     String price;
-    boolean exist;
+    int exist;
+    private static  int number=0;
     private ArrayList<Comment> comments = new ArrayList<>();
+
+    public  int getNumber() {
+        return number;
+    }
+
+    public int getExist() {
+        return exist;
+    }
 
     String type;
 
@@ -31,7 +40,7 @@ public class Article {
         return price;
     }
 
-    public boolean isExist() {
+    public int isExist() {
         return exist;
     }
 
@@ -59,7 +68,7 @@ public class Article {
         this.price = price;
     }
 
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         this.exist = exist;
     }
 
@@ -81,18 +90,18 @@ public class Article {
             this.type=type;
         }
         else {
-            Messages messages=new Messages();
-            messages.printError();
+          Messages.getInstance().printError();
         }
     }
 
-    public Article(String id,String name,String price,float average,boolean exist) {
+    public Article(String id,String name,String price,float average,int exist,String type) {
         this.average=average;
         this.price=price;
         this.exist=exist;
         this.name=name;
         this.id = id;
         setType(type);
+        number++;
     }
 
 

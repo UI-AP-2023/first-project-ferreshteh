@@ -4,10 +4,10 @@ import model.others.Comment;
 
 import java.util.ArrayList;
 
-class Pen extends Stationary {
+public class Pen extends Stationary {
     private String color;
 
-    public Pen(String id, String name, String price, float average, boolean exist, String type,String color) {
+    public Pen(String id, String name, String price, float average, int exist, String type,String color) {
         super(id, name, price, average, exist, type);
         this.color=color;
     }
@@ -47,7 +47,7 @@ class Pen extends Stationary {
     }
 
     @Override
-    public boolean isExist() {
+    public int isExist() {
         return super.isExist();
     }
 
@@ -82,7 +82,7 @@ class Pen extends Stationary {
     }
 
     @Override
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         super.setExist(exist);
     }
 

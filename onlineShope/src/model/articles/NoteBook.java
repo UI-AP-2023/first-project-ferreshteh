@@ -4,11 +4,11 @@ import model.others.Comment;
 
 import java.util.ArrayList;
 
-class NoteBook extends Stationary {
+public class NoteBook extends Stationary {
     private int numPaper;
     private String typePaper;
 
-    public NoteBook(String id, String name, String price, float average, boolean exist, String type,int numPaper,String typePaper) {
+    public NoteBook(String id, String name, String price, float average, int exist, String type,int numPaper,String typePaper) {
         super(id, name, price, average, exist, type);
         this.numPaper=numPaper;
         this.typePaper=typePaper;
@@ -33,7 +33,7 @@ class NoteBook extends Stationary {
     }
 
     @Override
-    public boolean isExist() {
+    public int isExist() {
         return super.isExist();
     }
 
@@ -68,7 +68,7 @@ class NoteBook extends Stationary {
     }
 
     @Override
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         super.setExist(exist);
     }
 

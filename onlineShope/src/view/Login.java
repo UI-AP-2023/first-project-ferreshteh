@@ -1,21 +1,33 @@
 package view;
 
 import controller.LoginController;
+import controller.SuperCon;
+import controller.UserController;
 import model.user.Customer;
 import model.user.SuperAdmin;
 
 import java.util.Objects;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Login {
     String loginName;
-Customer customer=new Customer(" for example");
+    String[]string=new String[3];
+    Customer customer = new Customer(" for example", "customer",string[0],string[1],string[2]);
+
+
     Scanner sc = new Scanner(System.in);
-    public int scanner = 0;
-    public String scanNer;
-    public boolean free;
+    int scanner = 0;
+    String scanNer;
+    private boolean free;
     private static Login instance;
+
+    public boolean isFree() {
+        return free;
+    }
+
+    public void setFree(boolean free) {
+        this.free = free;
+    }
 
     private Login(String info) {
         loginName = info;
@@ -29,18 +41,28 @@ Customer customer=new Customer(" for example");
         }
         return instance;
     }
-    public void menoUser(){
-        System.out.printf("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-        System.out.printf("|6-Register comments and scores for Kaa |7 View products and filter 8-filter 9-searching  ");
-        scanner=sc.nextInt();
-        if(scanner==1){
 
+    public void menoUser() {
+        while (scanner != 5) {
+            System.out.printf("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
+            System.out.printf("|6-Register comments and scores for Kaa |7 View products and filter 8-filter 9-searching 10-exit ");
+            scanner = sc.nextInt();
+            if (scanner == 1) {
+                System.out.println("numberOfProducts");
+                scanner = sc.nextInt();
+                String[] products = new String[scanner];
+                for (int i = 0; i < products.length; i++) {
+                    products[i] = sc.next();
+                }
+                UserController.getInstance().shopping(customer, products);
+                System.out.printf("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
+                System.out.printf("|6-Register comments and scores for Kaa |7 View products and filter 8-filter 9-searching 10-exit ");
+                scanner = sc.nextInt();
+            }
         }
     }
 
     public void login() {
-
-
         Scanner sc = new Scanner(System.in);
         System.out.printf("1-login 2-register 3-free");
         scanner = sc.nextInt();
@@ -48,19 +70,18 @@ Customer customer=new Customer(" for example");
             System.out.printf(" enter your id ");
             scanNer = sc.next();
 
-            LoginController.getInstance().setUserInfoEnter(scanNer);
+        customer=LoginController.getInstance().setUserInfoEnter(scanNer);
+        menoUser();
         } else if (scanner == 2) {
             System.out.println("email\n telephoneNumber \npassword");
-          String string[]=new String[3];
-            string[0]=sc.next();
-            string[1]=sc.next();
-            string[2]=sc.next();
-            LoginController.getInstance().setUserInfoRegister( string);
 
-
+            string[0] = sc.next();
+            string[1] = sc.next();
+            string[2] = sc.next();
+            LoginController.getInstance().setUserInfoRegister(string);
         } else if (scanner == 3) {
             free = true;
-menoUser();
+            menoUser();
         }
     }
 
@@ -79,32 +100,31 @@ menoUser();
     }
 
     public void adminMeno() {
-        System.out.println("if you want help >>enter help or enter your order");
-        scanNer = sc.next();
-        if (scanNer.equals("help")) {
-            System.out.printf("1-view request 2-view comments 3-Product management 4-viewProducts");
-            scanner = sc.nextInt();
-            if (scanner == 1) {
-                for (int i = 0; i < SuperAdmin.getInstance().getRequest().size(); i++) {
-                    System.out.println(" id of user ");
-                    System.out.println(SuperAdmin.getInstance().getRequest().get(i).getInfo());
-                    System.out.println("user's Articles ");
-                    for (int j = 0; j < SuperAdmin.getInstance().getRequest().get(i).getArticle().size(); j++) {
-                        System.out.println();
+        while (scanner != 5) {
+            System.out.println("if you want help >>enter help or enter your order");
+            scanNer = sc.next();
+            if (scanNer.equals("help")) {
+                System.out.printf("1-view request 2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts 5-exit");
+                scanner = sc.nextInt();
+                if (scanner == 1) {
+                    for (int i = 0; i < SuperAdmin.getInstance().getRequest().size(); i++) {
+                        System.out.println(SuperAdmin.getInstance().getRequests().get(i).toString());
                     }
-                }
-                scanNer = sc.next();
-                if (!Objects.equals(scanNer, "null")) {
-                    customer .setInfo(scanNer);
-                    LoginController.getInstance().addCostumer(customer);
-                    System.out.printf("1-view request 2-view comments 3-Product management 4-viewProducts 5-sign out");
+                    System.out.println("enter user's info");
+                    scanNer = sc.next();
+                    LoginController.getInstance().createId(scanNer,string);
 
                 }
-
+                System.out.printf("1-view request 2-view comments 3-Product management 4-viewProducts 5-exit");
+                scanner = sc.nextInt();
+            } else if (scanner == 3) {
+SuperCon.getInstance().productManagement(scanNer);
+                System.out.printf("1-view request 2-view comments 3-Product management 4-viewProducts 5-exit");
+                scanner = sc.nextInt();
 
             }
-
         }
+
     }
 
 }

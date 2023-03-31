@@ -1,13 +1,18 @@
 package model.articles;
 
-class Machine extends Vehicles {
+public class Machine extends Vehicles {
     private double capacityMotor;
     private boolean automatic;
 
-    public Machine(String id, String name, String price, float average, boolean exist, String type,String nameCompany,double capacityMotor,boolean automatic) {
+    public Machine(String id, String name, String price, float average, int exist, String type,String nameCompany,double capacityMotor,boolean automatic) {
         super(id, name, price, average, exist, type,nameCompany);
         this.automatic=automatic;
         this.capacityMotor=capacityMotor;
+    }
+
+    @Override
+    public int getNumber() {
+        return super.getNumber();
     }
 
     public double getCapacityMotor() {

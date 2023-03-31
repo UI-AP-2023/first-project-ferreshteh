@@ -4,11 +4,11 @@ import model.others.Comment;
 
 import java.util.ArrayList;
 
-class Computers extends Digital {
+public class Computers extends Digital {
     private String modelCpu;
     private double capacityRam;
 
-    public Computers(String id, String name, String price, float average, boolean exist, String type, float wight, float side1, float side2,String modelCpu,double capacityRam) {
+    public Computers(String id, String name, String price, float average, int exist, String type, float wight, float side1, float side2,String modelCpu,double capacityRam) {
         super(id, name, price, average, exist, type, wight, side1, side2);
         this.capacityRam=capacityRam;
         this.modelCpu=modelCpu;
@@ -82,7 +82,7 @@ class Computers extends Digital {
     }
 
     @Override
-    public boolean isExist() {
+    public int isExist() {
         return super.isExist();
     }
 
@@ -117,7 +117,7 @@ class Computers extends Digital {
     }
 
     @Override
-    public void setExist(boolean exist) {
+    public void setExist(int exist) {
         super.setExist(exist);
     }
 
