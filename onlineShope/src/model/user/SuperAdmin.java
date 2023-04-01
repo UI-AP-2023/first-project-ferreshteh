@@ -70,6 +70,7 @@ public class SuperAdmin extends Account{
 
     private   ArrayList<Request> requests=new ArrayList<>();
     private ArrayList<Article>articles=new ArrayList<>();
+    private ArrayList<Article>spareArt=new ArrayList<>();
     private ArrayList<Comment> comments=new ArrayList<>();
 
     public ArrayList<Comment> getComments() {
@@ -77,7 +78,11 @@ public class SuperAdmin extends Account{
     }
 
     public void setArticles(ArrayList<Article> articles) {
+        spareArt=this.articles;
         this.articles = articles;
+    }
+    public void addArticle(Article article){
+        articles.add(article);
     }
 
     public void setComments(Comment comment) {

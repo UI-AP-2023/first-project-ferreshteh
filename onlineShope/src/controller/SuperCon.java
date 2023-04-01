@@ -25,7 +25,7 @@ public class SuperCon {
     }
 
     public void productManagement(String function) {
-        String[] strings = function.split(" ", -1);
+        String[] strings = function.split("\\s+");
         if (strings[0].equalsIgnoreCase("add")) {
             if (strings[1].equalsIgnoreCase("machine")) {
                 addVehicle(strings[2], strings[3], "VEHICLE", Integer.parseInt(strings[4]), strings[5], Double.parseDouble(strings[6]), Boolean.parseBoolean(strings[7]));
@@ -65,7 +65,7 @@ public class SuperCon {
         id = String.valueOf(machine.getNumber());
         id = id + name + price;
         machine.setId(id);
-        SuperAdmin.getInstance().setArticles(machine);
+       SuperAdmin.getInstance().addArticle(machine);
 
 
     }
@@ -117,7 +117,7 @@ public class SuperCon {
         id = String.valueOf(bicycle.getNumber());
         id = id + name + price;
         bicycle.setId(id);
-        SuperAdmin.getInstance().setArticles(bicycle);
+        SuperAdmin.getInstance().addArticle(bicycle);
 
     }
 
@@ -127,7 +127,7 @@ public class SuperCon {
         id = String.valueOf(noteBook.getNumber());
         id = id + name + price;
         noteBook.setId(id);
-        SuperAdmin.getInstance().setArticles(noteBook);
+        SuperAdmin.getInstance().addArticle(noteBook);
 
     }
 
@@ -137,7 +137,7 @@ public class SuperCon {
         id = String.valueOf(pen.getNumber());
         id = id + name + price;
         pen.setId(id);
-        SuperAdmin.getInstance().setArticles(pen);
+        SuperAdmin.getInstance().addArticle(pen);
 
     }
 
@@ -147,7 +147,7 @@ public class SuperCon {
         id = String.valueOf(pencil.getNumber());
         id = id + name + price;
         pencil.setId(id);
-        SuperAdmin.getInstance().setArticles(pencil);
+        SuperAdmin.getInstance().addArticle(pencil);
     }
 
     public void addComputer(String name, String price, String type, int exist, String modelCpu, float weight, float side1, float side2, double capacity) {
@@ -156,7 +156,7 @@ public class SuperCon {
         id = String.valueOf(computers.getNumber());
         id = id + name + price;
         computers.setId(id);
-        SuperAdmin.getInstance().setArticles(computers);
+        SuperAdmin.getInstance().addArticle(computers);
 
     }
 
@@ -166,7 +166,7 @@ public class SuperCon {
         id = String.valueOf(ssd.getNumber());
         id = id + name + price;
         ssd.setId(id);
-        SuperAdmin.getInstance().setArticles(ssd);
+        SuperAdmin.getInstance().addArticle(ssd);
 
     }
 
@@ -176,11 +176,11 @@ public class SuperCon {
         id = String.valueOf(flashMemory.getNumber());
         id = id + name + price;
         flashMemory.setId(id);
-        SuperAdmin.getInstance().setArticles(flashMemory);
+        SuperAdmin.getInstance().addArticle(flashMemory);
     }
 
     public void requestsManagement(String function) {
-        String[] strings = function.split(" ", -1);
+        String[] strings = function.split("\\s+");
         if (strings[0].equalsIgnoreCase("Accept")) {
             if (strings[1].equalsIgnoreCase("comment")) {
                 acceptComment(strings[3], strings[2]);

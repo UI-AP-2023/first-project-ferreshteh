@@ -12,16 +12,6 @@ public class Comment  {
         this.buy = buy;
     }
 
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "customer=" + customer +
-                ", id='" + idAr + '\'' +
-                ", comment=" + text +
-                ", buy=" + buy +
-                '}';
-    }
-
     public void setText(String text) {
         this.text = text;
     }
@@ -76,6 +66,16 @@ public class Comment  {
         this.idAr =id;
     }
 
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "customer=" + customer +
+                ", idAr='" + idAr + '\'' +
+                ", text='" + text + '\'' +
+                ", station='" + station + '\'' +
+                ", buy=" + buy +
+                '}';
+    }
 
     private boolean buy;
 }

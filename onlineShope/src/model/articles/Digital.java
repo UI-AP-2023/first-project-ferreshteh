@@ -60,7 +60,7 @@ public abstract class Digital extends Article{
     }
 
     @Override
-    public void setComments(ArrayList<Comment> comments) {
+    public void setComments(Comment comments) {
         super.setComments(comments);
     }
 

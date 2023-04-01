@@ -103,7 +103,9 @@ abstract public class Article {
         setType(type);
         number++;
     }
-
+public void lowerExist(int exist){
+        this.exist=this.exist-exist;
+}
 
     @Override
     public String toString() {

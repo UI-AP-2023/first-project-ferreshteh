@@ -122,7 +122,7 @@ public class Computers extends Digital {
     }
 
     @Override
-    public void setComments(ArrayList<Comment> comments) {
+    public void setComments(Comment comments) {
         super.setComments(comments);
     }
 

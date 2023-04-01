@@ -4,7 +4,7 @@ import model.others.Comment;
 
 import java.util.ArrayList;
 
-class Meal extends Article{
+public class Meal extends Article{
     private String production;
     private String expiration;
 
@@ -76,8 +76,11 @@ class Meal extends Article{
         this.exist = exist;
     }
 
-    public void setComments(ArrayList<Comment> comments) {
+    public void setComments(Comment comments) {
         this.setComments(comments);
     }
 
+    public String getExpiration() {
+        return expiration;
+    }
 }

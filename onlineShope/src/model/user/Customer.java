@@ -113,6 +113,12 @@ private double defaultCredit;
     public void setCredit() {
         credit=defaultCredit;
     }
+    public void lowerCredit(double credit){
+        this.credit=this.credit-credit;
+    }
+    public void addCredit(double credit){
+        this.credit=this.credit+credit;
+    }
 
     public void setCart(ArrayList<Article> article){
         cart.addAll(article);
