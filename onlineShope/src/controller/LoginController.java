@@ -1,7 +1,7 @@
 package controller;
 
 import model.user.*;
-import view.Login;
+import view.First;
 import view.Messages;
 
 import java.util.ArrayList;
@@ -54,6 +54,7 @@ public class LoginController {
         Matcher matcher1 = pattern.matcher(string[0]);
         Pattern pattern22 = Pattern.compile("^0913\\d{7}");
         Matcher matcher2 = pattern22.matcher(string[1]);
+
         Pattern pattern1 = Pattern.compile("\\S{8,}$");
         Pattern pattern2 = Pattern.compile("[A-Z]+");
         Pattern pattern3 = Pattern.compile("[a-z]+");
@@ -83,27 +84,27 @@ public class LoginController {
                 }
                 if (check == 0) {
 
-                    if (Login.getInstance().isFree()) {
+                    if (First.getInstance().isFree()) {
 
                     } else {
                         Request request = new Request(info,"Customer",string[1],string[0],string[2]);
                         request.setInfo(info);
                         SuperAdmin.getInstance().setRequests(request);
                         Messages.getInstance().printWait();
-                        Login.getInstance().firstMeno();
+                        First.getInstance().firstMeno();
 
                     }
                 }
             }
             else {
-                if (Login.getInstance().isFree()) {
+                if (First.getInstance().isFree()) {
 
                 } else {
                     Request request = new Request(info,"Customer",string[1],string[0],string[2]);
                     request.setInfo(info);
                     SuperAdmin.getInstance().setRequests(request);
                     Messages.getInstance().printWait();
-                    Login.getInstance().firstMeno();
+                    First.getInstance().firstMeno();
 
                 }
             }

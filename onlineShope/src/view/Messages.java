@@ -24,6 +24,7 @@ public class Messages {
     public void printWait(){
         System.out.println("wait for super Admin Decision");
     }
+
     public String printId(String str){
         return str;
     }

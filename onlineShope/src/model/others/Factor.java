@@ -15,6 +15,11 @@ public class Factor {
          this.idFactor=idFactor;
          this.history=history;
      }
+     String[]strings;
+
+    public void setStrings(String[] strings) {
+        this.strings = strings;
+    }
 
     public ArrayList<Article> getArticles() {
         return articles;
@@ -47,4 +52,11 @@ public class Factor {
     public void setIdFactor(String idFactor) {
         this.idFactor = idFactor;
     }
+    public String order(){
+        StringBuilder str=new StringBuilder();
+        for(int i=0;i<strings.length;i=+2){
+        str.append(strings[i].toString());
+        str.append(strings[i+1]);}
+        return String.valueOf(str);}
+
 }

@@ -70,14 +70,15 @@ public class Customer extends Account {
     private ArrayList<Factor> factors = new ArrayList<>();
     private double credit;
 private  boolean creditRequest=false;
+
 private double defaultCredit;
 
     public double getDefaultValidity() {
         return defaultCredit;
     }
 
-    public void setDefaultValidity(double defaultValidity) {
-       defaultCredit = defaultValidity;
+    public void setDefaultCredit(double defaultCredit) {
+        this.defaultCredit = defaultCredit;
     }
 
     public boolean getCreditRequest() {
@@ -111,7 +112,7 @@ private double defaultCredit;
     }
 
     public void setCredit() {
-        credit=defaultCredit;
+        credit=defaultCredit+credit;
     }
     public void lowerCredit(double credit){
         this.credit=this.credit-credit;
