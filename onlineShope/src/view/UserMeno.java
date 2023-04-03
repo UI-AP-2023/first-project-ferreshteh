@@ -101,10 +101,20 @@ public class UserMeno {
                 sc.nextLine();
                 scanNer=sc.nextLine();
                 //change name to ali;
-System.out.print(UserController.getInstance().changeInfo(customer,scanNer));
-
+                System.out.print(UserController.getInstance().changeInfo(customer,scanNer));
+                System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
+                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-exit ");
+                scanner = sc.nextInt();
             }
             if(scanner==10){
+                for(int i=0;i<customer.getFactors().size();i++){
+                    System.out.println(customer.getFactors().get(i).toString());
+                }
+System.out.print("enter your command");
+sc.nextLine();
+scanNer=sc.nextLine();
+//20 to id
+                UserController.getInstance().score(customer,scanNer);
 
             }
 

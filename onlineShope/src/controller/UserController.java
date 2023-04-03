@@ -206,4 +206,23 @@ for(int i=0;i<customer.getFactors().size();i++){
         }
         return info;
     }
-}
+    public void score(Customer customer,String function){
+        Article article;
+        int check=0;
+        String[]strings=function.split("\\s+");
+        //20 to id
+        for(int i=0;i<customer.getFactors().size();i++){
+            for(int j=0;j<customer.getFactors().get(i).getArticles().size();j++){
+        if (customer.getFactors().get(i).getArticles().get(j).getId().equals(strings[2])){
+            customer.getFactors().get(i).getArticles().get(j).score(Double.parseDouble(strings[1]));
+            check++;
+        }
+    }}
+        if(check==1){
+        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
+            if(SuperAdmin.getInstance().getArticles().get(i).getId().equals(strings[2])){
+                SuperAdmin.getInstance().getArticles().get(i).score(Double.parseDouble(strings[1]));
+            }
+        }
+
+}}}
