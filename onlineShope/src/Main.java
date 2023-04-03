@@ -7,7 +7,6 @@ public class Main {
 //    09131234567
 //    Fereshteh10
         //add pen penName 1000 5 blue
-
 }
 
 
