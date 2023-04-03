@@ -180,17 +180,23 @@ public class SuperCon {
     }
 
     public void requestsManagement(String function) {
+        Customer customer=null;
         String[] strings = function.split("\\s+");
         if (strings[0].equalsIgnoreCase("Accept")) {
             if (strings[1].equalsIgnoreCase("comment")) {
                 acceptComment(strings[3], strings[2]);
-            } else if (strings[1].equalsIgnoreCase("user")) {
-                acceptUser(strings[2]);
             } else if (strings[1].equalsIgnoreCase("credit")) {
                 acceptCredit(strings[2]);
             }
         }
     }
+    public Customer requestUser(String function){
+        Customer customer=null;
+        String[] strings = function.split("\\s+");
+         if (strings[1].equalsIgnoreCase("user")) {//ok
+            customer= acceptUser(strings[2]);
+        }
+   return customer; }
 
     public void acceptComment(String idAr, String idUser) {
         Customer customer = null;
@@ -216,14 +222,17 @@ public class SuperCon {
         }
     }
 
-    public void acceptUser(String info) {
+    public Customer acceptUser(String info) {//ok
+        Customer customer=null;
         for (int i = 0; i < SuperAdmin.getInstance().getRequests().size(); i++) {
             if (SuperAdmin.getInstance().getRequests().get(i).getInfo().equals(info)) {
-                LoginController.getInstance().getAllCostumers().add(SuperAdmin.getInstance().getRequests().get(i));
+                //LoginController.getInstance().getAllCostumers().add(SuperAdmin.getInstance().getRequests().get(i));
                 SuperAdmin.getInstance().getRequests().remove(SuperAdmin.getInstance().getRequests().get(i));
+              customer=  LoginController.getInstance().createId(info);
                 break;
             }
         }
+        return customer;
     }
 
     public void acceptCredit(String idUser) {

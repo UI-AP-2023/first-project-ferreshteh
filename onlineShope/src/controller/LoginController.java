@@ -30,21 +30,28 @@ public class LoginController {
     }
 
 
-
-
-
     public Customer setUserInfoEnter(String id) {
-
         int check = 0;
-        for (Customer allCostumer : allCostumers) {
-            if (allCostumer.getId().equals(id)) {
-
-                return allCostumer;
+        Customer customer = new Customer("wrong","user","1254","adgghfyt","7854");
+        customer=createId("wrong");
+        for (int i = 0; i < LoginController.getInstance().allCostumers.size(); i++) {
+            if (LoginController.getInstance().allCostumers.get(i).getId().equals(id)) {
+customer=LoginController.getInstance().allCostumers.get(i);
+                System.out.println("logined");
+                check++;
+                return customer;
 
             }
+            else {
+                System.out.println("not");
+            }
+        }
+        if (check == 0) {
+            Messages.getInstance().printError();
+            First.getInstance().firstMeno();
         }
 
-       return null;
+        return customer;
     }
 
 
@@ -61,12 +68,6 @@ public class LoginController {
         Matcher matcher31 = pattern1.matcher(string[2]);
         Matcher matcher32 = pattern2.matcher(string[2]);
         Matcher matcher33 = pattern3.matcher(string[2]);
-//if(matcher1.find()){System.out.println("matcher1");}
-//if(matcher2.find()){System.out.println("2");}
-// if(matcher31.find()){System.out.println("31");}
-// if(matcher32.find()){System.out.println("32");}
-// if(matcher33.find()){System.out.println("33");}
-
         if (Stream.of(matcher1, matcher31, matcher32, matcher33, matcher2).allMatch(Matcher::find)) {
             info = string[0].substring(0, 3);
             info = info + string[1].substring(8, 11);
@@ -83,42 +84,38 @@ public class LoginController {
                     }
                 }
                 if (check == 0) {
-
-                    if (First.getInstance().isFree()) {
-
-                    } else {
-                        Request request = new Request(info,"Customer",string[1],string[0],string[2]);
-                        request.setInfo(info);
-                        SuperAdmin.getInstance().setRequests(request);
-                        Messages.getInstance().printWait();
-                        First.getInstance().firstMeno();
-
-                    }
-                }
-            }
-            else {
-                if (First.getInstance().isFree()) {
-
-                } else {
-                    Request request = new Request(info,"Customer",string[1],string[0],string[2]);
+                    Request request = new Request(info, "Customer", string[1], string[0], string[2]);
                     request.setInfo(info);
                     SuperAdmin.getInstance().setRequests(request);
                     Messages.getInstance().printWait();
                     First.getInstance().firstMeno();
-
                 }
+            } else {
+                Request request = new Request(info, "Customer", string[1], string[0], string[2]);
+                request.setInfo(info);
+                SuperAdmin.getInstance().setRequests(request);
+                Messages.getInstance().printWait();
+                First.getInstance().firstMeno();
             }
-        }
-        else {
-
+        } else {
             Messages.getInstance().printError();
         }
     }
-    public void createId(String info,String[] string){
-        Customer customer=new Customer(info,"Costumer",string[1],string[0],string[2]);
-        String id=customer.getStatic()+info+customer.getStatic();
+
+    public Customer createId(String info) {
+        Customer customer = new Customer(info, "Costumer", "1", "2", "3");
+        for (int i = 0; i < SuperAdmin.getInstance().getRequests().size(); i++) {
+            if (SuperAdmin.getInstance().getRequests().get(i).getInfo().equals(info)) {
+                customer.setEmail(SuperAdmin.getInstance().getRequests().get(i).getEmail());
+                customer.setPhone(SuperAdmin.getInstance().getRequests().get(i).getPhone());
+                customer.setPassWord(SuperAdmin.getInstance().getRequests().get(i).getPassWord());
+                // LoginController.getInstance().getAllCostumers().add(customer);
+            }
+        }
+        String id = customer.getStatic() + info + customer.getStatic();
         customer.setId(id);
         allCostumers.add(customer);
         Messages.getInstance().printId(id);
+        return customer;
     }
 }

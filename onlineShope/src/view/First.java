@@ -1,15 +1,24 @@
 package view;
 
 import controller.LoginController;
+import controller.SuperCon;
+import model.articles.Article;
+import model.articles.Bicycle;
 import model.user.Customer;
+import model.user.Request;
+import model.user.SuperAdmin;
 
 import java.util.Scanner;
 
 public class First {
     String loginName;
     String[] string = new String[3];
-    Customer customer = new Customer(" for example", "customer", string[0], string[1], string[2]);
+    Customer customer = new Customer("Asa678Asall123", "user", "09132345678", "Asall123@gmail.com", "Asall123");
+Bicycle bicycle=new Bicycle("1","1","1",1,2,"Vehicle","1","1");
 
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     Scanner sc = new Scanner(System.in);
     int scanner = 0;
@@ -101,35 +110,41 @@ public class First {
 //
 //        }
 //    }
+    //Request request=new Request("1","user","1","1","1");
+    public void intialize(){
+
+        LoginController.getInstance().getAllCostumers().add(customer);
+        SuperAdmin.getInstance().getArticles().add(bicycle);
+    }
 
 
 
     public void login() {
         //LoginController.getInstance().setUserInfoRegister();
         Scanner sc = new Scanner(System.in);
-        System.out.printf("1-login 2-register 3-free");
+        System.out.print("1-login 2-register 3-free");
         scanner = sc.nextInt();
         if (scanner == 1) {
-            System.out.printf(" enter your id ");
+            System.out.print(" enter your id ");
             scanNer = sc.next();
 
             customer = LoginController.getInstance().setUserInfoEnter(scanNer);
             UserMeno.getInstance().menoUser();
         } else if (scanner == 2) {
             System.out.println("email\n telephoneNumber \npassword");
-
             string[0] = sc.next();
             string[1] = sc.next();
             string[2] = sc.next();
             LoginController.getInstance().setUserInfoRegister(string);
         } else if (scanner == 3) {
+            System.out.println("free");
             free = true;
            UserMeno.getInstance(). menoUser();
         }
     }
 
     public void firstMeno() {
-        System.out.printf("1-user 2-Admin 3-superAdmin");
+        System.out.print("1-user 2-Admin 3-superAdmin");
         scanner = sc.nextInt();
         if (scanner == 1) {
             login();
@@ -140,6 +155,9 @@ public class First {
                SuperMeno.getInstance(). adminMeno();
             }
         }
+    }
+    public void showInfo(Customer customer){
+        System.out.println(customer.getId());
     }
 
 

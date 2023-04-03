@@ -43,11 +43,6 @@ public class UserMeno {
     }
 
     public void menoUser() {
-
-        SuperCon.getInstance().productManagement("add pen penName 1000 5 blue");
-        SuperCon.getInstance().productManagement("add computer co1 2300 4 mkj 500 10 20 30");
-        SuperCon.getInstance().productManagement("add pencil pen1 450 6 hb ");
-        SuperCon.getInstance().productManagement("add machine bmw 780 5 bmw bvc 123 tru");
         while (scanner != 11) {
             System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
             System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-exit ");
@@ -119,6 +114,9 @@ public class UserMeno {
 
             }
 
+        }
+        if(scanner==1){
+            First.getInstance().firstMeno();
         }
     }
 

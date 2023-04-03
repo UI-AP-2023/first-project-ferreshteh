@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Customer extends Account {
 
     private String id;
+    private String info;
     private String passWord;
     private String phone;
     private String email;
@@ -92,14 +93,14 @@ private double defaultCredit;
     @Override
     public String toString() {
         return "Customer{" +
-                "info='" + super.getInfo() + '\'' +
+                "info='" + this.getInfo() + '\'' +
                 ", id='" + id + '\'' +
-                ", passWord='" + passWord + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", cart=" + cart +
-                ", factors=" + factors +
-                ", credit=" + credit +
+                ", passWord='" +this. passWord + '\'' +
+                ", phone='" + this.phone + '\'' +
+                ", email='" +this. email + '\'' +
+                ", cart=" + this.cart +
+                ", factors=" + this.factors +
+                ", credit=" + this.credit +
                 '}';
     }
 
@@ -130,6 +131,10 @@ private double defaultCredit;
 
     public Customer(String info, String character,String phone,String email,String passWord) {
         super(info, character);
+        this.phone=phone;
+        this.email=email;
+        this.passWord=passWord;
+        this.info=info;
         number++;
     }
 
@@ -137,4 +142,6 @@ private double defaultCredit;
     public String getCharacter() {
         return super.getCharacter();
     }
+
+
 }
