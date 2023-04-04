@@ -18,6 +18,7 @@ public class ArticleShow {
     String scanNer;
     private boolean free;
     private static ArticleShow instance;
+    private int center=0;
     public static ArticleShow getInstance() {
         if (instance == null) {
             instance = new ArticleShow() {
@@ -26,11 +27,37 @@ public class ArticleShow {
         }
         return instance;
     }
-public void showAllproducts(){
-        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
-            System.out.println(SuperAdmin.getInstance().getArticles().get(i).toString());
+public void paging(){
+        int first=0;
+        int last=1;
+        int size=SuperAdmin.getInstance().getArticles().size();
+        for (int i=0;i<last*5;i++){
+            System.out.print(SuperAdmin.getInstance().getArticles().get(i).toString());
+            System.out.print("\n");
+            center++;
+        }
+        first++;
+        last++;
+        size-=center;
+        while (size!=0){
+    System.out.print("next?");
+    if(sc.next().equals("next")){
+        for(int i=first*5;i<last*5;i++) {
+            if(size<5){
+                System.out.println(SuperAdmin.getInstance().getArticles().get(i));
+                center++;
+                size--;
+                if(center==SuperAdmin.getInstance().getArticles().size())
+                    break;
+            }
+            else {
+                break;
+            }
         }
 }
+        first++;
+        last++;
+        }}
     public void showAllFree(){
         int j = 0;
         int plus = 0;

@@ -10,9 +10,17 @@ public class Meal extends Article{
 
     public Meal(String id, String name,String type, String price, float average, int exist,String production,String expiration) {
         super(id, name,price, average, exist,type);
-        setType(type);
         this.production=production;
         this.expiration=expiration;
+
+    }
+String id;
+    @Override
+    public String toString() {
+        return "Meal{" +
+                "production='" + production + '\'' +
+                ", expiration='" + expiration + '\'' +", id='"+super.getId()+'\'' +",exist= "+exist +
+                '}';
     }
 
     @Override
@@ -47,17 +55,12 @@ public class Meal extends Article{
         return super.getComments();
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-
     public String getType() {
         return type;
     }
 
     public void setId(String id) {
-        this.setId(id);
+        this.id=id;
     }
 
     public void setAverage(float average) {

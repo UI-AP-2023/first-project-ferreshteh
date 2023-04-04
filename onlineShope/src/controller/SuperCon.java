@@ -9,6 +9,7 @@ import view.Messages;
 public class SuperCon {
 
     String adminName;
+    String id="";
     private static SuperCon instance;
 
     private SuperCon(String info) {
@@ -44,7 +45,10 @@ public class SuperCon {
             } else if (strings[1].equalsIgnoreCase("flash")) {
                 addFlash(strings[2], strings[3], "DIGITAL", Integer.parseInt(strings[4]), Float.parseFloat(strings[5]), Float.parseFloat(strings[6]), Float.parseFloat(strings[7]), Double.parseDouble(strings[8]), strings[9]);
             }
-
+            else if(strings[1].equalsIgnoreCase("meal")){
+                addMeal(strings[2],strings[3],"meal",Integer.parseInt(strings[4]),strings[5],strings[6]);
+                Messages.getInstance().printId(id);
+            }
         } else if (strings[0].equalsIgnoreCase("delete")) {
             delete(strings[1]);
         } else if (strings[0].equalsIgnoreCase("edit")) {
@@ -65,6 +69,7 @@ public class SuperCon {
         id = String.valueOf(machine.getNumber());
         id = id + name + price;
         machine.setId(id);
+        this.id=id;
        SuperAdmin.getInstance().addArticle(machine);
 
 
@@ -117,8 +122,18 @@ public class SuperCon {
         id = String.valueOf(bicycle.getNumber());
         id = id + name + price;
         bicycle.setId(id);
+        this.id=id;
         SuperAdmin.getInstance().addArticle(bicycle);
 
+    }
+    public void addMeal(String name, String price, String type, int exist,String production,String expiration){
+        String id;
+        Meal meal=new Meal("123",name,type,"1200",0,exist,production,expiration);
+        id = String.valueOf(meal.getNumber());
+        id = id + name + price;
+        meal.setId(id);
+        this.id=id;
+        SuperAdmin.getInstance().addArticle(meal);
     }
 
     public void addNoteBook(String name, String price, String type, int exist, String typePaper, int numberPaper) {
@@ -127,6 +142,7 @@ public class SuperCon {
         id = String.valueOf(noteBook.getNumber());
         id = id + name + price;
         noteBook.setId(id);
+        this.id=id;
         SuperAdmin.getInstance().addArticle(noteBook);
 
     }
@@ -137,6 +153,7 @@ public class SuperCon {
         id = String.valueOf(pen.getNumber());
         id = id + name + price;
         pen.setId(id);
+        this.id=id;
         SuperAdmin.getInstance().addArticle(pen);
 
     }
@@ -149,6 +166,7 @@ public class SuperCon {
         id = String.valueOf(pencil.getNumber());
         id = id + name + price;
         pencil.setId(id);
+        this.id=id;
         SuperAdmin.getInstance().addArticle(pencil);
     }
 
@@ -158,16 +176,18 @@ public class SuperCon {
         id = String.valueOf(computers.getNumber());
         id = id + name + price;
         computers.setId(id);
+        this.id=id;
         SuperAdmin.getInstance().addArticle(computers);
 
     }
 
     public void addSSD(String name, String price, String type, int exist, float weight, float side1, float side2, double capacity, double speedWriting, double speedLoading) {
         String id;
-        SSD ssd = new SSD("123", name, price, 0, exist, "ssd", weight, side1, side2, capacity, speedLoading, speedWriting);
+        SSD ssd = new SSD("123", name, price, 0, exist, type, weight, side1, side2, capacity, speedLoading, speedWriting);
         id = String.valueOf(ssd.getNumber());
         id = id + name + price;
         ssd.setId(id);
+        this.id=id;
         SuperAdmin.getInstance().addArticle(ssd);
 
     }
@@ -178,6 +198,7 @@ public class SuperCon {
         id = String.valueOf(flashMemory.getNumber());
         id = id + name + price;
         flashMemory.setId(id);
+        this.id=id;
         SuperAdmin.getInstance().addArticle(flashMemory);
     }
 
