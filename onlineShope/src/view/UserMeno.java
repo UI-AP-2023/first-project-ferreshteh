@@ -43,53 +43,68 @@ public class UserMeno {
     }
 
     public void menoUser() {
-        while (scanner != 11) {
+        while (scanner != 12) {
             System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-            System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-exit ");
+            System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
             scanner = sc.nextInt();
-            if (scanner == 1) {
-                System.out.print("enter history");
-                sc.nextLine();
-                String history = sc.nextLine();
+            if (scanner == 11) {
                 System.out.println("numberOfProducts");
                 String[] products = new String[sc.nextInt() * 2];
-                for (int i = 0; i < products.length; i++) {
+                for (int i = 0; i <= products.length; i++) {
                     System.out.print("id of products");
                     products[i] = sc.next();
                     System.out.print("number of it you want");
-                    products[i + 1] = String.valueOf(sc.nextInt());
+                    i++;
+                    products[i] = String.valueOf(sc.nextInt());
                 }
-                UserController.getInstance().shopping(history, customer, products);
+                UserController.getInstance().addCart(customer, products, products.length);
+               System.out.print( customer.getCart());
                 System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-exit ");
+                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
+            } else if (scanner == 1) {
+                System.out.print("enter history");
+                sc.nextLine();
+                String history = sc.nextLine();
+                UserController.getInstance().shopping(history, customer, customer.getOrder());
             }
             if (scanner == 6) {
                 System.out.print("enter your text");
+                sc.nextLine();
                 scanNer = sc.nextLine();
                 Comment comment = new Comment(customer, "waiting", customer.getId(), scanNer);
                 SuperAdmin.getInstance().setComments(comment);
                 System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-exit ");
+                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
+            }
+            else if(scanner==8){
+
             }
             if (scanner == 2) {
                 System.out.print(UserController.getInstance().factors(customer));
                 System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-exit ");
+                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
             }
             if (scanner == 4) {
                 System.out.print(UserController.getInstance().StringViewCart(customer));
                 System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-exit ");
+                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
             }
             if (scanner == 5) {
+                String[]strings=new String[3];
+                System.out.println("number of your credit card");
+                strings[0]=sc.next();
+                System.out.println("cvv2?");
+                strings[1]=sc.next();
+                System.out.println("password");
+                strings[2]=sc.next();
                 System.out.print("how mich money?");
-                UserController.getInstance().upperCredit(customer, sc.nextInt());
+                UserController.getInstance().checkRegexCredit(customer,strings,sc.nextDouble());
                 System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-exit ");
+                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
             }
             if (scanner == 3) {
@@ -99,7 +114,7 @@ public class UserMeno {
                 //change name to ali;
                 System.out.print(UserController.getInstance().changeInfo(customer, scanNer));
                 System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-exit ");
+                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
             }
             if (scanner == 10) {
@@ -111,42 +126,19 @@ public class UserMeno {
                 scanNer = sc.nextLine();
 //20 to id
                 UserController.getInstance().score(customer, scanNer);
-
-            }
-
-        }
-        if(scanner==1){
-            First.getInstance().firstMeno();
-        }
-    }
-
-    public void menoFree() {
-        System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-exit");
-        scanner = sc.nextInt();
-        while (scanner != 6) {
-            if (scanner == 1) {
-                First.getInstance().login();
-            } else if (scanner == 2) {
-
-
-            } else if (scanner == 3) {
-                ArticleShow.getInstance().showAllFree();
-                System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-exit");
-                scanner = sc.nextInt();
-            } else if (scanner == 4) {
-                ArticleShow.getInstance().showAllFree();
-                System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-exit");
-                scanner = sc.nextInt();
-            } else if (scanner == 5) {
-                System.out.print("name?");
-                scanNer = sc.next();
-                UserController.getInstance().search(scanNer);
-                System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-exit");
-                scanner = sc.nextInt();
             }
         }
-
+                First.getInstance().firstMeno();
 
     }
 
+
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+        this.customer.setPassWord(customer.getPassWord());
+        this.customer.setPhone(customer.getPhone());
+        this.customer.setEmail(customer.getEmail());
+        this.customer.setOrder(customer.getOrder(),customer.getOrder().length);
+    }
 }

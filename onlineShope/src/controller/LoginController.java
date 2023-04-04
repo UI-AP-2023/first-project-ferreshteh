@@ -42,15 +42,7 @@ customer=LoginController.getInstance().allCostumers.get(i);
                 return customer;
 
             }
-            else {
-                System.out.println("not");
-            }
         }
-        if (check == 0) {
-            Messages.getInstance().printError();
-            First.getInstance().firstMeno();
-        }
-
         return customer;
     }
 

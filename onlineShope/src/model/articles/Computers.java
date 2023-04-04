@@ -131,9 +131,18 @@ public class Computers extends Digital {
         super.setType(type);
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "Computers{" +
+                "modelCpu='" + modelCpu + '\'' +
+                ", capacityRam=" + capacityRam + "id='" + super.getId() + '\'' +
+                ", average=" +super.getAverage() +
+                ", name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                ", exist=" + exist +
+                ", comments=" + super.getComments() +
+                ", type='" + type +
+                '}';
+    }
 
 }

@@ -54,6 +54,7 @@ public class SuperMeno {
                     System.out.println("write: accept  user id");
                    sc.nextLine();
                    customer=SuperCon.getInstance().requestUser(sc.nextLine());
+                   UserMeno.getInstance().setCustomer(customer);
                   First.getInstance().setCustomer(customer);
                   First.getInstance().showInfo(customer);
                   UserMeno.getInstance().menoUser();

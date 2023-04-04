@@ -54,9 +54,12 @@ public class Factor {
     }
     public String order(){
         StringBuilder str=new StringBuilder();
-        for(int i=0;i<strings.length;i=+2){
-        str.append(strings[i].toString());
-        str.append(strings[i+1]);}
+        for(int i=0;i<=strings.length/2;i++){
+            str.append("id");
+        str.append(strings[i]);
+        str.append("numberOf");
+        i++;
+        str.append(strings[i]);}
         return String.valueOf(str);}
 
 }

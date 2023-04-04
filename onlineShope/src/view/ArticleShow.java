@@ -26,7 +26,11 @@ public class ArticleShow {
         }
         return instance;
     }
-
+public void showAllproducts(){
+        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
+            System.out.println(SuperAdmin.getInstance().getArticles().get(i).toString());
+        }
+}
     public void showAllFree(){
         int j = 0;
         int plus = 0;
@@ -46,7 +50,7 @@ public class ArticleShow {
             }
 
         }
-        UserMeno.getInstance().menoFree();
+       MenoFree.getInstance().menoFree();
     }
     public void showAllUser(){
         int j = 0;

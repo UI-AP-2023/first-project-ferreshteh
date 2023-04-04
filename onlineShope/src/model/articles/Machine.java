@@ -11,6 +11,14 @@ public class Machine extends Vehicles {
     }
 
     @Override
+    public String toString() {
+        return "Machine{" +
+                "capacityMotor=" + capacityMotor +
+                ", automatic=" + automatic +super.toString()+
+                '}';
+    }
+
+    @Override
     public int getNumber() {
         return super.getNumber();
     }
@@ -31,11 +39,4 @@ public class Machine extends Vehicles {
         this.automatic = automatic;
     }
 
-    @Override
-    public String toString() {
-        return "Machine{" +
-                "capacityMotor=" + capacityMotor +
-                ", automatic=" + automatic +
-                '}';
-    }
 }

@@ -13,6 +13,19 @@ public class Customer extends Account {
     private String phone;
     private String email;
     private static  int number=0;
+    String creditNumber;
+    String creditPassword;
+    String cvv2;
+    int numberOfOrder;
+    String[]order=new String[numberOfOrder];
+    public void setOrder(String []order,int numberOfOrder){
+        this.numberOfOrder=numberOfOrder;
+        this.order=order;
+    }
+
+    public String[] getOrder() {
+        return order;
+    }
 
     public double getCredit() {
         return credit;
@@ -60,6 +73,7 @@ public class Customer extends Account {
     }
     public void setId(String id){
         this.id=id;
+
     }
     public void setPhone(String phone){
         this.phone=phone;
@@ -77,6 +91,7 @@ private double defaultCredit;
     public double getDefaultValidity() {
         return defaultCredit;
     }
+
 
     public void setDefaultCredit(double defaultCredit) {
         this.defaultCredit = defaultCredit;
@@ -110,6 +125,7 @@ private double defaultCredit;
 
     public void setInfo(String info){
         super.setInfo(info);
+        this.info=info;
     }
 
     public void setCredit() {
@@ -122,8 +138,8 @@ private double defaultCredit;
         this.credit=this.credit+credit;
     }
 
-    public void setCart(ArrayList<Article> article){
-        cart.addAll(article);
+    public void setCart(Article article){
+        cart.add(article);
     }
     public void setFactors(ArrayList<Factor> factor){
         factors.addAll(factor);
@@ -131,6 +147,7 @@ private double defaultCredit;
 
     public Customer(String info, String character,String phone,String email,String passWord) {
         super(info, character);
+        super.setInfo(info);
         this.phone=phone;
         this.email=email;
         this.passWord=passWord;

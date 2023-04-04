@@ -1,14 +1,16 @@
 package model.articles;
 
 import model.others.Comment;
+import view.Messages;
 
 import java.util.ArrayList;
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 public class Pencil extends Stationary {
+    String typePencil;
     public Pencil(String id, String name,String type, String price, float average, int exist, String typePen) {
-        super(id, name, price, average, exist, typePen);
-        setType(type);
+        super(id, name, price, average, exist, type);
+        setType(typePen);
     }
 
     @Override
@@ -93,7 +95,24 @@ public class Pencil extends Stationary {
 
     @Override
     public void setType(String type) {
-        super.setType(type);
+      if(type.equalsIgnoreCase(Type.B.name())){
+typePencil=type;
+      }
+      else if(type.equalsIgnoreCase(Type.H2.name())){
+          typePencil=type;
+      }
+      else if(type.equalsIgnoreCase(Type.HB.name())){
+          typePencil=type;
+      }
+      else if(type.equalsIgnoreCase(Type.H.name())){
+          typePencil=type;
+      }
+      else if(type.equalsIgnoreCase(Type.F.name())){
+          typePencil=type;
+      }
+      else {
+          Messages.getInstance().printError();
+      }
     }
 
 

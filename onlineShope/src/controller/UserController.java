@@ -87,11 +87,30 @@ for(int i=0;i<customer.getFactors().size();i++){
        }
        return String.valueOf(str);
     }
-    public void upperCredit(Customer customer,double credit){
+    public void upperCredit(Customer customer,double credit,String password){
+        if (customer.getPassWord().equals(password)){
         customer.setDefaultCredit(credit);
         customer.setCreditRequest(true);
         Messages.getInstance().printWait();
-    }
+    }}
+    public void checkRegexCredit(Customer customer,String[] string,double credit){
+        // creditNumber
+        // cvv2
+        // password
+        Pattern pattern = Pattern.compile("^6037\\d{4}$");
+        Matcher matcher1 = pattern.matcher(string[0]);
+        Pattern pattern22 = Pattern.compile("^0\\d{3,}");
+        Matcher matcher2 = pattern22.matcher(string[1]);
+
+        Pattern pattern1 = Pattern.compile("\\S{8,}$");
+        Pattern pattern2 = Pattern.compile("[A-Z]+");
+        Pattern pattern3 = Pattern.compile("[a-z]+");
+        Matcher matcher31 = pattern1.matcher(string[2]);
+        Matcher matcher32 = pattern2.matcher(string[2]);
+        Matcher matcher33 = pattern3.matcher(string[2]);
+        if (Stream.of(matcher1, matcher31, matcher32, matcher33, matcher2).allMatch(Matcher::find)) {
+            upperCredit(customer,credit,string[2]);
+    }}
 
     public void filterPrice(String function) {
         String[] strings = function.split("-");
@@ -163,6 +182,7 @@ for(int i=0;i<customer.getFactors().size();i++){
         return null;
     }
     public String changeInfo(Customer customer,String function){
+        String id="";
         String info="";
         String[]strings=function.split("\\s+");
         //change name to ali
@@ -179,6 +199,10 @@ for(int i=0;i<customer.getFactors().size();i++){
                 info = info + strings[3];
                 customer.setInfo(info);
                 customer.setPassWord(strings[3]);
+                 id = customer.getStatic() + info + customer.getStatic();
+                customer.setId(id);
+                Messages.getInstance().printId(id);
+
             }
         }
         else if(strings[1].equalsIgnoreCase("email")){
@@ -191,6 +215,9 @@ for(int i=0;i<customer.getFactors().size();i++){
                 info+=customer.getPassWord();
                 customer.setEmail(strings[3]);
                 customer.setInfo(info);
+                 id = customer.getStatic() + info + customer.getStatic();
+                customer.setId(id);
+                Messages.getInstance().printId(id);
             }
         }
         else if(strings[1].equalsIgnoreCase("phone")){
@@ -202,9 +229,12 @@ for(int i=0;i<customer.getFactors().size();i++){
                 info+=customer.getPassWord();
                 customer.setInfo(info);
                 customer.setPhone(strings[3]);
+                 id = customer.getStatic() + info + customer.getStatic();
+                customer.setId(id);
+                Messages.getInstance().printId(id);
             }
         }
-        return info;
+        return id;
     }
     public void score(Customer customer,String function){
         Article article;
@@ -225,4 +255,18 @@ for(int i=0;i<customer.getFactors().size();i++){
             }
         }
 
-}}}
+}}
+public void addCart(Customer customer,String[] id,int numberOfOrder){
+        Article article;
+        for(int j=0;j<=id.length/2;j=j+2 ) {
+            for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+                article = (SuperAdmin.getInstance().getArticles().get(i));
+                if (article.getId().equals(id[j])) {
+                    if (article.getExist() >= Integer.parseInt(id[j + 1])) {
+                        customer.setCart(article);
+                        customer.setOrder(id, numberOfOrder);
+                    }
+                }
+            }
+        }
+}}

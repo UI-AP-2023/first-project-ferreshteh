@@ -33,11 +33,11 @@ public class SuperCon {
                 addBic(strings[2], strings[3], "vehicle", Integer.parseInt(strings[4]), strings[5], strings[6]);
             } else if (strings[1].equalsIgnoreCase("noteBook")) {
                 addNoteBook(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5], Integer.parseInt(strings[6]));
-            } else if (strings[1].equalsIgnoreCase("pen")) {
+            } else if (strings[1].equalsIgnoreCase("pen")) {//ok
                 addPen(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5]);
             } else if (strings[1].equalsIgnoreCase("pencil")) {
                 addPencil(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5]);
-            } else if (strings[1].equalsIgnoreCase("computers")) {
+            } else if (strings[1].equalsIgnoreCase("computer")) {
                 addComputer(strings[2], strings[3], "DIGITAL", Integer.parseInt(strings[4]), strings[5], Float.parseFloat(strings[6]), Float.parseFloat(strings[7]), Float.parseFloat(strings[8]), Double.parseDouble(strings[9]));
             } else if (strings[1].equalsIgnoreCase("ssd")) {
                 addSSD(strings[2], strings[3], "DIGITAL", Integer.parseInt(strings[4]), Float.parseFloat(strings[5]), Float.parseFloat(strings[6]), Float.parseFloat(strings[7]), Double.parseDouble(strings[8]), Double.parseDouble(strings[9]), Double.parseDouble(strings[10]));
@@ -61,7 +61,7 @@ public class SuperCon {
 
     public void addVehicle(String name, String price, String type, int exist, String nameCompany, double capacity, boolean auto) {
         String id;
-        Machine machine = new Machine("123", name, price, 0, exist, "machine", nameCompany, capacity, auto);
+        Machine machine = new Machine("123", name, price, 0, exist, type, nameCompany, capacity, auto);
         id = String.valueOf(machine.getNumber());
         id = id + name + price;
         machine.setId(id);
@@ -113,7 +113,7 @@ public class SuperCon {
 
     public void addBic(String name, String price, String type, int exist, String bicType, String nameCompany) {
         String id;
-        Bicycle bicycle = new Bicycle("123", name, price, 0, exist, "bicycle", nameCompany, bicType);
+        Bicycle bicycle = new Bicycle("123", name, price, 0, exist, type, nameCompany, bicType);
         id = String.valueOf(bicycle.getNumber());
         id = id + name + price;
         bicycle.setId(id);
@@ -123,7 +123,7 @@ public class SuperCon {
 
     public void addNoteBook(String name, String price, String type, int exist, String typePaper, int numberPaper) {
         String id;
-        NoteBook noteBook = new NoteBook("123", name, price, 0, exist, "noteBook", numberPaper, typePaper);
+        NoteBook noteBook = new NoteBook("123", name, price, 0, exist, type, numberPaper, typePaper);
         id = String.valueOf(noteBook.getNumber());
         id = id + name + price;
         noteBook.setId(id);
@@ -133,17 +133,19 @@ public class SuperCon {
 
     public void addPen(String name, String price, String type, int exist, String color) {
         String id;
-        Pen pen = new Pen("123", name, price, 0, exist, "Pen", color);
+        Pen pen = new Pen("123", name, price, 0, exist, type, color);
         id = String.valueOf(pen.getNumber());
         id = id + name + price;
         pen.setId(id);
         SuperAdmin.getInstance().addArticle(pen);
 
     }
+    //        SuperCon.getInstance().productManagement("add pencil pen1 450 6 hb");
+    //addPencil(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5]);
 
     public void addPencil(String name, String price, String type, int exist, String typePen) {
         String id;
-        Pencil pencil = new Pencil("123", name, "pencil", price, 0, exist, typePen);
+        Pencil pencil = new Pencil("123", name, type, price, 0, exist, typePen);
         id = String.valueOf(pencil.getNumber());
         id = id + name + price;
         pencil.setId(id);
@@ -152,7 +154,7 @@ public class SuperCon {
 
     public void addComputer(String name, String price, String type, int exist, String modelCpu, float weight, float side1, float side2, double capacity) {
         String id;
-        Computers computers = new Computers("123", name, price, 0, exist, "computer", weight, side1, side2, modelCpu, capacity);
+        Computers computers = new Computers("123", name, price, 0, exist, type, weight, side1, side2, modelCpu, capacity);
         id = String.valueOf(computers.getNumber());
         id = id + name + price;
         computers.setId(id);

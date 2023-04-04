@@ -16,8 +16,12 @@ public class Pen extends Stationary {
     public String toString() {
         return "Pen{" +
                 "color='" + color + '\'' +
+                "name :"+name+"id :"+getId()+"price :"+price+"Avarege :"+getAverage()+"type :"+getType()+"comment :"+getComments()+"country :"+getCountry()+
                 '}';
     }
+
+    //
+
 
     public void setColor(String color) {
         this.color = color;
