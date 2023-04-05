@@ -31,6 +31,7 @@ public void paging(){
         int first=0;
         int last=1;
         int size=SuperAdmin.getInstance().getArticles().size();
+        if(SuperAdmin.getInstance().getArticles().size()>=5){
         for (int i=0;i<last*5;i++){
             System.out.print(SuperAdmin.getInstance().getArticles().get(i).toString());
             System.out.print("\n");
@@ -39,6 +40,7 @@ public void paging(){
         first++;
         last++;
         size-=center;
+
         while (size!=0){
     System.out.print("next?");
     if(sc.next().equals("next")){
@@ -51,13 +53,20 @@ public void paging(){
                     break;
             }
             else {
-                break;
+               System.out.println(SuperAdmin.getInstance().getArticles().get(i));
+               size--;
+               center++;
             }
         }
 }
         first++;
         last++;
         }}
+    else {
+    for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
+    System.out.println(SuperAdmin.getInstance().getArticles().get(i).toString());}
+        }
+}
     public void showAllFree(){
         int j = 0;
         int plus = 0;
@@ -101,7 +110,7 @@ public void paging(){
         UserMeno.getInstance().menoUser();
     }
     public void filterUser(){
-        System.out.print("1-price   |2-typeOfBicycle   |3-exist or not|   4-expiration  5-numberOfNoteBookPapers");
+        System.out.print("1-price   |2-typeOfBicycle   |3-exist or not|   4-expiration  5-numberOfNoteBookPapers 6-Type of Articles 7-unFiltering");
         scanner=sc.nextInt();
         if(scanner==1){
             System.out.print("which range of price?");
@@ -126,6 +135,13 @@ public void paging(){
         else if(scanner==5){
             System.out.print("enter umber of book you want");
             UserController.getInstance().filterNoteNumber(sc.nextInt());
+        }
+        else if(scanner==6){
+            System.out.print("which type?");
+UserController.getInstance().generalFilter(sc.next());
+        }
+        else if(scanner==7){
+
         }
     }
     public void filterFree(){

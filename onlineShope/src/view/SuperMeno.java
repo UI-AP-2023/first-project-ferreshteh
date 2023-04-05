@@ -39,6 +39,7 @@ public class SuperMeno {
         }
         return instance;
     }
+
     public void adminMeno() {
         while (scanner != 7) {
             System.out.println("if you want help >>enter help or enter your order");
@@ -52,36 +53,34 @@ public class SuperMeno {
                         System.out.println(SuperAdmin.getInstance().getRequests().get(i).toString());
                     }
                     System.out.println("write: accept  user id");
-                   sc.nextLine();
-                   customer=SuperCon.getInstance().requestUser(sc.nextLine());
-                   UserMeno.getInstance().setCustomer(customer);
-                  First.getInstance().setCustomer(customer);
-                  First.getInstance().showInfo(customer);
-                  UserMeno.getInstance().menoUser();
-                  break;
+                    sc.nextLine();
+                    customer = SuperCon.getInstance().requestUser(sc.nextLine());
+                    UserMeno.getInstance().setCustomer(customer);
+                    First.getInstance().setCustomer(customer);
+                    First.getInstance().showInfo(customer);
+                    UserMeno.getInstance().menoUser();
+                    break;
 
-                }
-                else  if(scanner==5){
+                } else if (scanner == 5) {
                     System.out.println(" write :accept comment [id user] [idArticle] ");
                     sc.nextLine();
                     SuperCon.getInstance().requestsManagement(sc.nextLine());
                     System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
                     System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                     scanner = sc.nextInt();
-                }
-                else if(scanner==6){
+                } else if (scanner == 6) {
                     System.out.println(" write: write accept credit idUser ");
                     sc.nextLine();
                     SuperCon.getInstance().requestsManagement(sc.nextLine());
                     System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
                     System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                     scanner = sc.nextInt();
-                }
-                else if (scanner == 2) {
+                } else if (scanner == 2) {
                     for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
                         for (int j = 0; j < SuperAdmin.getInstance().getArticles().get(i).getComments().size(); j++) {
                             System.out.println(SuperAdmin.getInstance().getArticles().get(i).getComments().toString());
-                            System.out.print("1-view request 2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts 5-exit");
+                            System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
+                            System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                             scanner = sc.nextInt();
                         }
                     }
@@ -90,18 +89,21 @@ public class SuperMeno {
                     sc.nextLine();
                     scanNer = sc.nextLine();
                     SuperCon.getInstance().productManagement(scanNer);
-                    System.out.print("1-view request 2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts 5-exit");
+                    System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
+                    System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                     scanner = sc.nextInt();
                 } else if (scanner == 4) {
                     for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
                         System.out.println(SuperAdmin.getInstance().getArticles().get(i).toString());
                     }
-                    System.out.print("1-view request 2-view comments 3-Product management 4-viewProducts 5-exit");
+                    System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
+                    System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                     scanner = sc.nextInt();
                 }
             }
         }
-           First.getInstance(). firstMeno();
+        if (scanner==7){
+        First.getInstance().firstMeno();}
 
 
     }

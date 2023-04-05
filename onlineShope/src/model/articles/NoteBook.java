@@ -78,6 +78,11 @@ public class NoteBook extends Stationary {
     }
 
     @Override
+    public void setCountry(String country) {
+        super.setCountry(country);
+    }
+
+    @Override
     public void setType(String type) {
         super.setType(type);
     }

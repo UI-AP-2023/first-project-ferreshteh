@@ -2,6 +2,7 @@ package view;
 
 import controller.SuperCon;
 import controller.UserController;
+import model.articles.Article;
 import model.others.Comment;
 import model.user.Customer;
 import model.user.SuperAdmin;
@@ -62,7 +63,15 @@ public class UserMeno {
                 System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
                 System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
-            } else if (scanner == 1) {
+            }
+            else if(scanner==9){
+                System.out.print("id?");
+                scanNer = sc.next();
+              Article article= UserController.getInstance().search(scanNer);
+                System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
+                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
+                scanner = sc.nextInt();
+            }else if (scanner == 1) {
                 System.out.print("enter history");
                 sc.nextLine();
                 String history = sc.nextLine();
@@ -114,31 +123,34 @@ public class UserMeno {
                 //change name to ali;
                 System.out.print(UserController.getInstance().changeInfo(customer, scanNer));
                 System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
-                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
+                System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit 13-showInfo ");
                 scanner = sc.nextInt();
+            }
+            else if(scanner==13){
+               System.out.println(customer.toString());
             }
             if (scanner == 10) {
                 for (int i = 0; i < customer.getFactors().size(); i++) {
                     System.out.println(customer.getFactors().get(i).toString());
                 }
                 System.out.print("enter your command");
+                System.out.println("20 to id");
                 sc.nextLine();
                 scanNer = sc.nextLine();
 //20 to id
                 UserController.getInstance().score(customer, scanNer);
             }
         }
-                First.getInstance().firstMeno();
+              if(scanner==12){
+                  First.getInstance().firstMeno();
+              }
 
     }
 
 
 
     public void setCustomer(Customer customer) {
-        this.customer = customer;
-        this.customer.setPassWord(customer.getPassWord());
-        this.customer.setPhone(customer.getPhone());
-        this.customer.setEmail(customer.getEmail());
-        this.customer.setOrder(customer.getOrder(),customer.getOrder().length);
+     this.customer=customer;
+     menoUser();
     }
 }

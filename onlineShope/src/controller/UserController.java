@@ -1,10 +1,8 @@
 package controller;
 
-import model.articles.Article;
-import model.articles.Bicycle;
-import model.articles.Meal;
-import model.articles.NoteBook;
+import model.articles.*;
 import model.others.Factor;
+import model.others.Score;
 import model.user.Customer;
 import model.user.SuperAdmin;
 import view.Messages;
@@ -74,26 +72,32 @@ public class UserController {
             }
         }
     }
-    public String factors(Customer customer){
-        StringBuilder str=new StringBuilder();
-for(int i=0;i<customer.getFactors().size();i++){
-    str.append(customer.getFactors().get(i).order());
-}return String.valueOf(str);
+
+    public String factors(Customer customer) {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < customer.getFactors().size(); i++) {
+            str.append(customer.getFactors().get(i).order());
+        }
+        return String.valueOf(str);
     }
-    public String StringViewCart(Customer customer){
-        StringBuilder str=new StringBuilder();
-       for(int i=0;i< customer.getCart().size();i++){
-         str.append(customer.getCart().get(i).toString());
-       }
-       return String.valueOf(str);
+
+    public String StringViewCart(Customer customer) {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < customer.getCart().size(); i++) {
+            str.append(customer.getCart().get(i).toString());
+        }
+        return String.valueOf(str);
     }
-    public void upperCredit(Customer customer,double credit,String password){
-        if (customer.getPassWord().equals(password)){
-        customer.setDefaultCredit(credit);
-        customer.setCreditRequest(true);
-        Messages.getInstance().printWait();
-    }}
-    public void checkRegexCredit(Customer customer,String[] string,double credit){
+
+    public void upperCredit(Customer customer, double credit, String password) {
+        if (customer.getPassWord().equals(password)) {
+            customer.setDefaultCredit(credit);
+            customer.setCreditRequest(true);
+            Messages.getInstance().printWait();
+        }
+    }
+
+    public void checkRegexCredit(Customer customer, String[] string, double credit) {
         // creditNumber
         // cvv2
         // password
@@ -109,8 +113,9 @@ for(int i=0;i<customer.getFactors().size();i++){
         Matcher matcher32 = pattern2.matcher(string[2]);
         Matcher matcher33 = pattern3.matcher(string[2]);
         if (Stream.of(matcher1, matcher31, matcher32, matcher33, matcher2).allMatch(Matcher::find)) {
-            upperCredit(customer,credit,string[2]);
-    }}
+            upperCredit(customer, credit, string[2]);
+        }
+    }
 
     public void filterPrice(String function) {
         String[] strings = function.split("-");
@@ -123,6 +128,36 @@ for(int i=0;i<customer.getFactors().size();i++){
         }
         SuperAdmin.getInstance().setArticles(newArt);
     }
+
+    public void generalFilter(String type) {
+        Article article;
+        ArrayList<Article> newArraylist = new ArrayList<>();
+        int check = 0;
+        if (Type.DIGITAL.name().equalsIgnoreCase(type)) {
+            check++;
+        } else if (Type.MEAL.name().equalsIgnoreCase(type)) {
+            check++;
+        } else if (Type.VEHICLE.name().equalsIgnoreCase(type)) {
+            check++;
+        } else if (Type.STATIONARY.name().equalsIgnoreCase(type)) {
+            check++;
+        } else {
+            Messages.getInstance().printError();
+        }
+        if (check == 1) {
+            for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+                article = SuperAdmin.getInstance().getArticles().get(i);
+                if (article.getType().equalsIgnoreCase(type)) {
+                    newArraylist.add(article);
+                }
+            }
+            SuperAdmin.getInstance().setArticles(newArraylist);
+        }
+    }
+public void unFiltering(){
+
+    SuperAdmin.getInstance().setArticles(SuperAdmin.getInstance().getSpareArt());
+}
 
     public void filterTypeOfBicycle(String type) {
         ArrayList<Article> newArt = new ArrayList<>();
@@ -173,92 +208,104 @@ for(int i=0;i<customer.getFactors().size();i++){
         SuperAdmin.getInstance().setArticles(newArt);
     }
 
-    public Article search(String id) {
+    public Article search(String name) {
         for (Article article : SuperAdmin.getInstance().getArticles()) {
-            if (article.getId().equals(id)) {
+            if (article.getId().equals(name)) {
                 return article;
             }
         }
         return null;
     }
-    public String changeInfo(Customer customer,String function){
-        String id="";
-        String info="";
-        String[]strings=function.split("\\s+");
+
+    public String changeInfo(Customer customer, String function) {
+        String id = "";
+        String info = "";
+        String[] strings = function.split("\\s+");
         //change name to ali
-        if(strings[1].equalsIgnoreCase("password")){
+        if (strings[1].equalsIgnoreCase("password")) {
             Pattern pattern1 = Pattern.compile("\\S{8,}$");
             Pattern pattern2 = Pattern.compile("[A-Z]+");
             Pattern pattern3 = Pattern.compile("[a-z]+");
             Matcher matcher31 = pattern1.matcher(strings[3]);
             Matcher matcher32 = pattern2.matcher(strings[3]);
             Matcher matcher33 = pattern3.matcher(strings[3]);
-            if (Stream.of( matcher31, matcher32, matcher33).allMatch(Matcher::find)) {
+            if (Stream.of(matcher31, matcher32, matcher33).allMatch(Matcher::find)) {
                 info = customer.getEmail().substring(0, 3);
                 info = info + customer.getPhone().substring(8, 11);
                 info = info + strings[3];
                 customer.setInfo(info);
                 customer.setPassWord(strings[3]);
-                 id = customer.getStatic() + info + customer.getStatic();
+                id = customer.getStatic() + info + customer.getStatic();
                 customer.setId(id);
                 Messages.getInstance().printId(id);
 
             }
-        }
-        else if(strings[1].equalsIgnoreCase("email")){
+        } else if (strings[1].equalsIgnoreCase("email")) {
             customer.setEmail(strings[3]);
             Pattern pattern = Pattern.compile("^[A-Z].*[1-9]@+.*gmail.com$");
             Matcher matcher1 = pattern.matcher(strings[3]);
-            if(matcher1.find()){
-                info=strings[3];
-                info=info+customer.getPhone();
-                info+=customer.getPassWord();
+            if (matcher1.find()) {
+                info = strings[3];
+                info = info + customer.getPhone();
+                info += customer.getPassWord();
                 customer.setEmail(strings[3]);
                 customer.setInfo(info);
-                 id = customer.getStatic() + info + customer.getStatic();
+                id = customer.getStatic() + info + customer.getStatic();
                 customer.setId(id);
                 Messages.getInstance().printId(id);
             }
-        }
-        else if(strings[1].equalsIgnoreCase("phone")){
+        } else if (strings[1].equalsIgnoreCase("phone")) {
             Pattern pattern22 = Pattern.compile("^0913\\d{7}");
             Matcher matcher2 = pattern22.matcher(strings[3]);
-            if(matcher2.find()){
-                info=customer.getEmail();
-                info+=strings[3];
-                info+=customer.getPassWord();
+            if (matcher2.find()) {
+                info = customer.getEmail();
+                info += strings[3];
+                info += customer.getPassWord();
                 customer.setInfo(info);
                 customer.setPhone(strings[3]);
-                 id = customer.getStatic() + info + customer.getStatic();
+                id = customer.getStatic() + info + customer.getStatic();
                 customer.setId(id);
                 Messages.getInstance().printId(id);
             }
         }
         return id;
     }
-    public void score(Customer customer,String function){
+
+    public void score(Customer customer, String function) {
         Article article;
-        int check=0;
-        String[]strings=function.split("\\s+");
+        Score score = null;
+        int check = 0;
+        String[] strings = function.split("\\s+");
         //20 to id
-        for(int i=0;i<customer.getFactors().size();i++){
-            for(int j=0;j<customer.getFactors().get(i).getArticles().size();j++){
-        if (customer.getFactors().get(i).getArticles().get(j).getId().equals(strings[2])){
-            customer.getFactors().get(i).getArticles().get(j).score(Double.parseDouble(strings[1]));
-            check++;
-        }
-    }}
-        if(check==1){
-        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
-            if(SuperAdmin.getInstance().getArticles().get(i).getId().equals(strings[2])){
-                SuperAdmin.getInstance().getArticles().get(i).score(Double.parseDouble(strings[1]));
+        for (int i = 0; i < customer.getFactors().size(); i++) {
+            for (int j = 0; j < customer.getFactors().get(i).getArticles().size(); j++) {
+                if (customer.getFactors().get(i).getArticles().get(j).getId().equals(strings[2])) {
+                    article = customer.getFactors().get(i).getArticles().get(j);
+                    score = new Score(Double.parseDouble(strings[0]), customer, article);
+                    article.setAverage((article.getAverage() + Float.parseFloat(strings[0])) / score.getNumber());
+
+
+                    check++;
+                    break;
+                }
             }
         }
+        if (check == 1) {
+            for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+                if (SuperAdmin.getInstance().getArticles().get(i).getId().equals(strings[2])) {
+                    article = SuperAdmin.getInstance().getArticles().get(i);
+                    article.setAverage((article.getAverage() + Float.parseFloat(strings[0])) / score.getNumber());
+                    SuperAdmin.getInstance().getArticles().get(i).setAverage(Float.parseFloat(strings[1]) / score.getNumber());
+                    break;
+                }
+            }
 
-}}
-public void addCart(Customer customer,String[] id,int numberOfOrder){
+        }
+    }
+
+    public void addCart(Customer customer, String[] id, int numberOfOrder) {
         Article article;
-        for(int j=0;j<=id.length/2;j=j+2 ) {
+        for (int j = 0; j <= id.length / 2; j = j + 2) {
             for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
                 article = (SuperAdmin.getInstance().getArticles().get(i));
                 if (article.getId().equals(id[j])) {
@@ -269,4 +316,5 @@ public void addCart(Customer customer,String[] id,int numberOfOrder){
                 }
             }
         }
-}}
+    }
+}

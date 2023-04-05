@@ -1,5 +1,5 @@
 package model.articles;
 
-enum Type {
+public enum Type {
     DIGITAL, STATIONARY, VEHICLE, MEAL
 }

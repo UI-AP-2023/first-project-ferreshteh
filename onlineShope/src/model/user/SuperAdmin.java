@@ -73,6 +73,10 @@ public class SuperAdmin extends Account{
     private ArrayList<Article>spareArt=new ArrayList<>();
     private ArrayList<Comment> comments=new ArrayList<>();
 
+    public ArrayList<Article> getSpareArt() {
+        return spareArt;
+    }
+
     public ArrayList<Comment> getComments() {
         return comments;
     }

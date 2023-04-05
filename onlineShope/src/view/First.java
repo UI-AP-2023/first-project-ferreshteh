@@ -57,17 +57,15 @@ Bicycle bicycle=new Bicycle("1","1","1",1,2,"Vehicle","1","1");
 
 
     public void login() {
-        customer.setId("idAsal");
         Scanner sc = new Scanner(System.in);
         System.out.print("1-login 2-register 3-free");
         scanner = sc.nextInt();
         if (scanner == 1) {
             System.out.print(" enter your id ");
             scanNer = sc.next();
-            customer = LoginController.getInstance().setUserInfoEnter(scanNer);
-            UserMeno.getInstance().setCustomer(customer);
-//            System.out.println("login2");
-            UserMeno.getInstance().menoUser();//??????????????
+           // LoginController.getInstance().equalingCustomer(customer,LoginController.getInstance().setUserInfoEnter(scanNer));
+            customer=LoginController.getInstance().setUserInfoEnter(scanNer);
+            UserMeno.getInstance().menoUser();
 
         } else if (scanner == 2) {
             System.out.println("email\n telephoneNumber \npassword");

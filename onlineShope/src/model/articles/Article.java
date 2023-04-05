@@ -1,6 +1,7 @@
 package model.articles;
 
 import model.others.Comment;
+import model.others.Score;
 import view.Messages;
 
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ abstract public class Article {
     }
 
     public void setAverage(float average) {
-        this.average = average;
+        this.average =+ average;
     }
 
     public void setName(String name) {
@@ -106,7 +107,7 @@ abstract public class Article {
 public void lowerExist(int exist){
         this.exist=this.exist-exist;
 }
-public void score(double score){
+public void score( double score){
         average+=score;
 }
     @Override

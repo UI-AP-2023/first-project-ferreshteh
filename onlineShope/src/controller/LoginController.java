@@ -28,22 +28,36 @@ public class LoginController {
         }
         return instance;
     }
+//    public void equalingCustomer(Customer first,Customer second){
+//        second.setCart(first.getCart());
+//        second.setInfo(first.getInfo());
+//        second.setPhone(first.getPhone());
+//        second.setEmail(first.getEmail());
+//        second.setId(first.getId());
+//        second.setPassWord(first.getPassWord());
+//        second.setCredit(first.getCredit());
+//        second.setOrder(first.getOrder(),first.getOrder().length);
+//        second.setDefaultCredit(first.getDefaultValidity());
+//    }
 
 
     public Customer setUserInfoEnter(String id) {
         int check = 0;
         Customer customer = new Customer("wrong","user","1254","adgghfyt","7854");
+        Customer pointer=null;
         customer=createId("wrong");
         for (int i = 0; i < LoginController.getInstance().allCostumers.size(); i++) {
             if (LoginController.getInstance().allCostumers.get(i).getId().equals(id)) {
-customer=LoginController.getInstance().allCostumers.get(i);
+               pointer=LoginController.getInstance().allCostumers.get(i);
+pointer=LoginController.getInstance().allCostumers.get(i);
+
                 System.out.println("logined");
                 check++;
-                return customer;
+                return pointer;
 
             }
         }
-        return customer;
+        return pointer;
     }
 
 
@@ -71,6 +85,7 @@ customer=LoginController.getInstance().allCostumers.get(i);
                 for (Customer allCostumer : allCostumers) {
                     if (allCostumer.getInfo().equals(info)) {
                         Messages.getInstance().printError();
+                        System.out.print("id");
                         check++;
                         break;
                     }
@@ -91,6 +106,7 @@ customer=LoginController.getInstance().allCostumers.get(i);
             }
         } else {
             Messages.getInstance().printError();
+            System.out.print("regex");
         }
     }
 

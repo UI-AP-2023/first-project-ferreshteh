@@ -86,7 +86,15 @@ public class Customer extends Account {
     private double credit;
 private  boolean creditRequest=false;
 
-private double defaultCredit;
+    public void setCredit(double credit) {
+        this.credit = credit;
+    }
+
+    private double defaultCredit;
+
+    public void setCart(ArrayList<Article> cart) {
+        this.cart = cart;
+    }
 
     public double getDefaultValidity() {
         return defaultCredit;

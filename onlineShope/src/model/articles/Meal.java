@@ -14,12 +14,12 @@ public class Meal extends Article{
         this.expiration=expiration;
 
     }
-String id;
+
     @Override
     public String toString() {
         return "Meal{" +
                 "production='" + production + '\'' +
-                ", expiration='" + expiration + '\'' +", id='"+super.getId()+'\'' +",exist= "+exist +
+                ", expiration='" + expiration + '\'' +", id='"+super.getId()+'\'' +",exist= "+exist +"price: "+super.getPrice()+" name:"+super.getName()+
                 '}';
     }
 
@@ -60,7 +60,7 @@ String id;
     }
 
     public void setId(String id) {
-        this.id=id;
+        super.setId(id);
     }
 
     public void setAverage(float average) {

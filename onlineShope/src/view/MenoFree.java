@@ -50,7 +50,7 @@ public class MenoFree {
                 System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-exit");
                 scanner = sc.nextInt();
             } else if (scanner == 5) {
-                System.out.print("name?");
+                System.out.print("id?");
                 scanNer = sc.next();
                 UserController.getInstance().search(scanNer);
                 System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-exit");
@@ -69,7 +69,8 @@ public class MenoFree {
                 UserController.getInstance().addCart(customer, products, products.length);
             }
         }
-First.getInstance().firstMeno();
-
+        if(scanner==7) {
+            First.getInstance().firstMeno();
+        }
     }
 }

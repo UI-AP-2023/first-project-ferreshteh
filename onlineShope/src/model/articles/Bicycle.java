@@ -20,6 +20,12 @@ String bicType;
     }
 
     @Override
+    public void score(double score) {
+        super.score(score);
+    }
+
+
+    @Override
     public String toString() {
         return "Bicycle{" +
                 "bicType=" + bicType + "name :"+name+"id :"+getId()+"price :"+price+"Avarege :"+getAverage()+"type :"+getType()+"comment :"+getComments()+

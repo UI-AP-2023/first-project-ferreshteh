@@ -133,15 +133,15 @@ public class Computers extends Digital {
 
     @Override
     public String toString() {
-        return "Computers{" +
-                "modelCpu='" + modelCpu + '\'' +
-                ", capacityRam=" + capacityRam + "id='" + super.getId() + '\'' +
-                ", average=" +super.getAverage() +
-                ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                ", exist=" + exist +
-                ", comments=" + super.getComments() +
-                ", type='" + type +
+        return "Computers{ " +
+                "modelCpu=" + modelCpu + ' ' +
+                "capacityRam= " + capacityRam +" "+ "id='" + super.getId() + " " +
+                "average=" +super.getAverage() +" "+
+                "name=" + name + " " +
+                "price=" + price + " " +
+                "exist=" + exist +" "+
+                "comments=" + super.getComments() +" "+
+                "type=" + type +
                 '}';
     }
 

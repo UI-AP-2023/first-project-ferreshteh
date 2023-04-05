@@ -3,6 +3,7 @@ package controller;
 import model.articles.*;
 import model.others.Comment;
 import model.user.Customer;
+import model.user.Request;
 import model.user.SuperAdmin;
 import view.Messages;
 
@@ -33,7 +34,7 @@ public class SuperCon {
             } else if (strings[1].equalsIgnoreCase("Bicycle")) {
                 addBic(strings[2], strings[3], "vehicle", Integer.parseInt(strings[4]), strings[5], strings[6]);
             } else if (strings[1].equalsIgnoreCase("noteBook")) {
-                addNoteBook(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5], Integer.parseInt(strings[6]));
+                addNoteBook(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5], Integer.parseInt(strings[6]),strings[7]);
             } else if (strings[1].equalsIgnoreCase("pen")) {//ok
                 addPen(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5]);
             } else if (strings[1].equalsIgnoreCase("pencil")) {
@@ -136,9 +137,10 @@ public class SuperCon {
         SuperAdmin.getInstance().addArticle(meal);
     }
 
-    public void addNoteBook(String name, String price, String type, int exist, String typePaper, int numberPaper) {
+    public void addNoteBook(String name, String price, String type, int exist, String typePaper, int numberPaper,String country) {
         String id;
         NoteBook noteBook = new NoteBook("123", name, price, 0, exist, type, numberPaper, typePaper);
+        noteBook.setCountry(country);
         id = String.valueOf(noteBook.getNumber());
         id = id + name + price;
         noteBook.setId(id);
@@ -194,7 +196,7 @@ public class SuperCon {
 
     public void addFlash(String name, String price, String type, int exist, float weight, float side1, float side2, double capacity, String usbType) {
         String id;
-        FlashMemory flashMemory = new FlashMemory("123", name, price, 0, exist, "flash", weight, side1, side2, capacity, usbType);
+        FlashMemory flashMemory = new FlashMemory("123", name, price, 0, exist, type, weight, side1, side2, capacity, usbType);
         id = String.valueOf(flashMemory.getNumber());
         id = id + name + price;
         flashMemory.setId(id);
@@ -227,6 +229,7 @@ public class SuperCon {
         for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
             if (LoginController.getInstance().getAllCostumers().get(i).getId().equals(idUser)) {
                 customer = LoginController.getInstance().getAllCostumers().get(i);
+
                 break;
             }
         }
@@ -247,11 +250,18 @@ public class SuperCon {
 
     public Customer acceptUser(String info) {//ok
         Customer customer=null;
+        Request request;
         for (int i = 0; i < SuperAdmin.getInstance().getRequests().size(); i++) {
-            if (SuperAdmin.getInstance().getRequests().get(i).getInfo().equals(info)) {
+request=SuperAdmin.getInstance().getRequest().get(i);
+        if( request.getInfo().equals(info)) {
+
                 //LoginController.getInstance().getAllCostumers().add(SuperAdmin.getInstance().getRequests().get(i));
                 SuperAdmin.getInstance().getRequests().remove(SuperAdmin.getInstance().getRequests().get(i));
               customer=  LoginController.getInstance().createId(info);
+              customer.setEmail(request.getEmail());
+              customer.setPhone(request.getPhone());
+              customer.setInfo(request.getInfo());
+              customer.setPassWord(request.getPassWord());
                 break;
             }
         }
