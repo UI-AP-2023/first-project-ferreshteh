@@ -36,7 +36,7 @@ public class SuperCon {
             } else if (strings[1].equalsIgnoreCase("noteBook")) {
                 addNoteBook(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5], Integer.parseInt(strings[6]),strings[7]);
             } else if (strings[1].equalsIgnoreCase("pen")) {//ok
-                addPen(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5]);
+                addPen(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5],strings[6]);
             } else if (strings[1].equalsIgnoreCase("pencil")) {
                 addPencil(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5]);
             } else if (strings[1].equalsIgnoreCase("computer")) {
@@ -149,9 +149,10 @@ public class SuperCon {
 
     }
 
-    public void addPen(String name, String price, String type, int exist, String color) {
+    public void addPen(String name, String price, String type, int exist, String color,String country) {
         String id;
         Pen pen = new Pen("123", name, price, 0, exist, type, color);
+        pen.setCountry(country);
         id = String.valueOf(pen.getNumber());
         id = id + name + price;
         pen.setId(id);
@@ -273,6 +274,8 @@ request=SuperAdmin.getInstance().getRequest().get(i);
             if (LoginController.getInstance().getAllCostumers().get(i).getId().equals(idUser)) {
                 LoginController.getInstance().getAllCostumers().get(i).setCreditRequest(true);
                 LoginController.getInstance().getAllCostumers().get(i).setCredit();
+                LoginController.getInstance().getAllCostumers().get(i).setDefaultCredit(0);
+                LoginController.getInstance().getAllCostumers().get(i).setCreditRequest(false);
             }
         }
     }

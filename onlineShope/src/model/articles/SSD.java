@@ -18,7 +18,13 @@ public class SSD extends Storages {
     public String toString() {
         return "SSD{" +
                 "speedWriting=" + speedWriting +
-                ", speedLoading=" + speedLoading +
+                ", speedLoading=" + speedLoading +" "+"id='" + super.getId() + " " +
+                "average=" +super.getAverage() +" "+
+                "name=" + name + " " +
+                "price=" + price + " " +
+                "exist=" + super.getExist() +" "+
+                "comments=" + super.getComments() +" "+"side1="+" "+super.getSide1()+" "+"side2="+" "+super.getSide2()+" "+"weight="+" "+super.getWight()+"capacity="+" "+
+               + super.getCapacity()+
                 '}';
     }
 

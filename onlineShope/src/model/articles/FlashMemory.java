@@ -126,7 +126,12 @@ enum Type{
     @Override
     public String toString() {
         return "FlashMemory{" +
-                "usbType='" + usbType + '\'' +
-                '}';
+                "usbType=" + usbType +" "+"id='" + super.getId() + " " +
+                "average=" +super.getAverage() +" "+
+                "name=" + name + " " +
+                "price=" + price + " " +
+                "exist=" + exist +" "+
+                "comments=" + super.getComments() +" "+"side1="+" "+super.getSide1()+" "+"side2="+" "+super.getSide2()+" "+"weight="+" "+super.getWight()+"capacity="+" "+
+               super.getCapacity()+ '}';
     }
 }

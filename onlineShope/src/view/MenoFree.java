@@ -1,5 +1,6 @@
 package view;
 
+import controller.LoginController;
 import controller.UserController;
 import model.others.Comment;
 import model.user.Customer;
@@ -20,14 +21,17 @@ public class MenoFree {
     }
 
     String[] string = new String[3];
-    Customer customer = new Customer(" for example", "customer", string[0], string[1], string[2]);
-
+    Customer customer = new Customer("free", "customer", "free", "free","free");
+    void setCustomer(){
+        LoginController.getInstance().getAllCostumers().add(customer);
+    }
 
     Scanner sc = new Scanner(System.in);
     int scanner = 0;
     String scanNer;
 
     public void menoFree() {
+        setCustomer();
         System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-Add to cart 7-exit");
         scanner = sc.nextInt();
         while (scanner != 7) {
@@ -42,21 +46,20 @@ public class MenoFree {
                 System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-Add to cart 7-exit");
                 sc.nextInt();
             } else if (scanner == 3) {
-                ArticleShow.getInstance().showAllFree();
+                ArticleShow.getInstance().paging();
                 System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-exit");
                 scanner = sc.nextInt();
             } else if (scanner == 4) {
-                ArticleShow.getInstance().showAllFree();
+                ArticleShow.getInstance().filterUser();
                 System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-exit");
                 scanner = sc.nextInt();
             } else if (scanner == 5) {
-                System.out.print("id?");
-                scanNer = sc.next();
-                UserController.getInstance().search(scanNer);
-                System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-exit");
+               ArticleShow.getInstance().search();
+                System.out.print("|1-Register 2-comment |3- View products  4-filter 5-searching 6-add to cart 7-exit");
                 scanner = sc.nextInt();
             }
             else if(scanner==6){
+                UserMeno.getInstance().setFree(true);
                 System.out.println("numberOfProducts");
                 String[] products = new String[sc.nextInt() * 2];
                 for (int i = 0; i <= products.length; i++) {
@@ -69,8 +72,8 @@ public class MenoFree {
                 UserController.getInstance().addCart(customer, products, products.length);
             }
         }
-        if(scanner==7) {
+        scanner=0;
+        System.out.print("menoFree");
             First.getInstance().firstMeno();
-        }
     }
 }

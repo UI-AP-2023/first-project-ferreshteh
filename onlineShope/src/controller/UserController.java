@@ -41,42 +41,50 @@ public class UserController {
             }
         }
         Factor factor = new Factor("123", "123", 120);
-        for (int j = 0; j < id.length; j = j + 2) {
-            for (int i = 0; i < customer.getCart().size(); i++) {
-                if (customer.getCart().get(i).getId().equals(id[j])) {
-                    article = customer.getCart().get(i);
-                    customer.getCart().remove(article);
-                    if (customer.getCredit() >= Double.parseDouble(article.getPrice()) * (Integer.parseInt(id[j + 1]))) {
-                        if (Integer.parseInt(id[j + 1]) <= article.getExist()) {
-                            customer.lowerCredit(Double.parseDouble(article.getPrice()) * Integer.parseInt(id[j + 1]));
-                            price += Double.parseDouble(article.getPrice()) * Integer.parseInt(id[j + 1]);
-                            idFactor = String.valueOf(article.getNumber()) + idFactor;
-                            factor.setArticles(article);
-                            for (int z = 0; z < SuperAdmin.getInstance().getArticles().size(); z++) {
-                                if (SuperAdmin.getInstance().getArticles().get(z).getId().equals(id[j])) {
-                                    SuperAdmin.getInstance().getArticles().get(z).setExist(Integer.parseInt(id[j + 1]));
+
+            for (int j = 0; j < id.length; j = j + 2) {
+                for (int i = 0; i < customer.getCart().size(); i++) {
+                    if (customer.getCart().get(i).getId().equals(id[j])) {
+                        article = customer.getCart().get(i);
+                        customer.getCart().remove(article);
+                        if (customer.getCredit() >= Double.parseDouble(article.getPrice()) * (Integer.parseInt(id[j + 1]))) {
+                            if (Integer.parseInt(id[j + 1]) <= article.getExist()) {
+                                customer.lowerCredit(Double.parseDouble(article.getPrice()) * Integer.parseInt(id[j + 1]));
+                                article.lowerExist(Integer.parseInt(id[j + 1]));
+                                price += Double.parseDouble(article.getPrice()) * Integer.parseInt(id[j + 1]);
+                                idFactor = String.valueOf(article.getNumber()) + idFactor;
+                                factor.setArticles(article);
+                                for (int z = 0; z < SuperAdmin.getInstance().getArticles().size(); z++) {
+                                    if (SuperAdmin.getInstance().getArticles().get(z).getId().equals(id[j])) {
+                                       article=SuperAdmin.getInstance().getArticles().get(z);
+                                       article.lowerExist(Integer.parseInt(id[j+1]));//
+                                        SuperAdmin.getInstance().getArticles().get(z).lowerExist(Integer.parseInt(id[j + 1]));
+                                    }
                                 }
+                                customer.getFactors().add(factor);
+
+                                factor.setIdFactor(idFactor);
+                                factor.setCash(price);
+                                factor.setHistory(history);
+                                LoginController.getInstance().getAllCostumers().add(customer);
+                                factor.setStrings(id);
+                            } else {
+                                Messages.getInstance().print();
                             }
-                            customer.getFactors().add(factor);
 
-                            factor.setIdFactor(idFactor);
-                            factor.setCash(price);
-                            factor.setHistory(history);
-                            LoginController.getInstance().getAllCostumers().add(customer);
-                            factor.setStrings(id);
+                        } else {
+                            Messages.getInstance().print();
                         }
-
                     }
-
                 }
             }
         }
-    }
 
     public String factors(Customer customer) {
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < customer.getFactors().size(); i++) {
             str.append(customer.getFactors().get(i).order());
+            str.append(" ");
         }
         return String.valueOf(str);
     }
@@ -90,11 +98,9 @@ public class UserController {
     }
 
     public void upperCredit(Customer customer, double credit, String password) {
-        if (customer.getPassWord().equals(password)) {
             customer.setDefaultCredit(credit);
             customer.setCreditRequest(true);
             Messages.getInstance().printWait();
-        }
     }
 
     public void checkRegexCredit(Customer customer, String[] string, double credit) {
@@ -113,7 +119,11 @@ public class UserController {
         Matcher matcher32 = pattern2.matcher(string[2]);
         Matcher matcher33 = pattern3.matcher(string[2]);
         if (Stream.of(matcher1, matcher31, matcher32, matcher33, matcher2).allMatch(Matcher::find)) {
+            Messages.getInstance().printWait();
             upperCredit(customer, credit, string[2]);
+        }
+        else {
+            Messages.getInstance().printError();
         }
     }
 
@@ -313,8 +323,12 @@ public void unFiltering(){
                         customer.setCart(article);
                         customer.setOrder(id, numberOfOrder);
                     }
+                    else {
+                        Messages.getInstance().print();
+                    }
                 }
             }
         }
+
     }
 }

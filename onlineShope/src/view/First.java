@@ -65,7 +65,9 @@ Bicycle bicycle=new Bicycle("1","1","1",1,2,"Vehicle","1","1");
             scanNer = sc.next();
            // LoginController.getInstance().equalingCustomer(customer,LoginController.getInstance().setUserInfoEnter(scanNer));
             customer=LoginController.getInstance().setUserInfoEnter(scanNer);
-            UserMeno.getInstance().menoUser();
+            UserMeno.getInstance().customer=customer;
+         //   UserMeno.getInstance().scanner=0;
+           UserMeno.getInstance().menoUser();
 
         } else if (scanner == 2) {
             System.out.println("email\n telephoneNumber \npassword");

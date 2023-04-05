@@ -28,8 +28,8 @@ String bicType;
     @Override
     public String toString() {
         return "Bicycle{" +
-                "bicType=" + bicType + "name :"+name+"id :"+getId()+"price :"+price+"Avarege :"+getAverage()+"type :"+getType()+"comment :"+getComments()+
-              "nameCompany"+getNameCompany()+  '}';
+                "bicType=" + bicType+" " + "name="+name+" "+"exist="+super.getExist()+" "+ "id="+getId()+" "+"price="+price+" "+"Avarege="+getAverage()+" "+"type="+getType()+" "+"comment="+getComments()+
+                " " +"nameCompany="+getNameCompany()+  '}';
     }
 
     @Override

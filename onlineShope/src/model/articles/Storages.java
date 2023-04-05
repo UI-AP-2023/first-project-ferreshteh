@@ -118,5 +118,7 @@ abstract public class Storages extends Digital {
         return super.getAverage();
     }
 
-
+    public double getCapacity() {
+        return capacity;
+    }
 }

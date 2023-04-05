@@ -18,9 +18,9 @@ public class Meal extends Article{
     @Override
     public String toString() {
         return "Meal{" +
-                "production='" + production + '\'' +
-                ", expiration='" + expiration + '\'' +", id='"+super.getId()+'\'' +",exist= "+exist +"price: "+super.getPrice()+" name:"+super.getName()+
-                '}';
+                "production='" + production + ' ' +
+                "expiration='" + expiration + ' ' +", id='"+super.getId()+' ' +",exist= "+exist +" "+ "price="+price+" "+ "name="+name+
+             " "+"type"+type+" "+"comment"+" "+"average="+getAverage()+   '}';
     }
 
     @Override

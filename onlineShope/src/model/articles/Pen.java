@@ -15,7 +15,7 @@ public class Pen extends Stationary {
     @Override
     public String toString() {
         return "Pen{" +
-                "color='" + color + '\'' +
+                "color='" + color + '\'' +"country"+getCountry()+" "+"exist="+exist+" "+
                 "name :"+name+"id :"+getId()+"price :"+price+"Avarege :"+getAverage()+"type :"+getType()+"comment :"+getComments()+"country :"+getCountry()+
                 '}';
     }

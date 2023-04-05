@@ -41,18 +41,15 @@ public class SuperMeno {
     }
 
     public void adminMeno() {
+        System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
+        System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
+        scanner = sc.nextInt();
         while (scanner != 7) {
-            System.out.println("if you want help >>enter help or enter your order");
-            scanNer = sc.next();
-            if (scanNer.equals("help")) {
-                System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
-                System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
-                scanner = sc.nextInt();
                 if (scanner == 1) {
                     for (int i = 0; i < SuperAdmin.getInstance().getRequest().size(); i++) {
                         System.out.println(SuperAdmin.getInstance().getRequests().get(i).toString());
                     }
-                    System.out.println("write: accept  user id");
+                    System.out.println("write: accept  user info");
                     sc.nextLine();
                     customer = SuperCon.getInstance().requestUser(sc.nextLine());
                     UserMeno.getInstance().setCustomer(customer);
@@ -69,6 +66,11 @@ public class SuperMeno {
                     System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                     scanner = sc.nextInt();
                 } else if (scanner == 6) {
+                    for(int i=0;i<LoginController.getInstance().getAllCostumers().size();i++){
+                        if(LoginController.getInstance().getAllCostumers().get(i).getCreditRequest()){
+                            System.out.println(LoginController.getInstance().getAllCostumers().get(i).toString());
+                        }
+                    }
                     System.out.println(" write: write accept credit idUser ");
                     sc.nextLine();
                     SuperCon.getInstance().requestsManagement(sc.nextLine());
@@ -100,9 +102,11 @@ public class SuperMeno {
                     System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                     scanner = sc.nextInt();
                 }
-            }
+
         }
         if (scanner==7){
+            scanner=0;
+            System.out.println("adminMeno");
         First.getInstance().firstMeno();}
 
 

@@ -18,10 +18,7 @@ public class Pencil extends Stationary {
         return super.getCountry();
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
+
 
     @Override
     public void setCountry(String country) {
@@ -115,7 +112,13 @@ typePencil=type;
       }
     }
 
-
+    @Override
+    public String toString() {
+        return "Pencil{" +
+                "typePencil='" + typePencil + '\'' +"country"+getCountry()+" "+"exist="+exist+" "+
+                "name :"+name+"id :"+getId()+"price :"+price+"Avarege :"+getAverage()+"type :"+getType()+"comment :"+getComments()+
+                '}';
+    }
 
     private enum Type {
         HB, B, F, H, H2

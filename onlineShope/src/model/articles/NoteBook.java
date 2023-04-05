@@ -102,4 +102,13 @@ public class NoteBook extends Stationary {
     public int getNumPaper() {
         return numPaper;
     }
+
+    @Override
+    public String toString() {
+        return "NoteBook{" +
+                "numPaper=" + numPaper +
+                ", typePaper='" + typePaper  +' ' +", id='"+super.getId()+' ' +",exist= "+exist +" "+ "price="+price+" "+ "name="+name+
+                " "+"type"+type+" "+"comment"+super.getComments()+" "+"average="+getAverage()+" "+"country="+super.getCountry()+
+                '}';
+    }
 }

@@ -28,4 +28,7 @@ public class Messages {
     public String printId(String str){
         return str;
     }
+    public void print(){
+        System.out.print("notExist");
+    }
 }

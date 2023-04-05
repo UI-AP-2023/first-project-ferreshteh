@@ -14,7 +14,12 @@ public class Machine extends Vehicles {
     public String toString() {
         return "Machine{" +
                 "capacityMotor=" + capacityMotor +
-                ", automatic=" + automatic +super.toString()+
+                ", automatic=" + automatic +" "+"id='" + super.getId() + " " +
+                "average=" +super.getAverage() +" "+
+                "name=" + name + " " +
+                "price=" + price + " " +
+                "exist=" + exist +" "+
+                "comments=" + super.getComments() +" "+"type="+type+" "+"company="+super.getNameCompany()+
                 '}';
     }
 

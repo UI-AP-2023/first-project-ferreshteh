@@ -30,6 +30,7 @@ public class ArticleShow {
 public void paging(){
         int first=0;
         int last=1;
+        center=0;
         int size=SuperAdmin.getInstance().getArticles().size();
         if(SuperAdmin.getInstance().getArticles().size()>=5){
         for (int i=0;i<last*5;i++){
@@ -67,50 +68,16 @@ public void paging(){
     System.out.println(SuperAdmin.getInstance().getArticles().get(i).toString());}
         }
 }
-    public void showAllFree(){
-        int j = 0;
-        int plus = 0;
-        while (!Objects.equals(scanNer, "finish")) {
-            for (j = 0; j < 5; j++) {
-                System.out.print(SuperAdmin.getInstance().getArticles().get(j + plus).toString());
-                System.out.print("next\\last\\finish");
-                scanNer = sc.next();
-            }
-            if (Objects.equals(scanNer, "next") && SuperAdmin.getInstance().getArticles().size() > j + 1) {
-                j++;
-                while (SuperAdmin.getInstance().getArticles().size() > j + plus) {
-                    System.out.print(SuperAdmin.getInstance().getArticles().get(j + plus).toString());
-                    plus++;
-                }
+public void search(){
+    System.out.print("id?");
+    scanNer = sc.next();
+    System.out.printf(UserController.getInstance().search(scanNer).toString());
 
-            }
+}
 
-        }
-       MenoFree.getInstance().menoFree();
-    }
-    public void showAllUser(){
-        int j = 0;
-        int plus = 0;
-        while (!Objects.equals(scanNer, "finish")) {
-            for (j = 0; j < 5; j++) {
-                System.out.print(SuperAdmin.getInstance().getArticles().get(j + plus).toString());
-                System.out.print("next\\last\\finish");
-                scanNer = sc.next();
-            }
-            if (Objects.equals(scanNer, "next") && SuperAdmin.getInstance().getArticles().size() > j + 1) {
-                j++;
-                while (SuperAdmin.getInstance().getArticles().size() > j + plus) {
-                    System.out.print(SuperAdmin.getInstance().getArticles().get(j + plus).toString());
-                    plus++;
-                }
 
-            }
-
-        }
-        UserMeno.getInstance().menoUser();
-    }
     public void filterUser(){
-        System.out.print("1-price   |2-typeOfBicycle   |3-exist or not|   4-expiration  5-numberOfNoteBookPapers 6-Type of Articles 7-unFiltering");
+        System.out.println("1-price   |2-typeOfBicycle   |3-exist or not|   4-expiration  5-numberOfNoteBookPapers 6-Type of Articles 7-unFiltering");
         scanner=sc.nextInt();
         if(scanner==1){
             System.out.print("which range of price?");
@@ -141,39 +108,9 @@ public void paging(){
 UserController.getInstance().generalFilter(sc.next());
         }
         else if(scanner==7){
-
+UserController.getInstance().unFiltering();
         }
     }
-    public void filterFree(){
-        System.out.print("1-price   |2-typeOfBicycle   |3-exist or not|   4-expiration  5-numberOfNoteBookPapers");
-        scanner=sc.nextInt();
-        if(scanner==1){
-            System.out.print("which range of price?");
-            scanNer=sc.next();
-            UserController.getInstance().filterPrice(scanNer);
-        }
-        else if(scanner==2){
-            System.out.print("enter type");
-            scanNer=sc.next();
-            UserController.getInstance().filterTypeOfBicycle(scanNer);
-        }
-        else if(scanner==3){
-            System.out.print("tru for exist false for notExist");
-            scanNer=sc.next();
-            UserController.getInstance().filterExist(scanNer);
-        }
-        else if(scanner==4){
-            System.out.print("enter expiration");
-            scanNer=sc.next();
-            UserController.getInstance().filterExpiration(scanNer);
-        }
-        else if(scanner==5){
-            System.out.print("enter umber of book you want");
-            UserController.getInstance().filterNoteNumber(sc.nextInt());
-        }
-        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
 
-        }
-    }
 
 }

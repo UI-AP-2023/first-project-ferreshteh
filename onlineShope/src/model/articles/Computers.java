@@ -141,7 +141,7 @@ public class Computers extends Digital {
                 "price=" + price + " " +
                 "exist=" + exist +" "+
                 "comments=" + super.getComments() +" "+
-                "type=" + type +
+                "type=" + type +" "+"side1="+" "+super.getSide1()+" "+"side2="+" "+super.getSide2()+" "+"weight="+" "+super.getWight()+
                 '}';
     }
 
