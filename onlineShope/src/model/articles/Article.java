@@ -106,6 +106,7 @@ abstract public class Article {
     }
 public void lowerExist(int exist){
         this.exist=this.exist-exist;
+
 }
 public void score( double score){
         average+=score;

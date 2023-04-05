@@ -59,10 +59,13 @@ public class SuperMeno {
                     break;
 
                 } else if (scanner == 5) {
+                    for(int i=0;i<SuperAdmin.getInstance().getComments().size();i++){
+                        System.out.println(SuperAdmin.getInstance().getComments().get(i).toString());
+                    }
                     System.out.println(" write :accept comment [id user] [idArticle] ");
                     sc.nextLine();
                     SuperCon.getInstance().requestsManagement(sc.nextLine());
-                    System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
+                    System.out.println("1-Responding to Registration requests  2-view commentsRequested 3-Product management(add\\delete\\edit) 4-viewProducts ");
                     System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                     scanner = sc.nextInt();
                 } else if (scanner == 6) {
@@ -78,15 +81,15 @@ public class SuperMeno {
                     System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                     scanner = sc.nextInt();
                 } else if (scanner == 2) {
-                    for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
-                        for (int j = 0; j < SuperAdmin.getInstance().getArticles().get(i).getComments().size(); j++) {
-                            System.out.println(SuperAdmin.getInstance().getArticles().get(i).getComments().toString());
+                    for(int i=0;i<SuperAdmin.getInstance().getComments().size();i++){
+                        System.out.println(SuperAdmin.getInstance().getComments().get(i).toString());
+                    }
                             System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
                             System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                             scanner = sc.nextInt();
                         }
-                    }
-                } else if (scanner == 3) {
+
+                else if (scanner == 3) {
                     System.out.println("enter your command");
                     sc.nextLine();
                     scanNer = sc.nextLine();
@@ -102,14 +105,10 @@ public class SuperMeno {
                     System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
                     scanner = sc.nextInt();
                 }
-
-        }
         if (scanner==7){
             scanner=0;
             System.out.println("adminMeno");
-        First.getInstance().firstMeno();}
+        First.getInstance().firstMeno();}}}
 
 
     }
-
-}

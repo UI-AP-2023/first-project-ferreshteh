@@ -64,7 +64,7 @@ public class UserMeno {
                     customer.setOrder(products,products.length);
                 }
                 UserController.getInstance().addCart(customer, products, products.length);
-                System.out.println(customer.getCart());//<<<<<<<<<<<<<<<<<<<<<<<<<<<
+               //System.out.println(customer.getCart());//<<<<<<<<<<<<<<<<<<<<<<<<<<<
                 System.out.println("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
                 System.out.println(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
@@ -76,7 +76,8 @@ public class UserMeno {
                 System.out.println(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
             } else if (scanner == 1) {
-                System.out.print("enter history");
+                System.out.println(UserController.getInstance().StringViewCart(customer));
+                System.out.println("enter history");
                 sc.nextLine();
                 String history = sc.nextLine();
                 UserController.getInstance().shopping(history, customer, customer.getOrder());
@@ -85,10 +86,11 @@ public class UserMeno {
                 scanner = sc.nextInt();
             }
             if (scanner == 6) {
+ArticleShow.getInstance().article();
                 System.out.print("enter your text");
                 sc.nextLine();
                 scanNer = sc.nextLine();
-                Comment comment = new Comment(customer, "waiting", customer.getId(), scanNer);
+                Comment comment = new Comment(customer, "waiting", ArticleShow.getInstance().getIdArticle(),scanNer);
                 SuperAdmin.getInstance().setComments(comment);
                 System.out.println("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
                 System.out.println(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
@@ -105,7 +107,7 @@ public class UserMeno {
                 scanner = sc.nextInt();
             }
             if (scanner == 2) {
-                System.out.print(UserController.getInstance().factors(customer));
+                System.out.println(customer.getFactors().toString());
                 System.out.println("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
                 System.out.println(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
@@ -149,7 +151,7 @@ public class UserMeno {
                 for (int i = 0; i < customer.getFactors().size(); i++) {
                     System.out.println(customer.getFactors().get(i).toString());
                 }
-                System.out.print("enter your command");
+                System.out.println("enter your command");
                 System.out.println("20 to id");
                 sc.nextLine();
                 scanNer = sc.nextLine();

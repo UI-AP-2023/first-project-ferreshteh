@@ -28,7 +28,7 @@ String bicType;
     @Override
     public String toString() {
         return "Bicycle{" +
-                "bicType=" + bicType+" " + "name="+name+" "+"exist="+super.getExist()+" "+ "id="+getId()+" "+"price="+price+" "+"Avarege="+getAverage()+" "+"type="+getType()+" "+"comment="+getComments()+
+                "bicType=" + bicType+" " + "name="+name+" "+"exist="+exist+" "+ "id="+getId()+" "+"price="+price+" "+"Avarege="+getAverage()+" "+"type="+getType()+" "+"comment="+getComments()+
                 " " +"nameCompany="+getNameCompany()+  '}';
     }
 
@@ -106,6 +106,7 @@ String bicType;
     public void setType(String type) {
         super.setType(type);
     }
+
 
 
     public void setBicType(String bicType) {

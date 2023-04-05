@@ -36,6 +36,9 @@ public class Main {
         Customer customer2=new Customer("info2","customer","09132345678","Fereshteh123@gmail.com","Fereshteh10");
         customer2.setId("4Fer567Fereshteh104");
         customer2.setCredit(20000);
+        SuperCon.getInstance().productManagement("add ssd ssd1 23000 5 2 10 20 30 100 20");
+
+
         //
        // Scanner sc =new Scanner(System.in);
        // String[] products = new String[sc.nextInt() * 2];
@@ -58,7 +61,7 @@ public class Main {
         SuperCon.getInstance().productManagement("add pen penName 10 5 blue vcxs");
         SuperCon.getInstance().productManagement("add computer co1 23 4 mkj 500 10 20 30");
         SuperCon.getInstance().productManagement("add meal chips 2000 6 22/10/1381 19/12/1381");
-        SuperCon.getInstance().productManagement("add ssd ssd1 23000 5 2 10 20 30 100 20");
+
         SuperCon.getInstance().productManagement("add flash flash1 4100 7 12 10 23 700 usb1");
         SuperCon.getInstance().productManagement("add noteBook note1 54 4 typePaper 100 iran");
 //        SuperCon.getInstance().productManagement("add noteBook note2 100 7 pelastik 200 eragh");
@@ -74,10 +77,14 @@ public class Main {
 //        SuperAdmin.getInstance().getRequests().add(request);
 
         //-----------------------------------------
-        Bicycle bicycle = new Bicycle("1", "1", "1", 10, 2, "Vehicle", "1", "hybrid");
+        Bicycle bicycle = new Bicycle("1", "1", "1", 10, 5, "Vehicle", "1", "hybrid");
         bicycle.setId("id1");
         SuperAdmin.getInstance().addArticle(bicycle);
-First.getInstance().firstMeno();
+        bicycle.lowerExist(4);
+        System.out.println(bicycle.toString());
+        System.out.println(bicycle.getExist());
+       // SuperCon.getInstance().requestsManagement("accept comment 4Fer567Fereshteh104 id1");
+//First.getInstance().firstMeno();
         //First.getInstance().firstMeno();
         //------------------------------
 //        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){

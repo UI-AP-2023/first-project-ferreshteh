@@ -3,6 +3,7 @@ package model.others;
 import model.articles.Article;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Factor {
 
@@ -62,4 +63,14 @@ public class Factor {
         str.append(strings[i]);}
         return String.valueOf(str);}
 
+    @Override
+    public String toString() {
+        return "Factor{" +
+                "idFactor='" + idFactor + '\'' +
+                ", history='" + history + '\'' +
+                ", cash=" + cash +
+                ", articles=" + articles +
+                ", strings=" + Arrays.toString(strings) +
+                '}';
+    }
 }

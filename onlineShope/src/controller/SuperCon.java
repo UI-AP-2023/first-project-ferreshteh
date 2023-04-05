@@ -207,6 +207,7 @@ public class SuperCon {
 
     public void requestsManagement(String function) {
         Customer customer=null;
+        //accept comment id1 id2
         String[] strings = function.split("\\s+");
         if (strings[0].equalsIgnoreCase("Accept")) {
             if (strings[1].equalsIgnoreCase("comment")) {
@@ -225,6 +226,7 @@ public class SuperCon {
    return customer; }
 
     public void acceptComment(String idAr, String idUser) {
+Article article = null;
         Customer customer = null;
         Comment comment = null;
         for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
@@ -234,18 +236,25 @@ public class SuperCon {
                 break;
             }
         }
-        for (int i = 0; i < SuperAdmin.getInstance().getComments().size(); i++) {
-            if (SuperAdmin.getInstance().getComments().get(i).getIdAr().equals(idAr) && SuperAdmin.getInstance().getComments().get(i).getCustomer().getId().equals(idUser)) {
-                comment = SuperAdmin.getInstance().getComments().get(i);
-            }
-        }
         for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
             if (SuperAdmin.getInstance().getArticles().get(i).getId().equals(idAr)) {
-                SuperAdmin.getInstance().getArticles().get(i).setComments(comment);
-                comment.setStation("Accepted");
-                SuperAdmin.getInstance().getComments().remove(comment);
-                comment.setCustomer(customer);
+                article=SuperAdmin.getInstance().getArticles().get(i);
             }
+        }
+        if(SuperAdmin.getInstance().getComments().size()!=0){
+        for (int i = 0; i < SuperAdmin.getInstance().getComments().size(); i++) {
+            if (SuperAdmin.getInstance().getComments().get(i).getIdAr().equals(idAr) ) {
+                if(SuperAdmin.getInstance().getComments().get(i).getCustomer().getId().equals(idUser)){
+                comment = SuperAdmin.getInstance().getComments().get(i);
+                comment.setStation("accepted");
+                comment.setCustomer(customer);
+                    assert article != null;
+                    article.setComments(comment);
+                    SuperAdmin.getInstance().getComments().remove(comment);
+                //
+            }}
+        }
+
         }
     }
 

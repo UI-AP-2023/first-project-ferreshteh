@@ -1,6 +1,7 @@
 package view;
 
 import controller.UserController;
+import model.articles.Article;
 import model.user.Customer;
 import model.user.SuperAdmin;
 
@@ -8,7 +9,12 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class ArticleShow {
-    String loginName;
+    String idArticle;
+
+    public String getIdArticle() {
+        return idArticle;
+    }
+
     String[] string = new String[3];
     Customer customer = new Customer(" for example", "customer", string[0], string[1], string[2]);
 
@@ -72,9 +78,13 @@ public void search(){
     System.out.print("id?");
     scanNer = sc.next();
     System.out.printf(UserController.getInstance().search(scanNer).toString());
+    idArticle=UserController.getInstance().search(scanNer).getId();
 
 }
-
+public void article(){
+        search();
+        System.out.println();
+}
 
     public void filterUser(){
         System.out.println("1-price   |2-typeOfBicycle   |3-exist or not|   4-expiration  5-numberOfNoteBookPapers 6-Type of Articles 7-unFiltering");
