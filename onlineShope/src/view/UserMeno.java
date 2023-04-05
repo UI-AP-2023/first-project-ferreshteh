@@ -1,8 +1,10 @@
 package view;
 
+import controller.ArtContoroller;
 import controller.LoginController;
 import controller.SuperCon;
 import controller.UserController;
+import controller.ArtContoroller;
 import model.articles.Article;
 import model.others.Comment;
 import model.user.Customer;
@@ -71,7 +73,7 @@ public class UserMeno {
             } else if (scanner == 9) {
                 System.out.print("id?");
                 scanNer = sc.next();
-                Article article = UserController.getInstance().search(scanNer);
+                Article article = ArtContoroller.getInstance().search(scanNer);
                 System.out.println("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
                 System.out.println(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();
@@ -156,10 +158,11 @@ ArticleShow.getInstance().article();
                 sc.nextLine();
                 scanNer = sc.nextLine();
 //20 to id
-                UserController.getInstance().score(customer, scanNer);
+                ArtContoroller.getInstance().score(customer, scanNer);
                 System.out.println("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
                 System.out.println(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit 13-showInfo ");
                 scanner = sc.nextInt();
+
             }
         }
         scanner = 0;

@@ -4,6 +4,7 @@ import controller.UserController;
 import model.articles.Article;
 import model.user.Customer;
 import model.user.SuperAdmin;
+import controller.ArtContoroller;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -77,8 +78,8 @@ public void paging(){
 public void search(){
     System.out.print("id?");
     scanNer = sc.next();
-    System.out.printf(UserController.getInstance().search(scanNer).toString());
-    idArticle=UserController.getInstance().search(scanNer).getId();
+    System.out.printf(ArtContoroller.getInstance().search(scanNer).toString());
+    idArticle=ArtContoroller.getInstance().search(scanNer).getId();
 
 }
 public void article(){
@@ -92,33 +93,33 @@ public void article(){
         if(scanner==1){
             System.out.print("which range of price?");
             scanNer=sc.next();
-            UserController.getInstance().filterPrice(scanNer);
+          ArtContoroller.getInstance().filterPrice(scanNer);
         }
         else if(scanner==2){
             System.out.print("enter type");
             scanNer=sc.next();
-            UserController.getInstance().filterTypeOfBicycle(scanNer);
+            ArtContoroller.getInstance().filterTypeOfBicycle(scanNer);
         }
         else if(scanner==3){
             System.out.print("tru for exist false for notExist");
             scanNer=sc.next();
-            UserController.getInstance().filterExist(scanNer);
+            ArtContoroller.getInstance().filterExist(scanNer);
         }
         else if(scanner==4){
             System.out.print("enter expiration");
             scanNer=sc.next();
-            UserController.getInstance().filterExpiration(scanNer);
+            ArtContoroller.getInstance().filterExpiration(scanNer);
         }
         else if(scanner==5){
             System.out.print("enter umber of book you want");
-            UserController.getInstance().filterNoteNumber(sc.nextInt());
+            ArtContoroller.getInstance().filterNoteNumber(sc.nextInt());
         }
         else if(scanner==6){
             System.out.print("which type?");
-UserController.getInstance().generalFilter(sc.next());
+            ArtContoroller.getInstance().generalFilter(sc.next());
         }
         else if(scanner==7){
-UserController.getInstance().unFiltering();
+            ArtContoroller.getInstance().unFiltering();
         }
     }
 
