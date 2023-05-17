@@ -2,13 +2,14 @@ package model.articles;
 
 import model.others.Comment;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Meal extends Article{
-    private String production;
-    private String expiration;
+    private LocalDate production;
+    private LocalDate expiration;
 
-    public Meal(String id, String name,String type, String price, float average, int exist,String production,String expiration) {
+    public Meal(String id, String name, String type, String price, float average, int exist, LocalDate production, LocalDate expiration) {
         super(id, name,price, average, exist,type);
         this.production=production;
         this.expiration=expiration;
@@ -83,7 +84,19 @@ public class Meal extends Article{
         this.setComments(comments);
     }
 
-    public String getExpiration() {
+    public LocalDate getExpiration() {
         return expiration;
+    }
+
+    public LocalDate getProduction() {
+        return production;
+    }
+
+    public void setProduction(LocalDate production) {
+        this.production = production;
+    }
+
+    public void setExpiration(LocalDate expiration) {
+        this.expiration = expiration;
     }
 }
