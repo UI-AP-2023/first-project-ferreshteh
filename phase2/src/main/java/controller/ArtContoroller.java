@@ -6,6 +6,8 @@ import model.user.Customer;
 import model.user.SuperAdmin;
 import view.Messages;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ArtContoroller {
@@ -93,7 +95,9 @@ public class ArtContoroller {
         ArrayList<Article> newArt = new ArrayList<>();
         for (Article article : SuperAdmin.getInstance().getArticles()) {
             if (article instanceof Meal) {
-                if (((Meal) article).getExpiration().equalsIgnoreCase(ex)) {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
+                LocalDate date = LocalDate.parse(ex, formatter);
+                if (((Meal) article).getExpiration()==date) {
                     newArt.add(article);
                 }
             }

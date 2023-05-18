@@ -7,6 +7,10 @@ import model.user.Request;
 import model.user.SuperAdmin;
 import view.Messages;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
+
 public class SuperCon {
 
     String adminName;
@@ -47,7 +51,10 @@ public class SuperCon {
                 addFlash(strings[2], strings[3], "DIGITAL", Integer.parseInt(strings[4]), Float.parseFloat(strings[5]), Float.parseFloat(strings[6]), Float.parseFloat(strings[7]), Double.parseDouble(strings[8]), strings[9]);
             }
             else if(strings[1].equalsIgnoreCase("meal")){
-                addMeal(strings[2],strings[3],"meal",Integer.parseInt(strings[4]),strings[5],strings[6]);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
+                LocalDate date = LocalDate.parse(strings[5], formatter);
+                LocalDate date2=LocalDate.parse(strings[6], formatter);
+                addMeal(strings[2],strings[3],"meal",Integer.parseInt(strings[4]),date,date2);
                 Messages.getInstance().printId(id);
             }
         } else if (strings[0].equalsIgnoreCase("delete")) {
@@ -127,7 +134,7 @@ public class SuperCon {
         SuperAdmin.getInstance().addArticle(bicycle);
 
     }
-    public void addMeal(String name, String price, String type, int exist,String production,String expiration){
+    public void addMeal(String name, String price, String type, int exist, LocalDate production, LocalDate expiration){
         String id;
         Meal meal=new Meal("123",name,type,"1200",0,exist,production,expiration);
         id = String.valueOf(meal.getNumber());
