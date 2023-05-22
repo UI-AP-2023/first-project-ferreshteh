@@ -26,7 +26,7 @@ public class ArtContoroller {
         return instance;
     }
 
-    ArrayList<Article> articles = new ArrayList<>();
+   // ArrayList<Article> articles = new ArrayList<>();
     public void filterPrice(String function) {
         String[] strings = function.split("-");
         ArrayList<Article> newArt = new ArrayList<>();

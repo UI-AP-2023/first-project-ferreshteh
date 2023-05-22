@@ -283,19 +283,25 @@ public class SuperCon {
         }
     }
 
-    public void add_Off(Customer customer, LocalDate localDate) {
+    public String add_Off(Customer customer) {
+        LocalDate lD=LocalDate.now();
+        lD =  lD.plusDays(5);
         double sum = 0;
         for (int i = 0; i < customer.getCart().size(); i++) {
             sum += Double.parseDouble(customer.getCart().get(i).getPrice());
         }
         if (sum > 500000) {
-            Off off = new Off(20, localDate, 1);
+            Off off = new Off(20, lD, 1);
             customer.getList_Offs().add(off);
+            return off.getId();
         } else if (customer.getFactors().size() == 3) {
-            Off off = new Off(30, localDate, 1);
+            Off off = new Off(30, lD, 1);
             customer.getList_Offs().add(off);
+            return off.getId();
         }
+        return "no chance to have off for you";
     }
+    //------------------------------------------
     public void add_Off_Digi_pen_Pencil(String id){
         Article find;
         for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
@@ -310,4 +316,19 @@ public class SuperCon {
             }
         }
     }
+    //--------------------------------------------
+    public void accept_Off(String id){
+        LocalDate currentTime = LocalDate.now();
+        for(int i=0;i<SuperAdmin.getInstance().getOffs().size();i++){
+            if(SuperAdmin.getInstance().getOffs().get(i).getId().equals(id)){
+                if(SuperAdmin.getInstance().getOffs().get(i).getCapacity()>0){
+                    if(SuperAdmin.getInstance().getOffs().get(i).getExpiration().isAfter(currentTime)||SuperAdmin.getInstance().getOffs().get(i).getExpiration().equals(currentTime))
+                    {
+
+                    }
+                }
+            }
+        }
+    }
+    //-------------------------------------------
 }
