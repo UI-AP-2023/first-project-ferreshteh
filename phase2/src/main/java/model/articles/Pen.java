@@ -1,10 +1,11 @@
 package model.articles;
 
 import model.others.Comment;
+import model.others.Discount_feature;
 
 import java.util.ArrayList;
 
-public class Pen extends Stationary {
+public class Pen extends Stationary  implements Discount_feature {
     private String color;
 
     public Pen(String id, String name, String price, float average, int exist, String type,String color) {
@@ -100,5 +101,15 @@ public class Pen extends Stationary {
         super.setType(type);
     }
 
+    @Override
+    public void add_Off( double percent) {
+        double price=Double.parseDouble(this.getPrice());
+        this.setPrice(String.valueOf(price-(price*percent/100)));
+    }
+    @Override
+    public void delete_Off( double percent) {
+        double price=Double.parseDouble(this.getPrice());
+        this.setPrice(String.valueOf(price-(price*percent/100)));
+    }
 
 }

@@ -1,12 +1,13 @@
 package model.articles;
 
 import model.others.Comment;
+import model.others.Discount_feature;
 import view.Messages;
 
 import java.util.ArrayList;
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-public class Pencil extends Stationary {
+public class Pencil extends Stationary  implements Discount_feature {
     String typePencil;
     public Pencil(String id, String name,String type, String price, float average, int exist, String typePen) {
         super(id, name, price, average, exist, type);
@@ -122,5 +123,15 @@ typePencil=type;
 
     private enum Type {
         HB, B, F, H, H2
+    }
+    @Override
+    public void add_Off( double percent) {
+        double price=Double.parseDouble(this.getPrice());
+        this.setPrice(String.valueOf(price-(price*percent/100)));
+    }
+    @Override
+    public void delete_Off( double percent) {
+        double price=Double.parseDouble(this.getPrice());
+        this.setPrice(String.valueOf(price-(price*percent/100)));
     }
 }

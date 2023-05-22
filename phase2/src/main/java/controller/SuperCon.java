@@ -290,10 +290,24 @@ public class SuperCon {
         }
         if (sum > 500000) {
             Off off = new Off(20, localDate, 1);
+            customer.getList_Offs().add(off);
         } else if (customer.getFactors().size() == 3) {
             Off off = new Off(30, localDate, 1);
-            customer.
+            customer.getList_Offs().add(off);
         }
-
+    }
+    public void add_Off_Digi_pen_Pencil(String id){
+        Article find;
+        for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+            if (SuperAdmin.getInstance().getArticles().get(i).getId().equals(id)) {
+                find=SuperAdmin.getInstance().getArticles().get(i);
+                if(find instanceof Digital)
+                    ((Digital) find).add_Off(12);
+                else if(find instanceof Pencil)
+                    ((Pencil) find).add_Off(40);
+                else if(find instanceof Pen)
+                    ((Pen) find).add_Off(30);
+            }
+        }
     }
 }

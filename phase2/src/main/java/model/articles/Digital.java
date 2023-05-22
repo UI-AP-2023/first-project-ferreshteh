@@ -1,10 +1,11 @@
 package model.articles;
 
 import model.others.Comment;
+import model.others.Discount_feature;
 
 import java.util.ArrayList;
 
-public abstract class Digital extends Article{
+public abstract class Digital extends Article implements Discount_feature {
     private float wight;
     private float side1;
     private float side2;
@@ -119,6 +120,15 @@ public abstract class Digital extends Article{
         return super.getAverage();
     }
 
-
+    @Override
+    public void add_Off( double percent) {
+        double price=Double.parseDouble(this.getPrice());
+        this.setPrice(String.valueOf(price-(price*percent/100)));
+    }
+    @Override
+    public void delete_Off( double percent) {
+        double price=Double.parseDouble(this.getPrice());
+        this.setPrice(String.valueOf(price-(price*percent/100)));
+    }
 }
 
