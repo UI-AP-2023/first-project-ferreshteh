@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8302e6a0-022d-4315-aafc-37d3d246104b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/exception/ID_Off.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/others/Off.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ArtContoroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ArtContoroller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/SuperCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SuperCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Meal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -38,7 +45,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/NA/IdeaProjects/phase2/src/main/java&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/NA/gitHub-phase2/phase2&quot;
   }
 }</component>
   <component name="RecentsManager">

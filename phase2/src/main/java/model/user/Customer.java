@@ -1,6 +1,7 @@
 package model.user;
 import model.articles.Article;
 import model.others.Factor;
+import model.others.Off;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,13 @@ public class Customer extends Account {
     String cvv2;
     int numberOfOrder;
     String[]order=new String[numberOfOrder];
-    public void setOrder(String []order,int numberOfOrder){
+    private ArrayList<Off>list_Offs=new ArrayList<Off>();
+
+    public ArrayList<Off> getList_Offs() {
+        return list_Offs;
+    }
+
+    public void setOrder(String []order, int numberOfOrder){
         this.numberOfOrder=numberOfOrder;
         this.order=order;
     }
@@ -38,6 +45,7 @@ public class Customer extends Account {
     public ArrayList<Article> getCart() {
         return cart;
     }
+
 
     public static int getNumber() {
         return number;

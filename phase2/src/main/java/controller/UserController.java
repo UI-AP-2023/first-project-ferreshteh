@@ -13,8 +13,6 @@ import java.util.stream.Stream;
 
 public class UserController {
     private static UserController instance;
-
-
     private UserController(String info) {
         super();
     }
@@ -22,14 +20,11 @@ public class UserController {
     public static UserController getInstance() {
         if (instance == null) {
             instance = new UserController("admin") {
-
             };
         }
         return instance;
     }
-
     ArrayList<Article> articles = new ArrayList<>();
-
     public void shopping(String history, Customer customer, String[] id) {
         Article article;
         String idFactor = "";
@@ -66,7 +61,6 @@ public class UserController {
                                     }
                                 }}
                                 customer.getFactors().add(factor);
-
                                 factor.setIdFactor(idFactor);
                                 factor.setCash(price);
                                 factor.setHistory(history);
@@ -76,13 +70,10 @@ public class UserController {
                                 Messages.getInstance().print();
                                 //System.out.println("credit");
                             }
-
                         }
                     }
                 }
             }
-
-
     public String factors(Customer customer) {
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < customer.getFactors().size(); i++) {
@@ -91,7 +82,6 @@ public class UserController {
         }
         return String.valueOf(str);
     }
-
     public String StringViewCart(Customer customer) {
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < customer.getCart().size(); i++) {
@@ -99,13 +89,11 @@ public class UserController {
         }
         return String.valueOf(str);
     }
-
     public void upperCredit(Customer customer, double credit, String password) {
             customer.setDefaultCredit(credit);
             customer.setCreditRequest(true);
             Messages.getInstance().printWait();
     }
-
     public void checkRegexCredit(Customer customer, String[] string, double credit) {
         // creditNumber
         // cvv2
@@ -114,7 +102,6 @@ public class UserController {
         Matcher matcher1 = pattern.matcher(string[0]);
         Pattern pattern22 = Pattern.compile("^0\\d{3,}");
         Matcher matcher2 = pattern22.matcher(string[1]);
-
         Pattern pattern1 = Pattern.compile("\\S{8,}$");
         Pattern pattern2 = Pattern.compile("[A-Z]+");
         Pattern pattern3 = Pattern.compile("[a-z]+");
@@ -129,9 +116,6 @@ public class UserController {
             Messages.getInstance().printError();
         }
     }
-
-
-
     public String changeInfo(Customer customer, String function) {
         String id = "";
         String info = "";
@@ -153,7 +137,6 @@ public class UserController {
                 id = customer.getStatic() + info + customer.getStatic();
                 customer.setId(id);
                 Messages.getInstance().printId(id);
-
             }
         } else if (strings[1].equalsIgnoreCase("email")) {
             customer.setEmail(strings[3]);
@@ -185,9 +168,6 @@ public class UserController {
         }
         return id;
     }
-
-
-
     public void addCart(Customer customer, String[] id, int numberOfOrder) {
         Article article;
         for (int j = 0; j <= id.length / 2; j = j + 2) {
@@ -204,6 +184,5 @@ public class UserController {
                 }
             }
         }
-
     }
 }

@@ -2,6 +2,7 @@ package controller;
 
 import model.articles.*;
 import model.others.Comment;
+import model.others.Off;
 import model.user.Customer;
 import model.user.Request;
 import model.user.SuperAdmin;
@@ -14,7 +15,7 @@ import java.util.Formatter;
 public class SuperCon {
 
     String adminName;
-    String id="";
+    String id = "";
     private static SuperCon instance;
 
     private SuperCon(String info) {
@@ -38,9 +39,9 @@ public class SuperCon {
             } else if (strings[1].equalsIgnoreCase("Bicycle")) {
                 addBic(strings[2], strings[3], "vehicle", Integer.parseInt(strings[4]), strings[5], strings[6]);
             } else if (strings[1].equalsIgnoreCase("noteBook")) {
-                addNoteBook(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5], Integer.parseInt(strings[6]),strings[7]);
+                addNoteBook(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5], Integer.parseInt(strings[6]), strings[7]);
             } else if (strings[1].equalsIgnoreCase("pen")) {//ok
-                addPen(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5],strings[6]);
+                addPen(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5], strings[6]);
             } else if (strings[1].equalsIgnoreCase("pencil")) {
                 addPencil(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5]);
             } else if (strings[1].equalsIgnoreCase("computer")) {
@@ -49,12 +50,11 @@ public class SuperCon {
                 addSSD(strings[2], strings[3], "DIGITAL", Integer.parseInt(strings[4]), Float.parseFloat(strings[5]), Float.parseFloat(strings[6]), Float.parseFloat(strings[7]), Double.parseDouble(strings[8]), Double.parseDouble(strings[9]), Double.parseDouble(strings[10]));
             } else if (strings[1].equalsIgnoreCase("flash")) {
                 addFlash(strings[2], strings[3], "DIGITAL", Integer.parseInt(strings[4]), Float.parseFloat(strings[5]), Float.parseFloat(strings[6]), Float.parseFloat(strings[7]), Double.parseDouble(strings[8]), strings[9]);
-            }
-            else if(strings[1].equalsIgnoreCase("meal")){
+            } else if (strings[1].equalsIgnoreCase("meal")) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
                 LocalDate date = LocalDate.parse(strings[5], formatter);
-                LocalDate date2=LocalDate.parse(strings[6], formatter);
-                addMeal(strings[2],strings[3],"meal",Integer.parseInt(strings[4]),date,date2);
+                LocalDate date2 = LocalDate.parse(strings[6], formatter);
+                addMeal(strings[2], strings[3], "meal", Integer.parseInt(strings[4]), date, date2);
                 Messages.getInstance().printId(id);
             }
         } else if (strings[0].equalsIgnoreCase("delete")) {
@@ -77,8 +77,8 @@ public class SuperCon {
         id = String.valueOf(machine.getNumber());
         id = id + name + price;
         machine.setId(id);
-        this.id=id;
-       SuperAdmin.getInstance().addArticle(machine);
+        this.id = id;
+        SuperAdmin.getInstance().addArticle(machine);
 
 
     }
@@ -130,90 +130,81 @@ public class SuperCon {
         id = String.valueOf(bicycle.getNumber());
         id = id + name + price;
         bicycle.setId(id);
-        this.id=id;
+        this.id = id;
         SuperAdmin.getInstance().addArticle(bicycle);
 
     }
-    public void addMeal(String name, String price, String type, int exist, LocalDate production, LocalDate expiration){
+
+    public void addMeal(String name, String price, String type, int exist, LocalDate production, LocalDate expiration) {
         String id;
-        Meal meal=new Meal("123",name,type,"1200",0,exist,production,expiration);
+        Meal meal = new Meal("123", name, type, "1200", 0, exist, production, expiration);
         id = String.valueOf(meal.getNumber());
         id = id + name + price;
         meal.setId(id);
-        this.id=id;
+        this.id = id;
         SuperAdmin.getInstance().addArticle(meal);
     }
-
-    public void addNoteBook(String name, String price, String type, int exist, String typePaper, int numberPaper,String country) {
+    public void addNoteBook(String name, String price, String type, int exist, String typePaper, int numberPaper, String country) {
         String id;
         NoteBook noteBook = new NoteBook("123", name, price, 0, exist, type, numberPaper, typePaper);
         noteBook.setCountry(country);
         id = String.valueOf(noteBook.getNumber());
         id = id + name + price;
         noteBook.setId(id);
-        this.id=id;
+        this.id = id;
         SuperAdmin.getInstance().addArticle(noteBook);
-
     }
 
-    public void addPen(String name, String price, String type, int exist, String color,String country) {
+    public void addPen(String name, String price, String type, int exist, String color, String country) {
         String id;
         Pen pen = new Pen("123", name, price, 0, exist, type, color);
         pen.setCountry(country);
         id = String.valueOf(pen.getNumber());
         id = id + name + price;
         pen.setId(id);
-        this.id=id;
+        this.id = id;
         SuperAdmin.getInstance().addArticle(pen);
-
     }
     //        SuperCon.getInstance().productManagement("add pencil pen1 450 6 hb");
     //addPencil(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5]);
-
     public void addPencil(String name, String price, String type, int exist, String typePen) {
         String id;
         Pencil pencil = new Pencil("123", name, type, price, 0, exist, typePen);
         id = String.valueOf(pencil.getNumber());
         id = id + name + price;
         pencil.setId(id);
-        this.id=id;
+        this.id = id;
         SuperAdmin.getInstance().addArticle(pencil);
     }
-
     public void addComputer(String name, String price, String type, int exist, String modelCpu, float weight, float side1, float side2, double capacity) {
         String id;
         Computers computers = new Computers("123", name, price, 0, exist, type, weight, side1, side2, modelCpu, capacity);
         id = String.valueOf(computers.getNumber());
         id = id + name + price;
         computers.setId(id);
-        this.id=id;
+        this.id = id;
         SuperAdmin.getInstance().addArticle(computers);
-
     }
-
     public void addSSD(String name, String price, String type, int exist, float weight, float side1, float side2, double capacity, double speedWriting, double speedLoading) {
         String id;
         SSD ssd = new SSD("123", name, price, 0, exist, type, weight, side1, side2, capacity, speedLoading, speedWriting);
         id = String.valueOf(ssd.getNumber());
         id = id + name + price;
         ssd.setId(id);
-        this.id=id;
+        this.id = id;
         SuperAdmin.getInstance().addArticle(ssd);
-
     }
-
     public void addFlash(String name, String price, String type, int exist, float weight, float side1, float side2, double capacity, String usbType) {
         String id;
         FlashMemory flashMemory = new FlashMemory("123", name, price, 0, exist, type, weight, side1, side2, capacity, usbType);
         id = String.valueOf(flashMemory.getNumber());
         id = id + name + price;
         flashMemory.setId(id);
-        this.id=id;
+        this.id = id;
         SuperAdmin.getInstance().addArticle(flashMemory);
     }
-
     public void requestsManagement(String function) {
-        Customer customer=null;
+        Customer customer = null;
         //accept comment id1 id2
         String[] strings = function.split("\\s+");
         if (strings[0].equalsIgnoreCase("Accept")) {
@@ -224,67 +215,63 @@ public class SuperCon {
             }
         }
     }
-    public Customer requestUser(String function){
-        Customer customer=null;
+    public Customer requestUser(String function) {
+        Customer customer = null;
         String[] strings = function.split("\\s+");
-         if (strings[1].equalsIgnoreCase("user")) {//ok
-            customer= acceptUser(strings[2]);
+        if (strings[1].equalsIgnoreCase("user")) {//ok
+            customer = acceptUser(strings[2]);
         }
-   return customer; }
-
+        return customer;
+    }
     public void acceptComment(String idAr, String idUser) {
-Article article = null;
+        Article article = null;
         Customer customer = null;
         Comment comment = null;
         for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
             if (LoginController.getInstance().getAllCostumers().get(i).getId().equals(idUser)) {
                 customer = LoginController.getInstance().getAllCostumers().get(i);
-
                 break;
             }
         }
         for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
             if (SuperAdmin.getInstance().getArticles().get(i).getId().equals(idAr)) {
-                article=SuperAdmin.getInstance().getArticles().get(i);
+                article = SuperAdmin.getInstance().getArticles().get(i);
             }
         }
-        if(SuperAdmin.getInstance().getComments().size()!=0){
-        for (int i = 0; i < SuperAdmin.getInstance().getComments().size(); i++) {
-            if (SuperAdmin.getInstance().getComments().get(i).getIdAr().equals(idAr) ) {
-                if(SuperAdmin.getInstance().getComments().get(i).getCustomer().getId().equals(idUser)){
-                comment = SuperAdmin.getInstance().getComments().get(i);
-                comment.setStation("accepted");
-                comment.setCustomer(customer);
-                    assert article != null;
-                    article.setComments(comment);
-                    SuperAdmin.getInstance().getComments().remove(comment);
-                //
-            }}
-        }
-
+        if (SuperAdmin.getInstance().getComments().size() != 0) {
+            for (int i = 0; i < SuperAdmin.getInstance().getComments().size(); i++) {
+                if (SuperAdmin.getInstance().getComments().get(i).getIdAr().equals(idAr)) {
+                    if (SuperAdmin.getInstance().getComments().get(i).getCustomer().getId().equals(idUser)) {
+                        comment = SuperAdmin.getInstance().getComments().get(i);
+                        comment.setStation("accepted");
+                        comment.setCustomer(customer);
+                        assert article != null;
+                        article.setComments(comment);
+                        SuperAdmin.getInstance().getComments().remove(comment);
+                        //
+                    }
+                }
+            }
         }
     }
-
     public Customer acceptUser(String info) {//ok
-        Customer customer=null;
+        Customer customer = null;
         Request request;
         for (int i = 0; i < SuperAdmin.getInstance().getRequests().size(); i++) {
-request=SuperAdmin.getInstance().getRequest().get(i);
-        if( request.getInfo().equals(info)) {
-
+            request = SuperAdmin.getInstance().getRequest().get(i);
+            if (request.getInfo().equals(info)) {
                 //LoginController.getInstance().getAllCostumers().add(SuperAdmin.getInstance().getRequests().get(i));
                 SuperAdmin.getInstance().getRequests().remove(SuperAdmin.getInstance().getRequests().get(i));
-              customer=  LoginController.getInstance().createId(info);
-              customer.setEmail(request.getEmail());
-              customer.setPhone(request.getPhone());
-              customer.setInfo(request.getInfo());
-              customer.setPassWord(request.getPassWord());
+                customer = LoginController.getInstance().createId(info);
+                customer.setEmail(request.getEmail());
+                customer.setPhone(request.getPhone());
+                customer.setInfo(request.getInfo());
+                customer.setPassWord(request.getPassWord());
                 break;
             }
         }
         return customer;
     }
-
     public void acceptCredit(String idUser) {
         for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
             if (LoginController.getInstance().getAllCostumers().get(i).getId().equals(idUser)) {
@@ -296,6 +283,17 @@ request=SuperAdmin.getInstance().getRequest().get(i);
         }
     }
 
+    public void add_Off(Customer customer, LocalDate localDate) {
+        double sum = 0;
+        for (int i = 0; i < customer.getCart().size(); i++) {
+            sum += Double.parseDouble(customer.getCart().get(i).getPrice());
+        }
+        if (sum > 500000) {
+            Off off = new Off(20, localDate, 1);
+        } else if (customer.getFactors().size() == 3) {
+            Off off = new Off(30, localDate, 1);
+            customer.
+        }
 
-
+    }
 }
