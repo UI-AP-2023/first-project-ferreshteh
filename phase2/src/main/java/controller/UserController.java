@@ -109,9 +109,9 @@ public class UserController {
         // creditNumber
         // cvv2
         // password
-        Pattern pattern = Pattern.compile("^6037\\d{4}$");
+        Pattern pattern = Pattern.compile("\\d{10,}$");
         Matcher matcher1 = pattern.matcher(string[0]);
-        Pattern pattern22 = Pattern.compile("^0\\d{3,}");
+        Pattern pattern22 = Pattern.compile("^\\d{4}");
         Matcher matcher2 = pattern22.matcher(string[1]);
         Pattern pattern1 = Pattern.compile("\\S{8,}$");
         Pattern pattern2 = Pattern.compile("[A-Z]+");
@@ -124,7 +124,7 @@ public class UserController {
             upperCredit(customer, credit, string[2]);
         }
         else {
-            Messages.getInstance().printError();
+
         }
     }
     public String changeInfo(Customer customer, String function) {

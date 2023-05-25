@@ -57,6 +57,11 @@
                </image>
             </ImageView>
             <Button fx:id="btn1" alignment="CENTER" layoutX="604.0" layoutY="141.0" mnemonicParsing="false" style="-fx-background-color: #cd5c5c; -fx-border-color: #808080;" stylesheets="@style1.css" text="Button" />
+            <ImageView fx:id="home_image" fitHeight="58.0" fitWidth="75.0" layoutX="662.0" layoutY="374.0" onMouseClicked="#showRegisterPage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1684945792025.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="53.0" prefWidth="850.0" style="-fx-background-color: #A9A9A9;" AnchorPane.bottomAnchor="479.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -83,14 +88,9 @@
                <children>
                   <AnchorPane prefHeight="497.0" prefWidth="70.0" style="-fx-background-color: #A9A9A9;">
                      <children>
-                        <ImageView fx:id="credit_image" fitHeight="58.0" fitWidth="75.0" layoutX="9.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="credit_image" fitHeight="58.0" fitWidth="75.0" layoutX="6.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@1684945791932.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="home_image" fitHeight="58.0" fitWidth="75.0" layoutX="4.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@1684945792025.png" />
                            </image>
                         </ImageView>
                         <ImageView fx:id="user_image" fitHeight="58.0" fitWidth="75.0" layoutX="4.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
@@ -117,6 +117,11 @@
                            <image>
                               <Image url="@1684963494042.png" />
                            </image></ImageView>
+                        <ImageView fitHeight="58.0" fitWidth="75.0" layoutX="10.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1685026948168.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                </children>
@@ -128,7 +133,7 @@
             <VBox layoutY="14.0" prefHeight="454.0" prefWidth="177.0" spacing="45.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-13.0" AnchorPane.topAnchor="14.0">
                <children>
                   <JFXButton fx:id="credit_btn" layoutX="10.0" layoutY="10.0" prefHeight="32.0" prefWidth="168.0" />
-                  <JFXButton fx:id="home_btn" prefHeight="53.0" prefWidth="164.0" />
+                  <JFXButton fx:id="home_btn" prefHeight="32.0" prefWidth="164.0" />
                   <JFXButton fx:id="user_btn" layoutX="10.0" layoutY="42.0" onMouseClicked="#last_page" onMousePressed="#showIformation" prefHeight="32.0" prefWidth="168.0" style="-fx-background-color: #cd5c5c;" text="Informations" />
                   <JFXButton fx:id="cart_btn" layoutX="10.0" layoutY="115.0" prefHeight="32.0" prefWidth="168.0" text="Button" />
                   <JFXButton prefHeight="32.0" prefWidth="175.0" />

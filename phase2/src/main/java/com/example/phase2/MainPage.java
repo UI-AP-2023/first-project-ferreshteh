@@ -116,11 +116,6 @@ public class MainPage extends Application {
         transition.setByX(-600);
         transition.play();
         //----------------------
-//        meno_btn.setOnMouseClicked(event -> {
-//            meno_pane.setVisible(true);
-//
-//        });
-
         //----------------------
         stage.show();
         //-----------------------------
@@ -160,5 +155,13 @@ public class MainPage extends Application {
     @FXML
     void showIformation(MouseEvent event) throws Exception {
         new User_Information().start((Stage) user_btn.getScene().getWindow());
+    }
+    @FXML
+    void showRegisterPage(MouseEvent event) throws Exception {
+        new User_Information().start((Stage) home_btn.getScene().getWindow());
+    }
+    @FXML
+    void addCredit(MouseEvent event) throws Exception {
+        new User_Information().start((Stage) credit_btn.getScene().getWindow());
     }
 }
