@@ -128,7 +128,7 @@ ArticleShow.getInstance().article();
                 System.out.println("password");
                 strings[2] = sc.next();
                 System.out.print("how mich money?");
-                UserController.getInstance().checkRegexCredit(customer, strings, sc.nextDouble());
+                //UserController.getInstance().checkRegexCredit(customer, strings, sc.nextDouble());
                 System.out.print("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
                 System.out.print(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");
                 scanner = sc.nextInt();

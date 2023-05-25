@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import model.user.Customer;
 import view.Messages;
 
+import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -61,34 +62,42 @@ public class CreditPage extends Application {
     String[] string;
     Customer customer;
     double credit;
+    Stage stage;
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("creditPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 603, 562);
         stage.setTitle("90'VISION!");
         stage.setScene(scene);
+        this.stage=stage;
     }
+
     @FXML
-    public void check(MouseEvent event){
-        Pattern pattern = Pattern.compile("^6037\\d{4}$");
-        Matcher matcher1 = pattern.matcher(string[0]);
-        Pattern pattern22 = Pattern.compile("^0\\d{3,}");
-        Matcher matcher2 = pattern22.matcher(string[1]);
-        Pattern pattern1 = Pattern.compile("\\S{8,}$");
-        Pattern pattern2 = Pattern.compile("[A-Z]+");
-        Pattern pattern3 = Pattern.compile("[a-z]+");
-        Matcher matcher31 = pattern1.matcher(string[2]);
-        Matcher matcher32 = pattern2.matcher(string[2]);
-        Matcher matcher33 = pattern3.matcher(string[2]);
-        if (Stream.of(matcher1, matcher31, matcher32, matcher33, matcher2).allMatch(Matcher::find)) {
-            Messages.getInstance().printWait();
-           UserController.getInstance(). upperCredit(customer, credit, string[2]);
-        }
-        else {
-            Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("unsuccessful");
-            alert.setContentText("check again");
+    public void check(MouseEvent event) {
+        if (UserController.getInstance().checkRegexCredit(customer, string, credit)) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText(String.valueOf(customer.getCredit()));
+            alert.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("try again");
             alert.show();
         }
+    }
+
+    @FXML
+    public void getAmount(MouseEvent event) throws Exception {
+        try {
+            credit = Double.parseDouble(amount_textField1.getText());
+        }
+        catch (InputMismatchException exception){
+            new CreditPage().start((stage));
+        }
+        finally {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.show();
+        }
+
     }
 }

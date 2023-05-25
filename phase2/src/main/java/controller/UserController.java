@@ -105,7 +105,7 @@ public class UserController {
             customer.setCreditRequest(true);
             Messages.getInstance().printWait();
     }
-    public void checkRegexCredit(Customer customer, String[] string, double credit) {
+    public boolean checkRegexCredit(Customer customer, String[] string, double credit) {
         // creditNumber
         // cvv2
         // password
@@ -122,10 +122,9 @@ public class UserController {
         if (Stream.of(matcher1, matcher31, matcher32, matcher33, matcher2).allMatch(Matcher::find)) {
             Messages.getInstance().printWait();
             upperCredit(customer, credit, string[2]);
+            return true;
         }
-        else {
-
-        }
+       return false;
     }
     public String changeInfo(Customer customer, String function) {
         String id = "";
