@@ -2,6 +2,7 @@ package controller;
 
 import model.articles.Article;
 import model.others.Factor;
+import model.others.Off;
 import model.user.Customer;
 import model.user.SuperAdmin;
 import view.Messages;
@@ -25,6 +26,16 @@ public class UserController {
         return instance;
     }
     ArrayList<Article> articles = new ArrayList<>();
+    private  boolean off=false;
+
+    public boolean isOff() {
+        return off;
+    }
+
+    public void setOff(boolean off) {
+        this.off = off;
+    }
+
     public void shopping(String history, Customer customer, String[] id) {
         Article article;
         String idFactor = "";

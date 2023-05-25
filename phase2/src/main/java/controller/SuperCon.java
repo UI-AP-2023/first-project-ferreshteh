@@ -1,5 +1,6 @@
 package controller;
 
+import exception.ID_Off;
 import model.articles.*;
 import model.others.Comment;
 import model.others.Off;
@@ -144,6 +145,7 @@ public class SuperCon {
         this.id = id;
         SuperAdmin.getInstance().addArticle(meal);
     }
+
     public void addNoteBook(String name, String price, String type, int exist, String typePaper, int numberPaper, String country) {
         String id;
         NoteBook noteBook = new NoteBook("123", name, price, 0, exist, type, numberPaper, typePaper);
@@ -165,6 +167,7 @@ public class SuperCon {
         this.id = id;
         SuperAdmin.getInstance().addArticle(pen);
     }
+
     //        SuperCon.getInstance().productManagement("add pencil pen1 450 6 hb");
     //addPencil(strings[2], strings[3], "stationary", Integer.parseInt(strings[4]), strings[5]);
     public void addPencil(String name, String price, String type, int exist, String typePen) {
@@ -176,6 +179,7 @@ public class SuperCon {
         this.id = id;
         SuperAdmin.getInstance().addArticle(pencil);
     }
+
     public void addComputer(String name, String price, String type, int exist, String modelCpu, float weight, float side1, float side2, double capacity) {
         String id;
         Computers computers = new Computers("123", name, price, 0, exist, type, weight, side1, side2, modelCpu, capacity);
@@ -185,6 +189,7 @@ public class SuperCon {
         this.id = id;
         SuperAdmin.getInstance().addArticle(computers);
     }
+
     public void addSSD(String name, String price, String type, int exist, float weight, float side1, float side2, double capacity, double speedWriting, double speedLoading) {
         String id;
         SSD ssd = new SSD("123", name, price, 0, exist, type, weight, side1, side2, capacity, speedLoading, speedWriting);
@@ -194,6 +199,7 @@ public class SuperCon {
         this.id = id;
         SuperAdmin.getInstance().addArticle(ssd);
     }
+
     public void addFlash(String name, String price, String type, int exist, float weight, float side1, float side2, double capacity, String usbType) {
         String id;
         FlashMemory flashMemory = new FlashMemory("123", name, price, 0, exist, type, weight, side1, side2, capacity, usbType);
@@ -203,6 +209,7 @@ public class SuperCon {
         this.id = id;
         SuperAdmin.getInstance().addArticle(flashMemory);
     }
+
     public void requestsManagement(String function) {
         Customer customer = null;
         //accept comment id1 id2
@@ -215,6 +222,7 @@ public class SuperCon {
             }
         }
     }
+
     public Customer requestUser(String function) {
         Customer customer = null;
         String[] strings = function.split("\\s+");
@@ -223,6 +231,7 @@ public class SuperCon {
         }
         return customer;
     }
+
     public void acceptComment(String idAr, String idUser) {
         Article article = null;
         Customer customer = null;
@@ -254,6 +263,7 @@ public class SuperCon {
             }
         }
     }
+
     public Customer acceptUser(String info) {//ok
         Customer customer = null;
         Request request;
@@ -272,6 +282,7 @@ public class SuperCon {
         }
         return customer;
     }
+
     public void acceptCredit(String idUser) {
         for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
             if (LoginController.getInstance().getAllCostumers().get(i).getId().equals(idUser)) {
@@ -284,8 +295,9 @@ public class SuperCon {
     }
 
     public String add_Off(Customer customer) {
-        LocalDate lD=LocalDate.now();
-        lD =  lD.plusDays(5);
+        LocalDate lD = LocalDate.now();
+        double price=0;
+        lD = lD.plusDays(5);
         double sum = 0;
         for (int i = 0; i < customer.getCart().size(); i++) {
             sum += Double.parseDouble(customer.getCart().get(i).getPrice());
@@ -293,42 +305,70 @@ public class SuperCon {
         if (sum > 500000) {
             Off off = new Off(20, lD, 1);
             customer.getList_Offs().add(off);
+            for(int i=0;i<customer.getCart().size();i++){
+                price=Double.parseDouble(customer.getCart().get(i).getPrice());
+                price=price-price*20/100;
+                customer.getCart().get(i).setPrice(String.valueOf(price));
+            }
             return off.getId();
         } else if (customer.getFactors().size() == 3) {
             Off off = new Off(30, lD, 1);
             customer.getList_Offs().add(off);
+            for(int i=0;i<customer.getCart().size();i++){
+                price=Double.parseDouble(customer.getCart().get(i).getPrice());
+                price=price-price*30/100;
+                customer.getCart().get(i).setPrice(String.valueOf(price));
+            }
             return off.getId();
         }
         return "no chance to have off for you";
     }
+
     //------------------------------------------
-    public void add_Off_Digi_pen_Pencil(String id){
+    public void add_Off_Digi_pen_Pencil(String id, Customer customer) {
         Article find;
+        double price=0;
         for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
-            if (SuperAdmin.getInstance().getArticles().get(i).getId().equals(id)) {
-                find=SuperAdmin.getInstance().getArticles().get(i);
-                if(find instanceof Digital)
+            if (customer.getCart().get(i).getId().equals(id)) {
+                find = SuperAdmin.getInstance().getArticles().get(i);
+                if (find instanceof Digital) {
                     ((Digital) find).add_Off(12);
-                else if(find instanceof Pencil)
+
+                } else if (find instanceof Pencil)
                     ((Pencil) find).add_Off(40);
-                else if(find instanceof Pen)
+                else if (find instanceof Pen)
                     ((Pen) find).add_Off(30);
             }
         }
     }
-    //--------------------------------------------
-    public void accept_Off(String id){
-        LocalDate currentTime = LocalDate.now();
-        for(int i=0;i<SuperAdmin.getInstance().getOffs().size();i++){
-            if(SuperAdmin.getInstance().getOffs().get(i).getId().equals(id)){
-                if(SuperAdmin.getInstance().getOffs().get(i).getCapacity()>0){
-                    if(SuperAdmin.getInstance().getOffs().get(i).getExpiration().isAfter(currentTime)||SuperAdmin.getInstance().getOffs().get(i).getExpiration().equals(currentTime))
-                    {
 
+    //--------------------------------------------
+    public void accept_Off(String id, Customer customer) throws ID_Off {
+        LocalDate currentTime = LocalDate.now();
+        int check = 0;
+        for (int i = 0; i < SuperAdmin.getInstance().getOffs().size(); i++) {
+            if (SuperAdmin.getInstance().getOffs().get(i).getId().equals(id)) {
+                if (SuperAdmin.getInstance().getOffs().get(i).getCapacity() > 0) {
+                    if (SuperAdmin.getInstance().getOffs().get(i).getExpiration().isAfter(currentTime) || SuperAdmin.getInstance().getOffs().get(i).getExpiration().equals(currentTime)) {
+                        if (customer.getList_Offs().contains(SuperAdmin.getInstance().getOffs().get(i))) {
+                            check++;
+//                            for (int j = 0; j < customer.getCart().size(); j++) {
+//                                double price=  Double.parseDouble(customer.getCart().get(j).getPrice());
+//                                if(customer.getCart().get(j) instanceof Digital){
+//                                    add_Off_Digi_pen_Pencil();
+//                                }
+//                            }
+                            UserController.getInstance().setOff(true);
+                        }
                     }
                 }
             }
         }
+        if (check == 0) {
+            throw new ID_Off();
+        }
     }
+
     //-------------------------------------------
+
 }

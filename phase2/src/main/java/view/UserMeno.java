@@ -79,6 +79,8 @@ public class UserMeno {
                 System.out.println("enter history");
                 sc.nextLine();
                 String history = sc.nextLine();
+                //offff
+                boolean off=true;
                 UserController.getInstance().shopping(history, customer, customer.getOrder());
                 System.out.println("1shopping |2-factors |3-changingInfo |4-View shopping cart |5-Top up user account credit ");
                 System.out.println(" 6-comment |7 View products  8-filter 9-searching 10-score 11-Add to cart  12-exit ");

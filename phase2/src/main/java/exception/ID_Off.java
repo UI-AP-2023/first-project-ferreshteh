@@ -1,5 +1,5 @@
 package exception;
 
-public class ID_Off {
+public class ID_Off extends RuntimeException {
 
 }
