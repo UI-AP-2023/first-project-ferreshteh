@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8302e6a0-022d-4315-aafc-37d3d246104b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/exception/Email.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exception/InputEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exception/PaymentEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exception/ProductEx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exception/ShoppingEx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/User_InformationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/CreditPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/CreditPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/User_Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/User_Information.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exception/ID_Off.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exception/ID_Off.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exception/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exception/Phone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMeno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMeno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/creditPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/creditPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/mainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/mainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/user'Information.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/user'Information.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +59,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/NA/gitHub-phase2/phase2",
+    "last_opened_file_path": "C:/Users/NA/Desktop/MainProject",
     "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"

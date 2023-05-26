@@ -5,21 +5,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="443.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.CreditPage">
    <children>
       <Label fx:id="account_lbl" alignment="CENTER" layoutX="426.0" layoutY="99.0" prefHeight="21.0" prefWidth="138.0" text="account number" />
-      <TextField fx:id="accountNumber_textField" layoutX="67.0" layoutY="94.0" prefHeight="31.0" prefWidth="333.0" />
-      <TextField fx:id="cvv_textField" layoutX="70.0" layoutY="153.0" prefHeight="31.0" prefWidth="333.0" />
-      <TextField fx:id="year_textField" layoutX="74.0" layoutY="222.0" prefHeight="31.0" prefWidth="101.0" />
-      <TextField fx:id="month_textField" layoutX="199.0" layoutY="222.0" prefHeight="31.0" prefWidth="101.0" />
-      <TextField fx:id="passWord_textField" layoutX="74.0" layoutY="289.0" prefHeight="31.0" prefWidth="321.0" />
+      <TextField fx:id="accountNumber_textField" layoutX="67.0" layoutY="94.0" onMouseClicked="#getAccount" prefHeight="31.0" prefWidth="333.0" />
+      <TextField fx:id="cvv_textField" layoutX="70.0" layoutY="153.0" onMouseClicked="#getCvv" prefHeight="31.0" prefWidth="333.0" />
+      <TextField fx:id="year_textField" layoutX="74.0" layoutY="222.0" onMouseClicked="#getExpirationYear" prefHeight="31.0" prefWidth="101.0" />
+      <TextField fx:id="month_textField" layoutX="199.0" layoutY="222.0" onMouseClicked="#getExpirationMonth" prefHeight="31.0" prefWidth="101.0" />
+      <TextField fx:id="passWord_textField" layoutX="74.0" layoutY="289.0" onMouseClicked="#getPassword" prefHeight="31.0" prefWidth="321.0" />
       <Label fx:id="cvv_lbl" alignment="CENTER" layoutX="435.0" layoutY="158.0" prefHeight="21.0" prefWidth="138.0" text="CVV" />
       <Label fx:id="expiration_lbl" alignment="CENTER" layoutX="435.0" layoutY="227.0" prefHeight="21.0" prefWidth="138.0" text="Expiration " />
       <Label fx:id="password_lbl" alignment="CENTER" layoutX="435.0" layoutY="294.0" prefHeight="21.0" prefWidth="138.0" text="Password" />
       <Button fx:id="peyment_btn" layoutX="338.0" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#check" text="payment" />
       <Button fx:id="refuse_btn" layoutX="74.0" layoutY="372.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="79.0" text="refuse" />
       <Label fx:id="amount_lbl" alignment="CENTER" layoutX="454.0" layoutY="48.0" prefHeight="21.0" prefWidth="101.0" text="Amount" />
-      <TextField fx:id="amount_textField1" layoutX="55.0" layoutY="43.0" prefHeight="31.0" prefWidth="333.0" />
+      <TextField fx:id="amount_textField1" layoutX="55.0" layoutY="43.0" onAction="#getAmount" onMouseClicked="#getAmount" prefHeight="31.0" prefWidth="333.0" />
    </children>
 </AnchorPane>

@@ -1,7 +1,7 @@
 module com.example.phase2 {
     requires javafx.controls;
     requires javafx.fxml;
-    requires jfoenix;
+    requires com.jfoenix;
 
 
     opens com.example.phase2 to javafx.fxml;

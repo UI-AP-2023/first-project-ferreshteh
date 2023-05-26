@@ -59,7 +59,7 @@ public class CreditPage extends Application {
     @FXML
     private TextField amount_textField1;
 
-    String[] string;
+    String[] string=new String[3];
     Customer customer;
     double credit;
     Stage stage;
@@ -71,6 +71,7 @@ public class CreditPage extends Application {
         stage.setTitle("90'VISION!");
         stage.setScene(scene);
         this.stage=stage;
+        stage.show();
     }
 
     @FXML
@@ -78,6 +79,7 @@ public class CreditPage extends Application {
         if (UserController.getInstance().checkRegexCredit(customer, string, credit)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setContentText(String.valueOf(customer.getCredit()));
+            System.out.println(string);
             alert.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -89,15 +91,114 @@ public class CreditPage extends Application {
     @FXML
     public void getAmount(MouseEvent event) throws Exception {
         try {
-            credit = Double.parseDouble(amount_textField1.getText());
+            String input=amount_textField1.getText();
+            credit = Double.parseDouble(input);
         }
         catch (InputMismatchException exception){
             new CreditPage().start((stage));
         }
-        finally {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("amount");
+            alert.show();
+            System.out.println(credit);
+        }
+//        finally {
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.show();
+//        }
+
+    }
+    //------------------------------
+    @FXML
+    public void getAccount(MouseEvent event) throws Exception {
+        try {
+            string[0]=accountNumber_textField.getText();
+        }
+        catch (InputMismatchException exception){
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.show();
+            new CreditPage().start((stage));
+        }
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("account Number");
             alert.show();
         }
+//        finally {
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.show();
+//        }
 
+    }//------------------------
+    @FXML
+    public void getCvv(MouseEvent event) throws Exception {
+        try {
+            string[1]=cvv_textField.getText();
+        }
+        catch (InputMismatchException exception){
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.show();
+            new CreditPage().start((stage));
+        }
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("cvv Number");
+            alert.show();
+        }
+//        finally {
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.show();
+//        }
+
+    }
+    //---------------------------------------------------
+    @FXML
+    public void getExpirationMonth(MouseEvent event) throws Exception {
+        try {
+            String mounth=(month_textField.getText());
+        }
+        catch (InputMismatchException exception){
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.show();
+            new CreditPage().start((stage));
+        }
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("expiration Month Number");
+            alert.show();
+        }
+//        finally {
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.show();
+//        }
+
+    }//-----------------------------------------------
+    @FXML
+    public void getExpirationYear(MouseEvent event) throws Exception {
+        try {
+            String year=year_textField.getText();
+
+        }
+        catch (InputMismatchException exception){
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.show();
+            new CreditPage().start((stage));
+        }
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("expiration year Number");
+            alert.show();
+        }
+//        finally {
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.show();
+//        }
+
+    }
+    //---------------------------------------
+    @FXML
+    public void getPassword(MouseEvent event) throws Exception {
+            string[2]=passWord_textField.getText();
     }
 }

@@ -109,7 +109,7 @@ public class UserController {
         // creditNumber
         // cvv2
         // password
-        Pattern pattern = Pattern.compile("\\d{10,}$");
+        Pattern pattern = Pattern.compile("\\d{12}$");
         Matcher matcher1 = pattern.matcher(string[0]);
         Pattern pattern22 = Pattern.compile("^\\d{4}");
         Matcher matcher2 = pattern22.matcher(string[1]);
