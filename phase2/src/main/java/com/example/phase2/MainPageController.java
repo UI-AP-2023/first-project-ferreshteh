@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -22,6 +23,25 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
+    @FXML
+    private Button expiration_btn;
+
+    @FXML
+    private Button type_btn;
+
+    @FXML
+    private Button exist_btn;
+
+    @FXML
+    private Button price_btn;
+
+    @FXML
+    private Button TypeOfBicycle_btn;
+
+    @FXML
+    private Button numberNoteBokk_btn;
+    @FXML
+    private ImageView filter_image;
 
     @FXML
     private ImageView exit_btn;
@@ -59,8 +79,8 @@ public class MainPageController implements Initializable {
     @FXML
     private AnchorPane meno_pane;
 
-   // @FXML
-   // private VBox meno_Vbox;
+    // @FXML
+    // private VBox meno_Vbox;
 
     @FXML
     private JFXButton credit_btn;
@@ -76,6 +96,8 @@ public class MainPageController implements Initializable {
 
     @FXML
     private Button btn1;
+    @FXML
+    private AnchorPane filters_pane;
 
     @FXML
     private AnchorPane products;
@@ -113,6 +135,18 @@ public class MainPageController implements Initializable {
     private ImageView off_btn;
     @FXML
     private AnchorPane pane6;
+    @FXML
+    private TextField note_textField;
+    @FXML
+    private TextField bic_textField;
+    @FXML
+    private TextField price_textField;
+    @FXML
+    private TextField exist_textField;
+    @FXML
+    private TextField expiration_textField;
+    @FXML
+    private TextField type_textField;
 
     @FXML
     private ImageView pen4;
@@ -122,26 +156,27 @@ public class MainPageController implements Initializable {
 
     @FXML
     private ImageView ssd_image11;
-
-
-
+    @FXML
+    private JFXButton showAll_btn;
     @FXML
     private ImageView bicycle_image2;
     @FXML
     private AnchorPane search_pane;
     @FXML
     private Button next;
-
+    @FXML
+    private VBox search_vbox;
     @FXML
     private Button last;
 
     double x, y = 0;
-    public void translateAnimation(double duration, Node node,double width){
-        TranslateTransition translateTransition=new TranslateTransition();
+
+    public void translateAnimation(double duration, Node node, double width) {
+        TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setNode(node);
         node.setVisible(true);
         translateTransition.play();
-       translateTransition.setDelay(Duration.seconds(2));
+        translateTransition.setDelay(Duration.seconds(2));
         node.setVisible(false);
         translateTransition.pause();
     }
@@ -150,6 +185,7 @@ public class MainPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Pane1.setVisible(true);
+        filters_pane.setVisible(false);
 //        search_pane.setVisible(true);
 //        meno_pane.setVisible(false);
 //        products.setVisible(true);
@@ -172,7 +208,7 @@ public class MainPageController implements Initializable {
         meno_btn.setOnMouseClicked(event -> {
             if (!meno_pane.isVisible()) {
                 meno_pane.setVisible(true);
-
+                filters_pane.setVisible(true);
                 FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(.5), meno_pane);
                 fadeTransition1.setFromValue(0);
                 fadeTransition1.setToValue(1);
@@ -184,9 +220,17 @@ public class MainPageController implements Initializable {
                 last.setVisible(false);
                 next.setVisible(false);
                 meno_pane.setVisible(true);
-            }
-            else {
+                filter_image.setOnMouseClicked(event1 -> {
+                    if(search_vbox.isVisible()){
+                       search_vbox.setVisible(false);
+                    }
+                    else {
+                    search_vbox.setVisible(true);}
+                });
+            } else {
                 meno_pane.setVisible(false);
+                search_vbox.setVisible(false);
+                filters_pane.setVisible(false);
                 products.setVisible(true);
                 last.setVisible(true);
                 next.setVisible(true);
@@ -198,6 +242,7 @@ public class MainPageController implements Initializable {
                 TranslateTransition transition1 = new TranslateTransition(Duration.seconds(.5), products);
                 transition1.setByX(-600);
                 transition1.play();
+
 
             }
         });
@@ -217,7 +262,21 @@ public class MainPageController implements Initializable {
             transition1.play();
         });
         //---------------------------------------
-
+        search_img.setOnMouseClicked(event -> {
+            String input = search_textField.getText();
+            Article article = ArtContoroller.getInstance().search(input);
+            if (article != null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("id not fount");
+                alert.show();
+            } else {
+                try {
+                    new Search_Article().start((Stage) search_img.getScene().getWindow());
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
     }
 
@@ -240,51 +299,38 @@ public class MainPageController implements Initializable {
     void last_page(MouseEvent event) throws Exception {
         new User_Information().start((Stage) user_btn.getScene().getWindow());
     }
+
+
+
+    int check = 1;
+
     @FXML
-    void searchProducts(MouseEvent event) throws Exception {
-        String input=search_textField.getText();
-       Article article= ArtContoroller.getInstance().search(input);
-       if(article!=null){
-           Alert alert=new Alert(Alert.AlertType.ERROR);
-           alert.setContentText("id not fount");
-           alert.show();
-       }
-       else {
-           new Search_Article().start((Stage) search_img.getScene().getWindow());
-       }
-    }
-    int check=1;
-    @FXML
-    public void lastPane(MouseEvent event){
-        if(check==0){
+    public void lastPane(MouseEvent event) {
+        if (check == 0) {
             Pane1.setVisible(false);
             pane6.setVisible(true);
-            check=6;
-        }
-        else if(check==1){
+            check = 6;
+        } else if (check == 1) {
             Pane1.setVisible(false);
             pane6.setVisible(true);
             check--;
-        }
-        else if(check==2){
+        } else if (check == 2) {
             pane2.setVisible(false);
             Pane1.setVisible(true);
             check--;
-        }
-        else if(check==4){
+        } else if (check == 4) {
             pane4.setVisible(false);
             pane3.setVisible(true);
             check--;
-        }
-        else if(check==3){
+        } else if (check == 3) {
             pane3.setVisible(false);
             pane2.setVisible(true);
             check--;
-        }     else if(check==5){
+        } else if (check == 5) {
             pane5.setVisible(false);
             pane4.setVisible(true);
             check--;
-        }     else if(check==6){
+        } else if (check == 6) {
             pane6.setVisible(false);
             pane5.setVisible(true);
             check--;
@@ -292,43 +338,39 @@ public class MainPageController implements Initializable {
 
 
     }
+
     @FXML
-    public void nextPane(MouseEvent event){
-        if(check==0){
+    public void nextPane(MouseEvent event) {
+        if (check == 0) {
             Pane1.setVisible(true);
             check++;
-        }
-        else if(check==1){
+        } else if (check == 1) {
             Pane1.setVisible(false);
             pane2.setVisible(true);
             check++;
-          carBlack_image1.setOnMouseClicked(event1 -> {
+            carBlack_image1.setOnMouseClicked(event1 -> {
 
-          });
-        }
-        else if(check==2){
+            });
+        } else if (check == 2) {
             pane2.setVisible(false);
             pane3.setVisible(true);
             check++;
-        }
-        else if(check==3){
+        } else if (check == 3) {
             pane3.setVisible(false);
             pane4.setVisible(true);
             check++;
-        }else if(check==4){
+        } else if (check == 4) {
             pane4.setVisible(false);
             pane5.setVisible(true);
             check++;
-        }
-        else if(check==5){
+        } else if (check == 5) {
             pane5.setVisible(false);
             pane6.setVisible(true);
             check++;
-        }
-        else if(check==6){
+        } else if (check == 6) {
             pane6.setVisible(false);
             Pane1.setVisible(true);
-            check=1;
+            check = 1;
         }
     }
 }

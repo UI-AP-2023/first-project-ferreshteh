@@ -11,6 +11,31 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFDAB9; -fx-background-position: #808080;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.MainPageController">
    <children>
+      <AnchorPane fx:id="filters_pane" layoutX="249.0" layoutY="52.0" prefHeight="588.0" prefWidth="564.0">
+         <children>
+            <ImageView fx:id="filter_image" fitHeight="293.0" fitWidth="275.0" layoutX="32.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1685117153076.png" />
+               </image>
+            </ImageView>
+            <VBox fx:id="search_vbox" layoutX="305.0" layoutY="7.0" prefHeight="563.0" prefWidth="185.0" spacing="15.0" style="-fx-background-color: #D3D3D3;">
+               <children>
+                  <Button fx:id="type_btn" minWidth="46.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="187.0" text="Type of Article" />
+                  <TextField fx:id="type_textField" alignment="CENTER" prefHeight="33.0" prefWidth="185.0" promptText="enter type of button" />
+                  <Button fx:id="expiration_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="187.0" text="Expiration(Meal)" />
+                  <TextField fx:id="expiration_textField" alignment="CENTER" promptText="enter expiration" />
+                  <Button fx:id="exist_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="187.0" text="exist or not" />
+                  <TextField fx:id="exist_textField" alignment="CENTER" promptText="true&gt;exist  /  false&gt;not" />
+                  <Button fx:id="price_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="189.0" text="Price" />
+                  <TextField fx:id="price_textField" alignment="CENTER" promptText="range of price" />
+                  <Button fx:id="TypeOfBicycle_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="187.0" text="type Of Bicycle" />
+                  <TextField fx:id="bic_textField" alignment="CENTER" promptText="enter type of bicycle" />
+                  <Button fx:id="numberNoteBokk_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="186.0" text="number Of NoteBook Papers" textAlignment="CENTER" wrapText="true" />
+                  <TextField fx:id="note_textField" alignment="CENTER" promptText="enter number" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="search_pane" layoutY="-2.0" prefHeight="52.0" prefWidth="813.0" style="-fx-background-color: #A9A9A9;" AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
          <children>
             <ImageView fx:id="exit_btn" fitHeight="32.0" fitWidth="46.0" layoutX="773.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
@@ -19,7 +44,7 @@
                </image>
             </ImageView>
             <Rectangle fx:id="searchRectangle" arcHeight="5.0" arcWidth="5.0" fill="#dacfd4" height="46.0" layoutX="263.0" layoutY="4.0" stroke="#c31818" strokeType="INSIDE" width="305.0" />
-            <ImageView fx:id="search_img" fitHeight="53.0" fitWidth="80.0" layoutX="210.0" layoutY="1.0" onMouseClicked="#searchProducts" onMouseEntered="#searchProducts" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="search_img" fitHeight="53.0" fitWidth="80.0" layoutX="210.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@1685117153076.png" />
                </image></ImageView>
@@ -165,5 +190,6 @@
       </AnchorPane>
       <Button fx:id="next" layoutX="759.0" layoutY="219.0" minWidth="46.0" mnemonicParsing="false" onMouseClicked="#nextPane" prefHeight="217.0" prefWidth="46.0" text="&gt;&gt;" />
       <Button fx:id="last" layoutX="83.0" layoutY="219.0" mnemonicParsing="false" onMouseClicked="#lastPane" prefHeight="217.0" prefWidth="56.0" text="&lt;&lt;" />
+      <JFXButton fx:id="showAll_btn" buttonType="RAISED" layoutX="324.0" layoutY="591.0" prefHeight="32.0" prefWidth="165.0" text="Show All Prudocts" />
    </children>
 </AnchorPane>

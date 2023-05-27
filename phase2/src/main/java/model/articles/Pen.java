@@ -17,7 +17,7 @@ public class Pen extends Stationary  implements Discount_feature {
     public String toString() {
         return "Pen{" +
                 "color='" + color + '\'' +"country"+getCountry()+" "+"exist="+exist+" "+
-                "name :"+name+"id :"+getId()+"price :"+price+"Avarege :"+getAverage()+"type :"+getType()+"comment :"+getComments()+"country :"+getCountry()+
+                "name :"+ getName() +"id :"+getId()+"price :"+ getPrice() +"Avarege :"+getAverage()+"type :"+getType()+"comment :"+getComments()+"country :"+getCountry()+
                 '}';
     }
 

@@ -11,6 +11,7 @@ import view.Messages;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Formatter;
 
 public class SuperCon {
@@ -370,5 +371,14 @@ public class SuperCon {
     }
 
     //-------------------------------------------
+   public ArrayList<Article> filterCar(){
+        ArrayList<Article>total=new ArrayList<>();
+        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
+            if(SuperAdmin.getInstance().getArticles().get(i) instanceof  Machine){
+                total.add(SuperAdmin.getInstance().getArticles().get(i));
+            }
+        }
+        return total;
+   }
 
 }
