@@ -26,10 +26,10 @@
                   <Label fx:id="showPrice_lbl" layoutX="319.0" layoutY="220.0" prefHeight="21.0" prefWidth="91.0" style="-fx-background-color: #d0b6b6;" />
                   <Label fx:id="showExist_lbl" layoutX="319.0" layoutY="280.0" prefHeight="21.0" prefWidth="91.0" style="-fx-background-color: #d0b6b6;" />
                   <Label fx:id="Showscore_lbl" layoutX="319.0" layoutY="161.0" prefHeight="21.0" prefWidth="91.0" style="-fx-background-color: #d0b6b6;" />
-                  <TableView layoutX="37.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="comments_table" layoutX="37.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                      <TableColumn fx:id="text_column" prefWidth="93.0" text="text" />
+                      <TableColumn fx:id="name_column" prefWidth="106.0" text="user" />
                     </columns>
                   </TableView>
                </children>

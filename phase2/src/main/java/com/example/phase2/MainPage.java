@@ -37,7 +37,7 @@ public class MainPage extends Application {
             stage.setX(event.getScreenX() - x);
             stage.setY(event.getScreenY() - y);
         });
-        stage.setScene(new Scene(root,800,600));
+        stage.setScene(new Scene(root,800,650));
         //----------------------
 
         //----------------------

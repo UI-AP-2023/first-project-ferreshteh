@@ -81,19 +81,21 @@ public class MainPageController implements Initializable {
     private AnchorPane products;
 
     @FXML
-    private AnchorPane carPane1;
+    private AnchorPane Pane1;
 
     @FXML
     private ImageView carBlack_image1;
 
     @FXML
-    private AnchorPane Laptop_pane1;
+    private AnchorPane pane2;
 
     @FXML
     private ImageView laptop_image1;
 
     @FXML
-    private AnchorPane pane31;
+    private AnchorPane pane3;
+    @FXML
+    private AnchorPane pane4;
 
     @FXML
     private ImageView ssd_image2;
@@ -102,7 +104,7 @@ public class MainPageController implements Initializable {
     private ImageView flash_image1;
 
     @FXML
-    private AnchorPane pane51;
+    private AnchorPane pane5;
 
     @FXML
     private ImageView carWhite_image1;
@@ -110,10 +112,10 @@ public class MainPageController implements Initializable {
     @FXML
     private ImageView off_btn;
     @FXML
-    private AnchorPane pane71;
+    private AnchorPane pane6;
 
     @FXML
-    private ImageView pen_image1;
+    private ImageView pen4;
 
     @FXML
     private ImageView flash_image2;
@@ -121,13 +123,17 @@ public class MainPageController implements Initializable {
     @FXML
     private ImageView ssd_image11;
 
-    @FXML
-    private AnchorPane pane62;
+
 
     @FXML
     private ImageView bicycle_image2;
     @FXML
     private AnchorPane search_pane;
+    @FXML
+    private Button next;
+
+    @FXML
+    private Button last;
 
     double x, y = 0;
     public void translateAnimation(double duration, Node node,double width){
@@ -143,14 +149,15 @@ public class MainPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        search_pane.setVisible(true);
-        meno_pane.setVisible(false);
-        products.setVisible(true);
-        //---------------------------------
-        if (products.isVisible()) {
-            translateAnimation(2,carPane1,800);
-           // translateAnimation(2,Laptop_pane1,829);
-        }
+        Pane1.setVisible(true);
+//        search_pane.setVisible(true);
+//        meno_pane.setVisible(false);
+//        products.setVisible(true);
+//        //---------------------------------
+//        if (products.isVisible()) {
+//            translateAnimation(2,Pane1,800);
+//           // translateAnimation(2,Laptop_pane1,829);
+//        }
 //
 //            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(5), pineAple_image);
 //            fadeTransition.setFromValue(1);
@@ -174,10 +181,15 @@ public class MainPageController implements Initializable {
                 TranslateTransition transition1 = new TranslateTransition(Duration.seconds(.5), products);
                 transition1.setByX(+600);
                 transition1.play();
+                last.setVisible(false);
+                next.setVisible(false);
                 meno_pane.setVisible(true);
             }
             else {
                 meno_pane.setVisible(false);
+                products.setVisible(true);
+                last.setVisible(true);
+                next.setVisible(true);
                 FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(.5), meno_pane);
                 fadeTransition1.setFromValue(.5);
                 fadeTransition1.setToValue(0);
@@ -241,8 +253,80 @@ public class MainPageController implements Initializable {
            new Search_Article().start((Stage) search_img.getScene().getWindow());
        }
     }
+    int check=1;
     @FXML
-    public void offPage(MouseEvent event){
+    public void lastPane(MouseEvent event){
+        if(check==0){
+            Pane1.setVisible(false);
+            pane6.setVisible(true);
+            check=6;
+        }
+        else if(check==1){
+            Pane1.setVisible(false);
+            pane6.setVisible(true);
+            check--;
+        }
+        else if(check==2){
+            pane2.setVisible(false);
+            Pane1.setVisible(true);
+            check--;
+        }
+        else if(check==4){
+            pane4.setVisible(false);
+            pane3.setVisible(true);
+            check--;
+        }
+        else if(check==3){
+            pane3.setVisible(false);
+            pane2.setVisible(true);
+            check--;
+        }     else if(check==5){
+            pane5.setVisible(false);
+            pane4.setVisible(true);
+            check--;
+        }     else if(check==6){
+            pane6.setVisible(false);
+            pane5.setVisible(true);
+            check--;
+        }
 
+
+    }
+    @FXML
+    public void nextPane(MouseEvent event){
+        if(check==0){
+            Pane1.setVisible(true);
+            check++;
+        }
+        else if(check==1){
+            Pane1.setVisible(false);
+            pane2.setVisible(true);
+            check++;
+            
+        }
+        else if(check==2){
+            pane2.setVisible(false);
+            pane3.setVisible(true);
+            check++;
+        }
+        else if(check==3){
+            pane3.setVisible(false);
+            pane4.setVisible(true);
+            check++;
+        }else if(check==4){
+            pane4.setVisible(false);
+            pane5.setVisible(true);
+            check++;
+        }
+        else if(check==5){
+            pane5.setVisible(false);
+            pane6.setVisible(true);
+            check++;
+        }
+        else if(check==6){
+            pane6.setVisible(false);
+            Pane1.setVisible(true);
+            check=1;
+        }
     }
 }

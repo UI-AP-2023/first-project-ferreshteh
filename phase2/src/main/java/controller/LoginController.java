@@ -97,7 +97,7 @@ pointer=LoginController.getInstance().allCostumers.get(i);
                     request.setInfo(info);
                     SuperAdmin.getInstance().setRequests(request);
                     Messages.getInstance().printWait();
-                    System.out.println("if request");
+                    //System.out.println("if request");
                     First.getInstance().firstMeno();
                 }
             } else {

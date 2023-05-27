@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFDAB9; -fx-background-position: #808080;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.MainPageController">
    <children>
-      <AnchorPane fx:id="search_pane" prefHeight="58.0" prefWidth="805.0" style="-fx-background-color: #A9A9A9;" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="search_pane" layoutY="-2.0" prefHeight="52.0" prefWidth="813.0" style="-fx-background-color: #A9A9A9;" AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
          <children>
             <ImageView fx:id="exit_btn" fitHeight="32.0" fitWidth="46.0" layoutX="773.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,11 +30,11 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane layoutX="-9.0" layoutY="55.0" prefHeight="603.0" prefWidth="92.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="55.0">
+      <AnchorPane layoutX="-9.0" layoutY="50.0" prefHeight="608.0" prefWidth="92.0" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="-9.0" AnchorPane.topAnchor="50.0">
          <children>
             <VBox layoutX="5.0" layoutY="-2.0" prefHeight="603.0" prefWidth="75.0" spacing="10.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane prefHeight="601.0" prefWidth="75.0" style="-fx-background-color: #A9A9A9;">
+                  <AnchorPane prefHeight="606.0" prefWidth="75.0" style="-fx-background-color: #A9A9A9;">
                      <children>
                         <ImageView fx:id="credit_image" fitHeight="58.0" fitWidth="75.0" layoutX="4.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -90,10 +90,9 @@
                </children></VBox>
          </children>
       </AnchorPane>
-      <Button fx:id="btn1" alignment="CENTER" layoutX="634.0" layoutY="471.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="92.0" style="-fx-background-color: #A9A9A9;" stylesheets="@style1.css" text="Button" />
       <AnchorPane fx:id="products" layoutX="149.0" layoutY="116.0" prefHeight="341.0" prefWidth="557.0">
          <children>
-            <AnchorPane fx:id="carPane1" layoutX="69.0" layoutY="73.0" prefHeight="280.0" prefWidth="459.0" visible="false">
+            <AnchorPane fx:id="Pane1" layoutX="69.0" layoutY="73.0" prefHeight="280.0" prefWidth="459.0" visible="false">
                <children>
                   <ImageView fx:id="carBlack_image1" fitHeight="266.0" fitWidth="403.0" layoutX="89.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -102,7 +101,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="Laptop_pane1" layoutX="98.0" layoutY="41.0" prefHeight="315.0" prefWidth="451.0" visible="false">
+            <AnchorPane fx:id="pane2" layoutX="98.0" layoutY="41.0" prefHeight="315.0" prefWidth="451.0" visible="false">
                <children>
                   <ImageView fx:id="laptop_image1" fitHeight="266.0" fitWidth="266.0" layoutX="139.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="30.0">
                      <image>
@@ -111,7 +110,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane31" layoutX="146.0" layoutY="65.0" prefHeight="281.0" prefWidth="354.0" visible="false">
+            <AnchorPane fx:id="pane3" layoutX="146.0" layoutY="65.0" prefHeight="281.0" prefWidth="354.0" visible="false">
                <children>
                   <ImageView fx:id="ssd_image2" fitHeight="266.0" fitWidth="305.0" layoutX="31.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -125,7 +124,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane51" layoutX="60.0" layoutY="40.0" prefHeight="266.0" prefWidth="463.0" visible="false">
+            <AnchorPane fx:id="pane4" layoutX="60.0" layoutY="40.0" prefHeight="266.0" prefWidth="463.0" visible="false">
                <children>
                   <ImageView fx:id="carWhite_image1" fitHeight="382.0" fitWidth="523.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -134,7 +133,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane71" layoutX="94.0" layoutY="29.0" prefHeight="286.0" prefWidth="221.0" visible="false">
+            <AnchorPane fx:id="pane5" layoutX="94.0" layoutY="29.0" prefHeight="286.0" prefWidth="221.0" visible="false">
                <children>
                   <ImageView fx:id="pen_image1" fitHeight="388.0" fitWidth="315.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -153,7 +152,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="pane62" layoutX="73.0" layoutY="35.0" prefHeight="273.0" prefWidth="438.0" visible="false">
+            <AnchorPane fx:id="pane6" layoutX="73.0" layoutY="35.0" prefHeight="273.0" prefWidth="438.0" visible="false">
                <children>
                   <ImageView fx:id="bicycle_image2" fitHeight="294.0" fitWidth="393.0" layoutX="118.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -164,5 +163,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Button fx:id="next" layoutX="759.0" layoutY="219.0" minWidth="46.0" mnemonicParsing="false" onMouseClicked="#nextPane" prefHeight="217.0" prefWidth="46.0" text="&gt;&gt;" />
+      <Button fx:id="last" layoutX="83.0" layoutY="219.0" mnemonicParsing="false" onMouseClicked="#lastPane" prefHeight="217.0" prefWidth="56.0" text="&lt;&lt;" />
    </children>
 </AnchorPane>

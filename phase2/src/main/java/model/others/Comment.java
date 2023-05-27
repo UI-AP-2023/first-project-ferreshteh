@@ -3,10 +3,22 @@ package model.others;
 import model.user.Customer;
 import view.Messages;
 
+import java.util.ArrayList;
+
 public class Comment  {
     private Customer customer;
+    String name=customer.getInfo();
     private String idAr;
     private String text;
+//    private ArrayList<Customer>customers=new ArrayList<>();
+//
+//    public ArrayList<Customer> getCustomers() {
+//        return customers;
+//    }
+//
+//    public void setCustomers(ArrayList<Customer> customers) {
+//        this.customers = customers;
+//    }
 
     public void setBuy(boolean buy) {
         this.buy = buy;

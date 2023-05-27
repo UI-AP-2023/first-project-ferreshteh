@@ -20,10 +20,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class User_Information extends Application {
-
-
-
-
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user'Information.fxml"));

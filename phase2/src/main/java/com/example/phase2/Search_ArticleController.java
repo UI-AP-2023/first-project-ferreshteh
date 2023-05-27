@@ -1,14 +1,20 @@
 package com.example.phase2;
 
 import controller.UserController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.articles.Article;
+import model.others.Comment;
 import model.user.Customer;
 
 import java.net.URL;
@@ -59,6 +65,13 @@ public class Search_ArticleController implements Initializable {
     private Label showScore_lbl;
     @FXML
     private ImageView lastPage_image;
+    @FXML
+    private TableView<Comment> comments_table;
+    @FXML
+    private TableColumn<Comment, String> text_column;
+
+    @FXML
+    private TableColumn<Comment,String > name_column;
 
 
     @FXML
@@ -66,6 +79,7 @@ public class Search_ArticleController implements Initializable {
     @FXML
     private ImageView exit_image;
 
+    ObservableList<Comment> comments= FXCollections.observableArrayList(article.getComments());
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         showId_lbl.setText(article.getId());
@@ -73,6 +87,9 @@ public class Search_ArticleController implements Initializable {
         showExist_lbl.setText(article.getPrice());
         showPrice_lbl.setText(article.getPrice());
         showScore_lbl.setText(String.valueOf(article.getAverage()));
+        name_column.setCellValueFactory(new PropertyValueFactory<Comment,String >("name"));
+        text_column.setCellValueFactory(new PropertyValueFactory<Comment,String>("text"));
+        comments_table.setItems(comments);
     }
 
     @FXML
