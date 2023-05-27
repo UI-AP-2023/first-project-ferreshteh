@@ -11,7 +11,7 @@ import model.user.SuperAdmin;
 public class FilterCar extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("filterCar.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("filter.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 635, 432);
         stage.setTitle("90'VISION!");
         stage.setScene(scene);

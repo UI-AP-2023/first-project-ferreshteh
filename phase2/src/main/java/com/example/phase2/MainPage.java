@@ -21,10 +21,11 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class MainPage extends Application {
-    double x,y=0;
+    double x, y = 0;
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root=FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainPage.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainPage.fxml")));
         stage.initStyle(StageStyle.UNDECORATED);
 
         //------------------------
@@ -37,7 +38,7 @@ public class MainPage extends Application {
             stage.setX(event.getScreenX() - x);
             stage.setY(event.getScreenY() - y);
         });
-        stage.setScene(new Scene(root,800,650));
+        stage.setScene(new Scene(root, 800, 650));
         //----------------------
 
         //----------------------
@@ -45,7 +46,8 @@ public class MainPage extends Application {
         stage.show();
         //-----------------------------
     }
-public static void main(String[]args){
+
+    public static void main(String[] args) {
         launch(args);
     }
 

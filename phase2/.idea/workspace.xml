@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8302e6a0-022d-4315-aafc-37d3d246104b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/commentPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/filter.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/FilterCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/FilterCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/FilterCarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/FilterCarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SuperCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SuperCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Pen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Pen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/filterCar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/filterCar.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/mainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/mainPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
