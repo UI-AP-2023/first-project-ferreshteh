@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="432.0" prefWidth="635.0" style="-fx-background-color: #CD5C5C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.FilterCarController">
+   <children>
+      <TableView fx:id="table" fixedCellSize="1.0" layoutX="37.0" layoutY="23.0" prefHeight="361.0" prefWidth="562.0">
+        <columns>
+          <TableColumn fx:id="exist" prefWidth="150.0" text="exist" />
+          <TableColumn fx:id="type" prefWidth="107.0" text="type" />
+            <TableColumn fx:id="id" prefWidth="90.0" text="id" />
+            <TableColumn fx:id="price" prefWidth="93.0" text="price" />
+            <TableColumn fx:id="name" prefWidth="115.0" text="name" />
+        </columns>
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+      </TableView>
+      <TextField fx:id="search_textField" alignment="CENTER" layoutX="189.0" layoutY="395.0" prefHeight="31.0" prefWidth="258.0" promptText="enter id of Article " />
+      <ImageView fx:id="search_image" fitHeight="47.0" fitWidth="66.0" layoutX="142.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1685117153076.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

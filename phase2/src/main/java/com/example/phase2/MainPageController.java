@@ -302,7 +302,9 @@ public class MainPageController implements Initializable {
             Pane1.setVisible(false);
             pane2.setVisible(true);
             check++;
-            
+          carBlack_image1.setOnMouseClicked(event1 -> {
+
+          });
         }
         else if(check==2){
             pane2.setVisible(false);
