@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="443.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.CreditPage">
+<AnchorPane prefHeight="443.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.CreditController">
    <children>
       <Label fx:id="account_lbl" alignment="CENTER" layoutX="426.0" layoutY="99.0" prefHeight="21.0" prefWidth="138.0" text="account number" />
       <TextField fx:id="accountNumber_textField" layoutX="67.0" layoutY="94.0" onMouseClicked="#getAccount" prefHeight="31.0" prefWidth="333.0" />
