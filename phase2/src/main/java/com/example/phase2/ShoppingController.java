@@ -5,6 +5,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
@@ -56,6 +57,7 @@ public class ShoppingController implements Initializable {
     @FXML
     private Label exist2_lbl;
     Article article;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         list.setVisible(true);
@@ -67,10 +69,10 @@ public class ShoppingController implements Initializable {
         list.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                chosen=list.getSelectionModel().getSelectedItem();
-                for(int i=0;i<customer.getCart().size();i++){
-                    if(customer.getCart().get(i).toString().equals(chosen)){
-                         article=customer.getCart().get(i);
+                chosen = list.getSelectionModel().getSelectedItem();
+                for (int i = 0; i < customer.getCart().size(); i++) {
+                    if (customer.getCart().get(i).toString().equals(chosen)) {
+                        article = customer.getCart().get(i);
                         break;
                     }
                 }
@@ -78,16 +80,13 @@ public class ShoppingController implements Initializable {
                 price2_lbl.setText(article.getPrice());
                 exist2_lbl.setText(String.valueOf(article.getExist()));
                 id2_lbl.setText(article.getId());
-
-
             }
         });
         list.setOnMouseClicked(event -> {
-            if(list.isVisible()){
-            ArticleShow.setVisible(true);
-            list.setVisible(false);
-            }
-            else {
+            if (list.isVisible()) {
+                ArticleShow.setVisible(true);
+                list.setVisible(false);
+            } else {
                 ArticleShow.setVisible(false);
                 list.setVisible(true);
             }
@@ -96,11 +95,22 @@ public class ShoppingController implements Initializable {
             customer.getCart().remove(article);
         });
         buy_btn.setOnMouseClicked(event -> {
-            double credit=customer.getCredit();
-            for(int i=0;i<customer.getCart().size();i++){
-                if(customer.getCart().get(i).getExist()!=0){
-                customer.lowerCredit(Double.parseDouble(customer.getCart().get(i).getPrice()));
-            }}
+            double credit = customer.getCredit();
+            for (int i = 0; i < customer.getCart().size(); i++) {
+                if (customer.getCart().get(i).getExist() != 0) {
+                    customer.lowerCredit(Double.parseDouble(customer.getCart().get(i).getPrice()));
+                }
+            }
+            if (customer.getCredit() < 0) {
+                customer.setCredit(credit);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("not enough money");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("successful shopping");
+                alert.show();
+            }
         });
     }
 }

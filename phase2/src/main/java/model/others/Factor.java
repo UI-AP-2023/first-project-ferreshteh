@@ -73,4 +73,11 @@ public class Factor {
                 ", strings=" + Arrays.toString(strings) +
                 '}';
     }
+    public String printArticles(){
+        String str="";
+        for(int i=0;i<articles.size();i++){
+            str+="Name: "+"i"+articles.get(i).getName()+"  "+"ID: "+articles.get(i).getId()+"\n";
+        }
+        return str;
+    }
 }
