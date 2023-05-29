@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import model.articles.Bicycle;
 import model.user.SuperAdmin;
 
-public class FilterCar extends Application {
+public class Filter extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("filter.fxml"));

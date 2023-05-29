@@ -5,10 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -16,6 +13,8 @@ import javafx.stage.Stage;
 import model.articles.Article;
 import model.others.Comment;
 import model.user.Customer;
+import model.user.SuperAdmin;
+import view.ArticleShow;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -79,6 +78,12 @@ public class Search_ArticleController implements Initializable {
     @FXML
     private ImageView exit_image;
 
+    @FXML
+    private Button comment_btn;
+
+    @FXML
+    private TextField comment_text;
+
     ObservableList<Comment> comments= FXCollections.observableArrayList(article.getComments());
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -90,6 +95,11 @@ public class Search_ArticleController implements Initializable {
         name_column.setCellValueFactory(new PropertyValueFactory<Comment,String >("name"));
         text_column.setCellValueFactory(new PropertyValueFactory<Comment,String>("text"));
         comments_table.setItems(comments);
+        comment_btn.setOnMouseClicked(event -> {
+            String input = comment_text.getText();
+            model.others.Comment comment = new Comment(customer, "waiting", ArticleShow.getInstance().getIdArticle(),input);
+            SuperAdmin.getInstance().setComments(comment);
+        });
     }
 
     @FXML

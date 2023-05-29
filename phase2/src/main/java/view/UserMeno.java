@@ -87,7 +87,7 @@ public class UserMeno {
                 scanner = sc.nextInt();
             }
             if (scanner == 6) {
-ArticleShow.getInstance().article();
+                ArticleShow.getInstance().article();
                 System.out.print("enter your text");
                 sc.nextLine();
                 scanNer = sc.nextLine();

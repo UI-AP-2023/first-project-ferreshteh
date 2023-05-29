@@ -18,10 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.articles.Article;
-import model.others.Comment;
 import model.user.Customer;
-import model.user.SuperAdmin;
-import view.ArticleShow;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -234,28 +231,27 @@ public class MainPageController implements Initializable {
                 });
                 //--------------------------------
                 type_btn.setOnMouseClicked(event1 -> {
-                    String input=type_textField.getText();
+                    String input = type_textField.getText();
                     ArtContoroller.getInstance().generalFilter(input);
                     try {
-                        new FilterCar() .start((Stage) type_btn.getScene().getWindow());
+                        new Filter().start((Stage) type_btn.getScene().getWindow());
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
                 });
                 //------------------------------------
                 expiration_btn.setOnMouseClicked(event1 -> {
-                    String input=expiration_textField.getText();
+                    String input = expiration_textField.getText();
                     ArtContoroller.getInstance().filterExpiration(input);
                     try {
-                        new FilterCar() .start((Stage) expiration_btn.getScene().getWindow());
+                        new Filter().start((Stage) expiration_btn.getScene().getWindow());
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
                 });
                 //----------------------------------
 
-            }
-            else {
+            } else {
                 meno_pane.setVisible(false);
                 search_vbox.setVisible(false);
                 filters_pane.setVisible(false);
@@ -305,6 +301,10 @@ public class MainPageController implements Initializable {
                 }
             }
         });
+        //---------------------------------------
+        comment_image.setOnMouseClicked(event -> {
+
+        });
 
     }
 
@@ -328,7 +328,7 @@ public class MainPageController implements Initializable {
         new User_Information().start((Stage) user_btn.getScene().getWindow());
     }
 
-//    @FXML
+    //    @FXML
 //    public void comment(MouseEvent event){
 //        String input=
 //        Comment comment = new Comment(customer, "waiting", ArticleShow.getInstance().getIdArticle(),scanNer);
@@ -406,8 +406,9 @@ public class MainPageController implements Initializable {
             check = 1;
         }
     }
+
     @FXML
     public void filterCar(MouseEvent event) throws Exception {
-        new FilterCar() .start((Stage) carBlack_image1.getScene().getWindow());
+        new Filter().start((Stage) carBlack_image1.getScene().getWindow());
     }
 }
