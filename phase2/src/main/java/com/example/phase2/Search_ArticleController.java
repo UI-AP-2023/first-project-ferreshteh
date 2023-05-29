@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class Search_ArticleController implements Initializable {
     private Article article;
-    private Customer customer;
+    static Customer customer;
     private String []id=new String[1];
 
     public String []getId() {

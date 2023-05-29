@@ -25,7 +25,7 @@ public class OffController implements Initializable {
 
     @FXML
     private ImageView lastPage_btn;
-    private Customer customer;
+    static Customer customer;
     private Off off;
 
     public Off getOff() {

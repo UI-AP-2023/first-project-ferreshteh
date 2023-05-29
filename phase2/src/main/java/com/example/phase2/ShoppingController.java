@@ -23,7 +23,7 @@ public class ShoppingController implements Initializable {
 
     @FXML
     private AnchorPane ArticleShow;
-    Customer customer;
+    static Customer customer;
 
     @FXML
     private JFXButton delete_btn;

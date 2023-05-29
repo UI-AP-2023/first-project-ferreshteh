@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 
 public class User_InformationController implements Initializable {
 
-    Customer customer;
+    static Customer customer;
     @FXML
     private Button editUser_btn;
 

@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
-    Customer customer;
+     static Customer customer;
     @FXML
     private Button expiration_btn;
 

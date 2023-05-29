@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8302e6a0-022d-4315-aafc-37d3d246104b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/1685360975053.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/Factors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Factors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/CreditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/CreditController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/FactorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/FactorsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/FilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/FilterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/LoginPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/LoginPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/OffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/OffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/Search_ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Search_ArticleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/ShoppingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/ShoppingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/others/Factor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/others/Factor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/factor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/factor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/User_InformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/User_InformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/login2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

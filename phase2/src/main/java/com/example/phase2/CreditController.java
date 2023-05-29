@@ -57,7 +57,7 @@ public class CreditController implements Initializable {
     private TextField amount_textField1;
 
     String[] string = new String[3];
-    Customer customer;
+   static Customer customer;
     double credit;
     Stage stage;
 

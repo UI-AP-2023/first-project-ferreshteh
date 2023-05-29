@@ -76,5 +76,6 @@ public class FactorsController implements Initializable {
             function=id_textField.getText();
             ArtContoroller.getInstance().score(customer,function);
         });
+        //------------------------------------------------------------
     }
 }

@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.user.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,6 +44,7 @@ public class RegisterController implements Initializable {
     @FXML
     private PasswordField password_Field;
     String[]strings=new String[4];
+    static Customer customer;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

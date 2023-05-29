@@ -30,7 +30,7 @@ public class FilterController implements Initializable {
 
     //    @FXML
 //    private TableColumn<?, ?> exist;
-    Customer customer;
+  static   Customer customer;
 
 //    @FXML
 //    private TableColumn<?, ?> type;
@@ -62,6 +62,7 @@ public class FilterController implements Initializable {
     private ListView<String> list;
     private final String[] toString = new String[SuperAdmin.getInstance().getArticles().size()];
     String chosen;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
