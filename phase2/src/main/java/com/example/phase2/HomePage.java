@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class HomePage extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("homePage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Register.class.getResource("homePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 603, 562);
         stage.setTitle("90'VISION!");
         stage.setScene(scene);
