@@ -75,7 +75,7 @@ public class SuperCon {
 
     public void addVehicle(String name, String price, String type, int exist, String nameCompany, double capacity, boolean auto) {
         String id;
-        Machine machine = new Machine("123", name, price, 0, exist, type, nameCompany, capacity, auto);
+        Machine machine = new Machine("123", name, price, 0, exist, "machine", nameCompany, capacity, auto);
         id = String.valueOf(machine.getNumber());
         id = id + name + price;
         machine.setId(id);
@@ -301,14 +301,10 @@ public class SuperCon {
         for (int i = 0; i < customer.getCart().size(); i++) {
             sum += Double.parseDouble(customer.getCart().get(i).getPrice());
         }
-        if (sum > 500000) {
+        if (sum > 5) {
             Off off = new Off(20, lD, 1);
             customer.getList_Offs().add(off);
-            for(int i=0;i<customer.getCart().size();i++){
-                price=Double.parseDouble(customer.getCart().get(i).getPrice());
-                price=price-price*20/100;
-                customer.getCart().get(i).setPrice(String.valueOf(price));
-            }
+
             return off.getId();
         } else if (customer.getFactors().size() == 3) {
             Off off = new Off(30, lD, 1);
@@ -342,30 +338,40 @@ public class SuperCon {
     }
 
     //--------------------------------------------
-    public void accept_Off(String id, Customer customer) throws ID_Off {
+    public double[] accept_Off(String id, Customer customer) throws ID_Off {
+        double []total=new double[2];
         LocalDate currentTime = LocalDate.now();
+        double first=0;
+        double end=0;
+        double price;
         int check = 0;
+        Off off;
         for (int i = 0; i < SuperAdmin.getInstance().getOffs().size(); i++) {
+            off=SuperAdmin.getInstance().getOffs().get(i);
             if (SuperAdmin.getInstance().getOffs().get(i).getId().equals(id)) {
                 if (SuperAdmin.getInstance().getOffs().get(i).getCapacity() > 0) {
                     if (SuperAdmin.getInstance().getOffs().get(i).getExpiration().isAfter(currentTime) || SuperAdmin.getInstance().getOffs().get(i).getExpiration().equals(currentTime)) {
                         if (customer.getList_Offs().contains(SuperAdmin.getInstance().getOffs().get(i))) {
                             check++;
-//                            for (int j = 0; j < customer.getCart().size(); j++) {
-//                                double price=  Double.parseDouble(customer.getCart().get(j).getPrice());
-//                                if(customer.getCart().get(j) instanceof Digital){
-//                                    add_Off_Digi_pen_Pencil();
-//                                }
-//                            }
-                            UserController.getInstance().setOff(true);
+                            for(int j=0;j<customer.getCart().size();j++){
+                                first+=Double.parseDouble(customer.getCart().get(j).getPrice());
+                                price= Double.parseDouble(customer.getCart().get(j).getPrice())*(100-off.getPercent());
+                                end+=Double.parseDouble(customer.getCart().get(j).getPrice())*(100-off.getPercent());
+                                customer.getCart().get(j).setPrice(String.valueOf(price));
+                            }
+
                         }
                     }
                 }
             }
         }
+        total[0]=first;
+        total[1]=end;
+
         if (check == 0) {
             throw new ID_Off();
         }
+        return total;
     }
 
     //-------------------------------------------
@@ -378,5 +384,14 @@ public class SuperCon {
         }
         return total;
    }
+    public ArrayList<Article> filterSSD(){
+        ArrayList<Article>total=new ArrayList<>();
+        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
+            if(SuperAdmin.getInstance().getArticles().get(i) instanceof  SSD){
+                total.add(SuperAdmin.getInstance().getArticles().get(i));
+            }
+        }
+        return total;
+    }
 
 }

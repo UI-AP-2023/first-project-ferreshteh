@@ -197,7 +197,7 @@ public class UserController {
             if (article.getId().equals(id[0])) {
                 if (article.getExist() >= 1) {
                     customer.setCart(article);
-                   // customer.setOrder(id, numberOfOrder);
+                    customer.setOrder(id, numberOfOrder);
 
                 } else {
                     Messages.getInstance().print();

@@ -84,13 +84,22 @@ public class ArtContoroller {
 
     public void filterExist(String bool) {
         ArrayList<Article> newArt = new ArrayList<>();
+        if(bool.equalsIgnoreCase("true")){
         for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
             if (SuperAdmin.getInstance().getArticles().get(i).getExist() != 0) {
                 newArt.add(SuperAdmin.getInstance().getArticles().get(i));
             }
         }
-        SuperAdmin.getInstance().setArticles(newArt);
-    }
+        SuperAdmin.getInstance().setArticles(newArt);}
+        else if(bool.equalsIgnoreCase("false")) {
+            for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+                if (SuperAdmin.getInstance().getArticles().get(i).getExist() == 0) {
+                    newArt.add(SuperAdmin.getInstance().getArticles().get(i));
+                }
+            }
+            SuperAdmin.getInstance().setArticles(newArt);}
+        }
+
 
     public void filterExpiration(String ex) {
         ArrayList<Article> newArt = new ArrayList<>();

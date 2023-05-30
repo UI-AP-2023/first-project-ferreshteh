@@ -1,7 +1,10 @@
 package com.example.phase2;
 
 import com.jfoenix.controls.JFXButton;
+import controller.ArtContoroller;
+import controller.SuperCon;
 import controller.UserController;
+import exception.ID_Off;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -9,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -24,6 +28,13 @@ public class ShoppingController implements Initializable {
 
     @FXML
     private ListView<String> list;
+    @FXML
+    private Label firstPrice_lbl;
+
+    @FXML
+    private Label secondPrice_lbl;
+    @FXML
+    private TextField off_textField;
 
     @FXML
     private AnchorPane ArticleShow;
@@ -62,8 +73,10 @@ public class ShoppingController implements Initializable {
 
     @FXML
     private Label exist2_lbl;
+    @FXML
+    private AnchorPane off_pane;
     Article article;
-
+    
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         list.setVisible(true);
@@ -116,4 +129,14 @@ public class ShoppingController implements Initializable {
     public void lastPage(MouseEvent event) throws Exception {
         new MainPage().start((Stage) last_btn.getScene().getWindow());
     }
+        @FXML
+        public void off(MouseEvent event) throws ID_Off {
+        Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(SuperCon.getInstance().add_Off(customer));
+        alert.show();
+       double[]total= SuperCon.getInstance().accept_Off(off_textField.getText(),customer);
+       firstPrice_lbl.setText(String.valueOf(total[0]));
+       secondPrice_lbl.setText(String.valueOf(total[1]));
+    }
+
 }

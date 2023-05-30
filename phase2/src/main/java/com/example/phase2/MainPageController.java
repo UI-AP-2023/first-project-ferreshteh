@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
-     static Customer customer;
+    static Customer customer;
     @FXML
     private Button expiration_btn;
 
@@ -88,7 +88,7 @@ public class MainPageController implements Initializable {
     private JFXButton credit_btn;
 
     @FXML
-   static  JFXButton home_btn;
+    static JFXButton home_btn;
 
     @FXML
     private JFXButton user_btn;
@@ -302,7 +302,7 @@ public class MainPageController implements Initializable {
                 alert.show();
             } else {
                 try {
-                    Search_ArticleController.article=article;
+                    Search_ArticleController.article = article;
                     System.out.println(article.getId());
                     new Search_Article().start((Stage) search_img.getScene().getWindow());
 
@@ -337,10 +337,12 @@ public class MainPageController implements Initializable {
     void last_page(MouseEvent event) throws Exception {
         new HomePage().start((Stage) user_btn.getScene().getWindow());
     }
+
     @FXML
     void showAllProduct(MouseEvent event) throws Exception {
         new AllArticle().start((Stage) showAll_btn.getScene().getWindow());
     }
+
     int check = 1;
 
     @FXML
@@ -415,18 +417,43 @@ public class MainPageController implements Initializable {
 
     @FXML
     public void filterCar(MouseEvent event) throws Exception {
+        FilterController.type = "machine";
         new Filter().start((Stage) carBlack_image1.getScene().getWindow());
     }
+
     @FXML
     public void showCart(MouseEvent event) throws Exception {
         new Shopping().start((Stage) cart_btn.getScene().getWindow());
     }
+
     @FXML
     public void showFactors(MouseEvent event) throws Exception {
         new Factors().start((Stage) factor_btn.getScene().getWindow());
     }
+
     @FXML
     public void comment(MouseEvent event) throws Exception {
         new AllArticle().start((Stage) comment_btn.getScene().getWindow());
     }
+
+    @FXML
+    public void generalType(MouseEvent event) throws Exception {
+        ArtContoroller.getInstance().generalFilter(type_textField.getText());
+        new AllArticle().start((Stage) type_btn.getScene().getWindow());
+    }
+    @FXML
+    public void exist(MouseEvent event) throws Exception {
+        ArtContoroller.getInstance().filterExist(exist_textField.getText());
+        new AllArticle().start((Stage) exist_btn.getScene().getWindow());
+    }
+    @FXML
+    public void unFiltering(MouseEvent event) throws Exception {
+        ArtContoroller.getInstance().unFiltering();
+        new AllArticle().start((Stage) exist_btn.getScene().getWindow());
+    }
+    @FXML
+    public void off(MouseEvent event) throws Exception {
+        new Shopping().start((Stage) credit_btn.getScene().getWindow());
+    }
+
 }

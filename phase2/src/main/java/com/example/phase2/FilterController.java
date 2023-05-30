@@ -1,12 +1,14 @@
 package com.example.phase2;
 
 import controller.ArtContoroller;
+import controller.SuperCon;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.articles.Article;
 import model.articles.Machine;
@@ -49,39 +51,57 @@ public class FilterController implements Initializable {
 
     @FXML
     private ImageView search_image;
+   static String type;
+//   public Class getType(){
+//       return (type.)
+//   }
 
     @FXML
     private TextField comment_field;
 
     @FXML
-    private Label show_lbl;
+    private Label showName_lbl;
+
+    @FXML
+    private Label showID_lbl;
+
+    @FXML
+    private Label showPrice_lbl;
+
+    @FXML
+    private Label showExist_lbl;
     @FXML
     private ImageView comment_image;
     // ObservableList<Article> cars = FXCollections.observableArrayList(SuperCon.getInstance().filterCar());
     @FXML
     private ListView<String> list;
-    private final String[] toString = new String[SuperAdmin.getInstance().getArticles().size()];
+    private final String[] toString = new String[SuperCon.getInstance().filterCar().size()];
     String chosen;
+    @FXML
+    private ImageView lastPage;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
-            toString[i] = SuperAdmin.getInstance().getArticles().get(i).getName();
+        for (int i = 0; i < SuperCon.getInstance().filterCar().size(); i++) {
+            toString[i] = SuperCon.getInstance().filterCar().get(i).getId();
         }
         list.getItems().addAll(toString);
         list.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 chosen=list.getSelectionModel().getSelectedItem();
-                int check;
+                int check = 0;
                 for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
                     if(SuperAdmin.getInstance().getArticles().get(i).getId().equals(chosen)){
                         check=i;
                         break;
                     }
                 }
-                show_lbl.setText(chosen);
+                showName_lbl.setText(SuperAdmin.getInstance().getArticles().get(check).getName());
+                showExist_lbl.setText(String.valueOf(SuperAdmin.getInstance().getArticles().get(check).getExist()));
+                showID_lbl.setText(SuperAdmin.getInstance().getArticles().get(check).getId());
+                showPrice_lbl.setText(SuperAdmin.getInstance().getArticles().get(check).getPrice());
             }
         });
 
@@ -112,6 +132,9 @@ public class FilterController implements Initializable {
 //                }
 //            }
 //        });
+    }
+    @FXML public void lastPage(MouseEvent event) throws Exception {
+        new MainPage().start((Stage) lastPage.getScene().getWindow());
     }
 
 }

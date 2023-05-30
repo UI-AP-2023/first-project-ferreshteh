@@ -3,11 +3,23 @@ package model.articles;
 public class Machine extends Vehicles {
     private double capacityMotor;
     private boolean automatic;
+    private String type;
 
-    public Machine(String id, String name, String price, float average, int exist, String type,String nameCompany,double capacityMotor,boolean automatic) {
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Machine(String id, String name, String price, float average, int exist, String type, String nameCompany, double capacityMotor, boolean automatic) {
         super(id, name, price, average, exist, type,nameCompany);
         this.automatic=automatic;
         this.capacityMotor=capacityMotor;
+        this.type=type;
     }
 
     @Override
