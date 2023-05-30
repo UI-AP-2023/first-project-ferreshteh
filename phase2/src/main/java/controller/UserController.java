@@ -103,6 +103,7 @@ public class UserController {
     public void upperCredit(Customer customer, double credit, String password) {
             customer.setDefaultCredit(credit);
             customer.setCreditRequest(true);
+            customer.upperCredit(credit);
             Messages.getInstance().printWait();
     }
     public boolean checkRegexCredit(Customer customer, String[] string, double credit) {
@@ -121,7 +122,7 @@ public class UserController {
         Matcher matcher33 = pattern3.matcher(string[2]);
         if (Stream.of(matcher1, matcher31, matcher32, matcher33, matcher2).allMatch(Matcher::find)) {
             Messages.getInstance().printWait();
-            upperCredit(customer, credit, string[2]);
+           // upperCredit(customer, credit, string[2]);
             return true;
         }
        return false;

@@ -84,6 +84,7 @@ public class RegisterController implements Initializable {
         AllArticleController.customer = customer;
         new MainPage().start((Stage) register_btn.getScene().getWindow());
     }
+
 //    public static void mainPage() throws Exception {
 //        if ( check ==1){
 //            new MainPage().start((Stage) new_btn.getScene().getWindow());

@@ -190,6 +190,6 @@
       </AnchorPane>
       <Button fx:id="next" layoutX="759.0" layoutY="219.0" minWidth="46.0" mnemonicParsing="false" onMouseClicked="#nextPane" prefHeight="217.0" prefWidth="46.0" text="&gt;&gt;" />
       <Button fx:id="last" layoutX="83.0" layoutY="219.0" mnemonicParsing="false" onMouseClicked="#lastPane" prefHeight="217.0" prefWidth="56.0" text="&lt;&lt;" />
-      <JFXButton fx:id="showAll_btn" buttonType="RAISED" layoutX="324.0" layoutY="591.0" prefHeight="32.0" prefWidth="165.0" text="Show All Prudocts" />
+      <JFXButton fx:id="showAll_btn" buttonType="RAISED" layoutX="324.0" layoutY="591.0" onMouseClicked="#showAllProduct" prefHeight="32.0" prefWidth="165.0" text="Show All Prudocts" />
    </children>
 </AnchorPane>

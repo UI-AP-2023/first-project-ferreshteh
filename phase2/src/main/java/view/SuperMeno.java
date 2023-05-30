@@ -46,7 +46,6 @@ public class SuperMeno {
     }
 
     public void adminMeno() {
-        scanner=0;
         System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
         System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
         scanner = sc.nextInt();
@@ -71,7 +70,7 @@ public class SuperMeno {
                 SuperCon.getInstance().requestsManagement(sc.nextLine());
                 System.out.println("1-Responding to Registration requests  2-view commentsRequested 3-Product management(add\\delete\\edit) 4-viewProducts ");
                 System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
-                scanner = sc.nextInt();
+                scanner=7;
             } else if (scanner == 6) {
                 for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
                     if (LoginController.getInstance().getAllCostumers().get(i).getCreditRequest()) {
@@ -83,7 +82,8 @@ public class SuperMeno {
                 SuperCon.getInstance().requestsManagement(sc.nextLine());
                 System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
                 System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
-                scanner = sc.nextInt();
+                scanner=7;
+                break;
             } else if (scanner == 2) {
                 for (int i = 0; i < SuperAdmin.getInstance().getComments().size(); i++) {
                     System.out.println(SuperAdmin.getInstance().getComments().get(i).toString());

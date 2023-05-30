@@ -287,10 +287,8 @@ public class SuperCon {
     public void acceptCredit(String idUser) {
         for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
             if (LoginController.getInstance().getAllCostumers().get(i).getId().equals(idUser)) {
-                LoginController.getInstance().getAllCostumers().get(i).setCreditRequest(true);
-                LoginController.getInstance().getAllCostumers().get(i).setCredit();
-                LoginController.getInstance().getAllCostumers().get(i).setDefaultCredit(0);
-                LoginController.getInstance().getAllCostumers().get(i).setCreditRequest(false);
+               Customer customer=LoginController.getInstance().getAllCostumers().get(i);
+               customer.upperCredit(customer.getDefaultValidity());
             }
         }
     }

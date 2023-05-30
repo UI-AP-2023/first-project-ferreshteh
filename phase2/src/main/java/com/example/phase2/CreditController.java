@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.user.Customer;
+import view.SuperMeno;
 
 import java.io.IOException;
 import java.net.URL;
@@ -87,14 +88,21 @@ public class CreditController implements Initializable {
 
         if (UserController.getInstance().checkRegexCredit(customer, string, credit)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setContentText(String.valueOf(customer.getCredit()));
-            System.out.println(string);
+            alert.setContentText("wait for admin decision ");
             alert.show();
+            SuperMeno.getInstance().adminMeno();
+            System.out.println(customer.getCredit());
+            Alert alertCredit=new Alert(Alert.AlertType.CONFIRMATION);
+            alertCredit.setContentText("credit:"+customer.getCredit());
+           alertCredit.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("try again");
             alert.show();
         }
+    }
+    @FXML public void lastPage(MouseEvent event) throws Exception {
+        new MainPage().start((Stage) refuse_btn.getScene().getWindow());
     }
 
 //    @FXML

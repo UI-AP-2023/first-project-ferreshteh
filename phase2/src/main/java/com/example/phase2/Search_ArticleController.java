@@ -15,12 +15,13 @@ import model.others.Comment;
 import model.user.Customer;
 import model.user.SuperAdmin;
 import view.ArticleShow;
+import view.SuperMeno;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Search_ArticleController implements Initializable {
-    private Article article;
+    static Article article;
     static Customer customer;
     private String []id=new String[1];
 
@@ -84,7 +85,7 @@ public class Search_ArticleController implements Initializable {
     @FXML
     private TextField comment_text;
 
-    ObservableList<Comment> comments= FXCollections.observableArrayList(article.getComments());
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         showId_lbl.setText(article.getId());
@@ -92,14 +93,14 @@ public class Search_ArticleController implements Initializable {
         showExist_lbl.setText(article.getPrice());
         showPrice_lbl.setText(article.getPrice());
         showScore_lbl.setText(String.valueOf(article.getAverage()));
-        name_column.setCellValueFactory(new PropertyValueFactory<Comment,String >("name"));
-        text_column.setCellValueFactory(new PropertyValueFactory<Comment,String>("text"));
-        comments_table.setItems(comments);
-        comment_btn.setOnMouseClicked(event -> {
-            String input = comment_text.getText();
-            model.others.Comment comment = new Comment(customer, "waiting", ArticleShow.getInstance().getIdArticle(),input);
-            SuperAdmin.getInstance().setComments(comment);
-        });
+//        name_column.setCellValueFactory(new PropertyValueFactory<Comment,String >("name"));
+//        text_column.setCellValueFactory(new PropertyValueFactory<Comment,String>("text"));
+//        comments_table.setItems(comments);
+//        comment_btn.setOnMouseClicked(event -> {
+//            String input = comment_text.getText();
+//            model.others.Comment comment = new Comment(customer, "waiting", ArticleShow.getInstance().getIdArticle(),input);
+//            SuperAdmin.getInstance().setComments(comment);
+//        });
     }
 
     @FXML
@@ -107,8 +108,13 @@ public class Search_ArticleController implements Initializable {
         new MainPage().start((Stage) lastPage_image.getScene().getWindow());
     }
     @FXML
-    public void exit(MouseEvent event){
-
+    public void comment(MouseEvent event){
+        Comment comment = new Comment(customer, "waiting", ArticleShow.getInstance().getIdArticle(),comment_text.getText());
+        SuperAdmin.getInstance().setComments(comment);
+        Alert alert=new Alert(Alert.AlertType.WARNING);
+        alert.setContentText("wait for admin decision ");
+        alert.show();
+        SuperMeno.getInstance().adminMeno();
     }
     @FXML
     public void add(MouseEvent event){

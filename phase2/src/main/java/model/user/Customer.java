@@ -100,9 +100,7 @@ private  boolean creditRequest=false;
 
     private double defaultCredit;
 
-    public void setCart(ArrayList<Article> cart) {
-        this.cart = cart;
-    }
+
 
     public double getDefaultValidity() {
         return defaultCredit;
@@ -111,6 +109,9 @@ private  boolean creditRequest=false;
 
     public void setDefaultCredit(double defaultCredit) {
         this.defaultCredit = defaultCredit;
+    }
+    public void upperCredit(double defaultCredit){
+        credit=credit+defaultCredit;
     }
 
     public boolean getCreditRequest() {

@@ -301,6 +301,7 @@ public class MainPageController implements Initializable {
             } else {
                 try {
                     new Search_Article().start((Stage) search_img.getScene().getWindow());
+                    Search_ArticleController.article=article;
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -330,7 +331,11 @@ public class MainPageController implements Initializable {
 
     @FXML
     void last_page(MouseEvent event) throws Exception {
-        new User_Information().start((Stage) user_btn.getScene().getWindow());
+        new HomePage().start((Stage) user_btn.getScene().getWindow());
+    }
+    @FXML
+    void showAllProduct(MouseEvent event) throws Exception {
+        new AllArticle().start((Stage) showAll_btn.getScene().getWindow());
     }
 
     //    @FXML

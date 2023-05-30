@@ -48,7 +48,7 @@
             </ImageView>
             <Button fx:id="add_btn" layoutX="67.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#add" prefHeight="31.0" prefWidth="135.0" style="-fx-background-color: #3ec973;" text="Add to cart" textFill="#39403c" />
             <TextField fx:id="comment_text" layoutX="226.0" layoutY="405.0" prefHeight="31.0" prefWidth="200.0" />
-            <Button fx:id="comment_btn" layoutX="486.0" layoutY="405.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="91.0" style="-fx-background-color: #3ec973;" text="comment" />
+            <Button fx:id="comment_btn" layoutX="486.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#comment" prefHeight="31.0" prefWidth="91.0" style="-fx-background-color: #3ec973;" text="comment" />
          </children>
       </AnchorPane>
    </children>

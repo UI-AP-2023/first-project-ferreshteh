@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="432.0" prefWidth="635.0" style="-fx-background-color: #CD5C5C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.FilterController">
+<AnchorPane prefHeight="432.0" prefWidth="599.0" style="-fx-background-color: #CD5C5C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.AllArticleController">
    <children>
-      <TableView fx:id="table" fixedCellSize="1.0" layoutX="37.0" layoutY="23.0" prefHeight="341.0" prefWidth="562.0">
-        <columns>
-          <TableColumn fx:id="exist" prefWidth="150.0" text="exist" />
-          <TableColumn fx:id="type" prefWidth="107.0" text="type" />
-            <TableColumn fx:id="id" prefWidth="90.0" text="id" />
-            <TableColumn fx:id="price" prefWidth="93.0" text="price" />
-            <TableColumn fx:id="name" prefWidth="115.0" text="name" />
-        </columns>
-         <effect>
-            <Glow level="0.0" />
-         </effect>
-      </TableView>
       <TextField fx:id="search_textField" alignment="CENTER" layoutX="189.0" layoutY="383.0" prefHeight="38.0" prefWidth="258.0" promptText="enter id of Article " />
       <ImageView fx:id="search_image" fitHeight="47.0" fitWidth="66.0" layoutX="125.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@1685117153076.png" />
+         </image>
+      </ImageView>
+      <ListView fx:id="list" layoutX="97.0" layoutY="26.0" prefHeight="325.0" prefWidth="429.0" />
+      <ImageView fx:id="last_image" fitHeight="71.0" fitWidth="96.0" layoutX="8.0" layoutY="351.0" onMouseClicked="#lastPage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1685001206629.png" />
          </image>
       </ImageView>
    </children>
