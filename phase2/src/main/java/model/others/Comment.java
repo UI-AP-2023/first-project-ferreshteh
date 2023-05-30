@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Comment  {
     private Customer customer;
-    String name=customer.getInfo();
+   // String name=customer.getInfo();
     private String idAr;
     private String text;
 //    private ArrayList<Customer>customers=new ArrayList<>();

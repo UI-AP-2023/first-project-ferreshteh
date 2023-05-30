@@ -149,6 +149,8 @@ public class MainPageController implements Initializable {
     private TextField expiration_textField;
     @FXML
     private TextField type_textField;
+    @FXML
+    private JFXButton comment_btn;
 
     @FXML
     private ImageView pen4;
@@ -294,14 +296,16 @@ public class MainPageController implements Initializable {
         search_img.setOnMouseClicked(event -> {
             String input = search_textField.getText();
             Article article = ArtContoroller.getInstance().search(input);
-            if (article != null) {
+            if (article == null) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("id not fount");
                 alert.show();
             } else {
                 try {
-                    new Search_Article().start((Stage) search_img.getScene().getWindow());
                     Search_ArticleController.article=article;
+                    System.out.println(article.getId());
+                    new Search_Article().start((Stage) search_img.getScene().getWindow());
+
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -337,14 +341,6 @@ public class MainPageController implements Initializable {
     void showAllProduct(MouseEvent event) throws Exception {
         new AllArticle().start((Stage) showAll_btn.getScene().getWindow());
     }
-
-    //    @FXML
-//    public void comment(MouseEvent event){
-//        String input=
-//        Comment comment = new Comment(customer, "waiting", ArticleShow.getInstance().getIdArticle(),scanNer);
-//        SuperAdmin.getInstance().setComments(comment);
-//
-//    }
     int check = 1;
 
     @FXML
@@ -420,5 +416,17 @@ public class MainPageController implements Initializable {
     @FXML
     public void filterCar(MouseEvent event) throws Exception {
         new Filter().start((Stage) carBlack_image1.getScene().getWindow());
+    }
+    @FXML
+    public void showCart(MouseEvent event) throws Exception {
+        new Shopping().start((Stage) cart_btn.getScene().getWindow());
+    }
+    @FXML
+    public void showFactors(MouseEvent event) throws Exception {
+        new Factors().start((Stage) factor_btn.getScene().getWindow());
+    }
+    @FXML
+    public void comment(MouseEvent event) throws Exception {
+        new AllArticle().start((Stage) comment_btn.getScene().getWindow());
     }
 }

@@ -181,11 +181,10 @@ public class UserController {
     }
     public void addCart(Customer customer, String[] id, int numberOfOrder) {
         Article article;
-        for (int j = 0; j <= id.length / 2; j = j + 2) {
             for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
                 article = (SuperAdmin.getInstance().getArticles().get(i));
-                if (article.getId().equals(id[j])) {
-                    if (article.getExist() >= Integer.parseInt(id[j + 1])) {
+                if (article.getId().equals(id[0])) {
+                    if (article.getExist() >= 1) {
                         customer.setCart(article);
                         customer.setOrder(id, numberOfOrder);
                     }
@@ -196,4 +195,4 @@ public class UserController {
             }
         }
     }
-}
+

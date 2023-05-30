@@ -8,9 +8,33 @@ import java.util.Objects;
 
 abstract public class Article implements Comparable<Article> {
     private String id;
-    private float average;
+    private float average=0;
     String name;
     String price;
+  private static int numberScore=0;
+  private static int sumScore=0;
+   public void finalScore(){
+       average=(float) (sumScore/numberScore);
+   }
+   //--------------------------
+
+    public  int getNumberScore() {
+        return numberScore;
+    }
+
+    public  void setNumberScore() {
+        Article.numberScore ++;
+    }
+
+    public  int getSumScore() {
+        return sumScore;
+    }
+
+    public  void setSumScore(int sumScore) {
+        Article.sumScore += sumScore;
+    }
+
+    //------------------------------
     int exist;
     private static int number = 0;
     private ArrayList<Comment> comments = new ArrayList<>();

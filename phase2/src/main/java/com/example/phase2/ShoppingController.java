@@ -8,7 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.articles.Article;
 import model.user.Customer;
 import model.user.SuperAdmin;
@@ -31,6 +34,8 @@ public class ShoppingController implements Initializable {
     String chosen;
     @FXML
     private Label show_lbl;
+    @FXML
+    private ImageView last_btn;
     @FXML
     private Label name_lbl;
     @FXML
@@ -62,7 +67,7 @@ public class ShoppingController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         list.setVisible(true);
         ArticleShow.setVisible(false);
-        for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+        for (int i = 0; i < customer.getCart().size(); i++) {
             toString[i] = customer.getCart().get(i).toString();
         }
         list.getItems().addAll(toString);
@@ -112,5 +117,9 @@ public class ShoppingController implements Initializable {
                 alert.show();
             }
         });
+    }
+    @FXML
+    public void lastPage(MouseEvent event) throws Exception {
+        new MainPage().start((Stage) last_btn.getScene().getWindow());
     }
 }

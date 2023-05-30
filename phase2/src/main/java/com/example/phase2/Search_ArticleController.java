@@ -23,31 +23,8 @@ import java.util.ResourceBundle;
 public class Search_ArticleController implements Initializable {
     static Article article;
     static Customer customer;
-    private String []id=new String[1];
-
-    public String []getId() {
-        return id;
-    }
-
-    public void setId(String[] id) {
-        this.id = id;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Article getArticle() {
-        return article;
-    }
-
-    public void setArticle(Article article) {
-        this.article = article;
-    }
+    @FXML
+    public Label Showscore_lbl;
 
     @FXML
     private Label showName_lbl;
@@ -61,17 +38,12 @@ public class Search_ArticleController implements Initializable {
     @FXML
     private Label showExist_lbl;
 
-    @FXML
-    private Label showScore_lbl;
-    @FXML
-    private ImageView lastPage_image;
-    @FXML
-    private TableView<Comment> comments_table;
-    @FXML
-    private TableColumn<Comment, String> text_column;
 
     @FXML
-    private TableColumn<Comment,String > name_column;
+    private ImageView lastPage_image;
+
+    @FXML
+    private ListView<String> list;
 
 
     @FXML
@@ -84,40 +56,48 @@ public class Search_ArticleController implements Initializable {
 
     @FXML
     private TextField comment_text;
-
+    private final String[] toString = new String[SuperAdmin.getInstance().getArticles().size()];
+    String chosen;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         showId_lbl.setText(article.getId());
-        showName_lbl.setText(article.getName());
+        showName_lbl.setText(article.getClass().getName());
         showExist_lbl.setText(article.getPrice());
         showPrice_lbl.setText(article.getPrice());
-        showScore_lbl.setText(String.valueOf(article.getAverage()));
-//        name_column.setCellValueFactory(new PropertyValueFactory<Comment,String >("name"));
-//        text_column.setCellValueFactory(new PropertyValueFactory<Comment,String>("text"));
-//        comments_table.setItems(comments);
-//        comment_btn.setOnMouseClicked(event -> {
-//            String input = comment_text.getText();
-//            model.others.Comment comment = new Comment(customer, "waiting", ArticleShow.getInstance().getIdArticle(),input);
-//            SuperAdmin.getInstance().setComments(comment);
-//        });
+        Showscore_lbl.setText(String.valueOf(article.getAverage()));
+        for (int i = 0; i < article.getComments().size(); i++) {
+            toString[i] = article.getComments().get(i).getText();
+        }
+        list.getItems().addAll(toString);
     }
 
     @FXML
     public void lastPage(MouseEvent event) throws Exception {
         new MainPage().start((Stage) lastPage_image.getScene().getWindow());
     }
+
     @FXML
-    public void comment(MouseEvent event){
-        Comment comment = new Comment(customer, "waiting", ArticleShow.getInstance().getIdArticle(),comment_text.getText());
-        SuperAdmin.getInstance().setComments(comment);
-        Alert alert=new Alert(Alert.AlertType.WARNING);
-        alert.setContentText("wait for admin decision ");
-        alert.show();
-        SuperMeno.getInstance().adminMeno();
+    public void comment(MouseEvent event) {
+        if (customer == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("null customer ");
+            alert.show();
+        } else {
+            Comment comment = new Comment(customer, "waiting", article.getId(), comment_text.getText());
+            SuperAdmin.getInstance().setComments(comment);
+          //  comment.setIdAr(article.getId());
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("wait for admin decision ");
+            alert.show();
+            SuperMeno.getInstance().adminMeno();
+        }
     }
     @FXML
-    public void add(MouseEvent event){
-        UserController.getInstance().addCart(customer,id,1);
+    public void add(MouseEvent event) throws Exception {
+        String[] id = new String[1];
+        id[0] = article.getId();
+        UserController.getInstance().addCart(customer, id, 1);
+        new Shopping().start((Stage) add_btn.getScene().getWindow());
     }
 }

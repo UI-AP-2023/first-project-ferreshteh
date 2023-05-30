@@ -45,14 +45,15 @@ public class AllArticleController implements Initializable {
         search_image.setOnMouseClicked(event -> {
             String input = search_textField.getText();
             Article article = ArtContoroller.getInstance().search(input);
-            if (article != null) {
+            if (article == null) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("id not fount");
                 alert.show();
             } else {
-                try {
-                    new Search_Article().start((Stage) search_image.getScene().getWindow());
+                try {System.out.println(article.getId());
                     Search_ArticleController.article=article;
+                    new Search_Article().start((Stage) search_image.getScene().getWindow());
+
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

@@ -109,9 +109,9 @@
                   <JFXButton fx:id="credit_btn" buttonType="RAISED" layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="164.0" style="-fx-background-color: #cd5c5c;" text="View the list of discounts" textAlignment="CENTER" underline="true" wrapText="true" />
                   <JFXButton fx:id="account_btn" onMouseClicked="#addCredit" prefHeight="32.0" prefWidth="164.0" style="-fx-background-color: #cd5c5c;" text="account increase" underline="true" wrapText="true" />
                   <JFXButton fx:id="user_btn" layoutX="10.0" layoutY="42.0" onMouseClicked="#showInformation" prefHeight="32.0" prefWidth="168.0" style="-fx-background-color: #cd5c5c;" text="Informations" />
-                  <JFXButton fx:id="cart_btn" buttonType="RAISED" layoutX="10.0" layoutY="115.0" prefHeight="32.0" prefWidth="168.0" style="-fx-background-color: #cd5c5c;" text="Your Cart" />
-                  <JFXButton fx:id="factor_btn" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #cd5c5c;" text="Your Factors" />
-                  <JFXButton fx:id="comment_btn" prefHeight="32.0" prefWidth="167.0" style="-fx-background-color: #cd5c5c;" text="Comment" />
+                  <JFXButton fx:id="cart_btn" buttonType="RAISED" layoutX="10.0" layoutY="115.0" onMouseClicked="#showCart" prefHeight="32.0" prefWidth="168.0" style="-fx-background-color: #cd5c5c;" text="Your Cart" />
+                  <JFXButton fx:id="factor_btn" onMouseClicked="#showFactors" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #cd5c5c;" text="Your Factors" />
+                  <JFXButton fx:id="comment_btn" onMouseClicked="#comment" prefHeight="32.0" prefWidth="167.0" style="-fx-background-color: #cd5c5c;" text="Comment" />
                </children></VBox>
          </children>
       </AnchorPane>

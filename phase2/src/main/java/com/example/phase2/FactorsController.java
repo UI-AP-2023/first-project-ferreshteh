@@ -40,16 +40,20 @@ public class FactorsController implements Initializable {
     private Label show_lbl;
     @FXML
     private ImageView firstScore_pane;
+
     static Customer customer;
     private final String[] toString = new String[customer.getFactors().size()];
     String chosen;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        score_pane.setVisible(false);
-        firstScore_pane.setOnMouseClicked(event -> {
-        score_pane.setVisible(true);
-        firstScore_pane.setVisible(false);
+            score_pane.setVisible(false);
+            firstScore_pane.setOnMouseClicked(event -> {
+            firstScore_pane.setVisible(false);
+            score_pane.setVisible(true);
+            save_btn.setOnMouseClicked(event1 -> {
+                ArtContoroller.getInstance().score2(customer,id_textField.getText(),Integer.parseInt(score_textField.getText()));
+            });
     //----------------------------------------------------------------
         });
         for (int i = 0; i < customer.getFactors().size(); i++) {

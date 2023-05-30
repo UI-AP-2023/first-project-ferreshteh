@@ -3,9 +3,11 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="560.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.Shopping">
+<AnchorPane prefHeight="560.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.ShoppingController">
    <children>
       <ListView fx:id="list" layoutX="286.0" layoutY="14.0" prefHeight="530.0" prefWidth="410.0" style="-fx-background-color: #FFFACD;" />
       <AnchorPane fx:id="ArticleShow" layoutX="5.0" layoutY="6.0" prefHeight="440.0" prefWidth="268.0" style="-fx-background-color: #8FBC8F;">
@@ -22,6 +24,11 @@
             <Label fx:id="exist2_lbl" layoutX="14.0" layoutY="236.0" prefHeight="21.0" prefWidth="75.0" underline="true" />
          </children>
       </AnchorPane>
-      <JFXButton fx:id="buy_btn" buttonType="RAISED" layoutX="47.0" layoutY="484.0" prefHeight="31.0" prefWidth="184.0" ripplerFill="#07b20a" style="-fx-background-color: #B0C4DE;" text="BUY" />
+      <JFXButton fx:id="buy_btn" buttonType="RAISED" layoutX="47.0" layoutY="452.0" prefHeight="31.0" prefWidth="184.0" ripplerFill="#07b20a" style="-fx-background-color: #B0C4DE;" text="BUY" />
+      <ImageView fx:id="last_btn" fitHeight="59.0" fitWidth="75.0" layoutX="10.0" layoutY="501.0" onMouseClicked="#lastPage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1685001206629.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

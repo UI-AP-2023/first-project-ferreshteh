@@ -26,7 +26,7 @@ public class ArtContoroller {
         return instance;
     }
 
-   // ArrayList<Article> articles = new ArrayList<>();
+    // ArrayList<Article> articles = new ArrayList<>();
     public void filterPrice(String function) {
         String[] strings = function.split("-");
         ArrayList<Article> newArt = new ArrayList<>();
@@ -64,7 +64,8 @@ public class ArtContoroller {
             SuperAdmin.getInstance().setArticles(newArraylist);
         }
     }
-    public void unFiltering(){
+
+    public void unFiltering() {
 
         SuperAdmin.getInstance().setArticles(SuperAdmin.getInstance().getSpareArt());
     }
@@ -97,7 +98,7 @@ public class ArtContoroller {
             if (article instanceof Meal) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
                 LocalDate date = LocalDate.parse(ex, formatter);
-                if (((Meal) article).getExpiration()==date) {
+                if (((Meal) article).getExpiration() == date) {
                     newArt.add(article);
                 }
             }
@@ -128,6 +129,7 @@ public class ArtContoroller {
         }
         return null;
     }
+
     public void score(Customer customer, String function) {
         Article article;
         Score score = null;
@@ -152,11 +154,23 @@ public class ArtContoroller {
                 if (SuperAdmin.getInstance().getArticles().get(i).getId().equals(strings[2])) {
                     article = SuperAdmin.getInstance().getArticles().get(i);
                     article.setAverage((article.getAverage() + Float.parseFloat(strings[0])) / score.getNumber());
-                    SuperAdmin.getInstance().getArticles().get(i).setAverage(SuperAdmin.getInstance().getArticles().get(i).getAverage()+Float.parseFloat(strings[0]) / score.getNumber());
+                    SuperAdmin.getInstance().getArticles().get(i).setAverage(SuperAdmin.getInstance().getArticles().get(i).getAverage() + Float.parseFloat(strings[0]) / score.getNumber());
                     break;
                 }
             }
 
+        }
+    }
+
+    public void score2(Customer customer, String idArt, int score) {
+        Article article;
+        for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+            if (SuperAdmin.getInstance().getArticles().get(i).getId().equals(idArt)) {
+                article = SuperAdmin.getInstance().getArticles().get(i);
+                article.setNumberScore();
+                article.setSumScore(score);
+                article.finalScore();
+            }
         }
     }
 }
