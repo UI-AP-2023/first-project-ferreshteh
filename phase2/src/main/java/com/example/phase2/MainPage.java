@@ -22,13 +22,14 @@ import java.util.Objects;
 
 public class MainPage extends Application {
     double x, y = 0;
+ public   static Scene scene;
 
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainPage.fxml")));
-        stage.initStyle(StageStyle.UNDECORATED);
-
-        //------------------------
+        //stage.initStyle(StageStyle.UNDECORATED);
+scene=root.getScene();
+        //-----------------------------
         root.setOnMousePressed(event -> {
             x = event.getSceneX();
             y = event.getSceneY();

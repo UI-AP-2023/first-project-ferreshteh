@@ -3,11 +3,10 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="434.0" prefWidth="642.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.HomePage">
+<AnchorPane prefHeight="434.0" prefWidth="642.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.HomePageController">
    <children>
       <AnchorPane layoutX="207.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0" />
       <JFXButton fx:id="superAdmin" buttonType="RAISED" layoutX="77.0" layoutY="285.0" prefHeight="31.0" prefWidth="146.0" ripplerFill="#d70c0c" style="-fx-background-color: #A9A9A9; -fx-background-radius: 1000;" text="SUPER ADMIN" />
-      <JFXButton fx:id="customer_btn" buttonType="RAISED" layoutX="400.0" layoutY="285.0" prefHeight="31.0" prefWidth="146.0" ripplerFill="#d70c0c" style="-fx-background-color: #A9A9A9; -fx-background-radius: 1000;" text="CUSTOMER" />
+      <JFXButton fx:id="customer_btn" buttonType="RAISED" layoutX="400.0" layoutY="285.0" onMouseClicked="#loginPage" prefHeight="31.0" prefWidth="146.0" ripplerFill="#d70c0c" style="-fx-background-color: #A9A9A9; -fx-background-radius: 1000;" text="CUSTOMER" />
    </children>
 </AnchorPane>

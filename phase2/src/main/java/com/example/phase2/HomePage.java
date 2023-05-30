@@ -12,5 +12,9 @@ public class HomePage extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 603, 562);
         stage.setTitle("90'VISION!");
         stage.setScene(scene);
+        stage.show();
+    }
+    public static void main(String[] args) {
+        launch(args);
     }
 }

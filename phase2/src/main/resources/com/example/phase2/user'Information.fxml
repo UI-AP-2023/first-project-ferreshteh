@@ -8,25 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
 <AnchorPane prefHeight="573.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.User_InformationController">
    <children>
-      <ImageView fitHeight="139.0" fitWidth="195.0" layoutX="522.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pesron_image" fitHeight="139.0" fitWidth="195.0" layoutX="522.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@1685001206663.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="111.0" fitWidth="111.0" layoutX="545.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="phone_image" fitHeight="111.0" fitWidth="111.0" layoutX="545.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@1685001206680.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="113.0" fitWidth="169.0" layoutX="516.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="email_image" fitHeight="113.0" fitWidth="169.0" layoutX="516.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@1685001206697.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="139.0" fitWidth="111.0" layoutX="536.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="password_image" fitHeight="139.0" fitWidth="111.0" layoutX="536.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@1685001206646.png" />
          </image>
@@ -51,5 +50,10 @@
       <TextField fx:id="phone_textField" layoutX="166.0" layoutY="240.0" onMouseClicked="#editPhone" promptText="Enter phone" visible="false" />
       <TextField fx:id="email_textField" layoutX="166.0" layoutY="390.0" onMouseClicked="#editEmail" promptText="Enter email" visible="false" />
       <TextField fx:id="Password_textField" disable="true" layoutX="159.0" layoutY="503.0" onMouseClicked="#editPassword" promptText="Enter PassWord" visible="false" />
+      <ImageView fx:id="last_image" fitHeight="92.0" fitWidth="111.0" layoutX="34.0" layoutY="442.0" onMouseClicked="#lastPage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1685001206629.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -6,7 +6,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import model.user.Customer;
 
 import java.net.URL;
@@ -16,10 +18,24 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class User_InformationController implements Initializable {
+    @FXML
+    private ImageView pesron_image;
+
+    @FXML
+    private ImageView phone_image;
+
+    @FXML
+    private ImageView email_image;
+
+    @FXML
+    private ImageView password_image;
+
 
     static Customer customer;
     @FXML
     private Button editUser_btn;
+    @FXML
+    private ImageView last_image;
 
     @FXML
     private Button editPhone_btn;
@@ -63,7 +79,7 @@ public class User_InformationController implements Initializable {
     ///-----------------
     @FXML
     void showUserName(MouseEvent event) {
-        userName_lbl.setText("hghv");
+        userName_lbl.setText(customer.getId());
     }
 
     @FXML
@@ -148,6 +164,10 @@ public class User_InformationController implements Initializable {
         if (Stream.of(matcher31, matcher32, matcher33).allMatch(Matcher::find)) {
             customer.setPassWord(input);
         }
+    }
+    @FXML
+    void lastPage(MouseEvent event) throws Exception {
+        new MainPage().start((Stage) last_image.getScene().getWindow());
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

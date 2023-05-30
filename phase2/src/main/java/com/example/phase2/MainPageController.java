@@ -88,7 +88,7 @@ public class MainPageController implements Initializable {
     private JFXButton credit_btn;
 
     @FXML
-    private JFXButton home_btn;
+   static  JFXButton home_btn;
 
     @FXML
     private JFXButton user_btn;
@@ -156,6 +156,11 @@ public class MainPageController implements Initializable {
     @FXML
     private ImageView flash_image2;
 
+    @FXML
+    private JFXButton account_btn;
+
+    @FXML
+    private JFXButton factor_btn;
     @FXML
     private ImageView ssd_image11;
     @FXML
@@ -315,12 +320,12 @@ public class MainPageController implements Initializable {
 
     @FXML
     void showRegisterPage(MouseEvent event) throws Exception {
-        new User_Information().start((Stage) home_btn.getScene().getWindow());
+        new HomePage().start((Stage) home_btn.getScene().getWindow());
     }
 
     @FXML
     void addCredit(MouseEvent event) throws Exception {
-        new User_Information().start((Stage) credit_btn.getScene().getWindow());
+        new CreditPage().start((Stage) account_btn.getScene().getWindow());
     }
 
     @FXML

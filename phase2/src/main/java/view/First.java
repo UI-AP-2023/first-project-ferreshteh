@@ -80,17 +80,18 @@ Bicycle bicycle=new Bicycle("1","1","1",1,2,"Vehicle","1","1");
     }
 
     public void firstMeno() {
-        System.out.print("1-user 2-Admin 3-superAdmin");
+        System.out.print("1-user   3-superAdmin");
         scanner = sc.nextInt();
         if (scanner == 1) {
             login();
+
         } else if (scanner == 3) {
             System.out.println("username");
             scanNer = sc.next();
             if (scanNer.equals("admin")) {
-               SuperMeno.getInstance(). adminMeno();
-            }
-        }
+                SuperMeno.getInstance(). adminMeno();
+            }}
+
     }
     public void showInfo(Customer customer){
         System.out.println(customer.getId());

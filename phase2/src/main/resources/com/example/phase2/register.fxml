@@ -16,7 +16,7 @@
             <Image url="@profile-login-style-vector.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="259.0" layoutY="14.0" prefHeight="225.0" prefWidth="319.0" style="-fx-background-color: #FF7F50;">
+      <AnchorPane layoutX="259.0" layoutY="14.0" prefHeight="257.0" prefWidth="319.0" style="-fx-background-color: #FF7F50;">
          <children>
             <AnchorPane layoutX="14.0" layoutY="58.0" prefHeight="29.0" prefWidth="117.0" style="-fx-background-color: #DB7093;">
                <children>
@@ -43,8 +43,10 @@
             </Label>
             <Label fx:id="username_lbl" alignment="CENTER" layoutX="14.0" layoutY="186.0" prefHeight="21.0" prefWidth="117.0" style="-fx-background-color: #DB7093;" text="UserName" />
             <PasswordField fx:id="username_Field" layoutX="138.0" layoutY="181.0" prefHeight="31.0" prefWidth="177.0" promptText="your UserName" />
+            <Button fx:id="register_btn" layoutX="85.0" layoutY="230.0" mnemonicParsing="false" onMouseClicked="#check" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: #DB7093;" text="Register" />
          </children>
       </AnchorPane>
-      <Button layoutX="259.0" layoutY="497.0" mnemonicParsing="false" onMouseClicked="#check" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: #FFA07A;" text="Login" />
+      <Button fx:id="login_btn" layoutX="259.0" layoutY="497.0" mnemonicParsing="false" onMouseClicked="#enterLogin" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: #FFA07A;" text="Login" />
+      <Button fx:id="new_btn" layoutX="55.0" layoutY="459.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>

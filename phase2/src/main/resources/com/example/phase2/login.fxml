@@ -9,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="558.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.LoginPageController">
    <children>
       <ImageView fx:id="image" fitHeight="571.0" fitWidth="587.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -29,7 +28,7 @@
                   <Label fx:id="password_lbl" layoutX="23.0" layoutY="7.0" prefHeight="21.0" prefWidth="67.0" text="Password" />
                </children>
             </AnchorPane>
-            <Button fx:id="login_btn" layoutX="104.0" layoutY="197.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="66.0" text="Login" />
+            <Button fx:id="login_btn" layoutX="104.0" layoutY="197.0" mnemonicParsing="false" onMouseClicked="#enterMainPage" prefHeight="31.0" prefWidth="66.0" text="Login" />
             <TextField fx:id="username_textField" layoutX="137.0" layoutY="67.0" prefHeight="31.0" prefWidth="152.0" promptText="username" />
             <PasswordField fx:id="password_field" layoutX="137.0" layoutY="121.0" prefHeight="31.0" prefWidth="152.0" promptText="password" />
             <Label alignment="CENTER" layoutX="75.0" layoutY="21.0" prefHeight="21.0" prefWidth="125.0" text="90'VISION" textFill="#220dc3">
@@ -41,7 +40,7 @@
       </AnchorPane>
       <AnchorPane layoutX="212.0" layoutY="499.0" prefHeight="59.0" prefWidth="200.0" style="-fx-background-color: #FFA07A;">
          <children>
-            <Button fx:id="register_btn" layoutX="52.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="96.0" text="Register" />
+            <Button fx:id="register_btn" layoutX="52.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#enterRegister" prefHeight="31.0" prefWidth="96.0" text="Register" />
          </children>
       </AnchorPane>
    </children>
