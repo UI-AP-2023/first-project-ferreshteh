@@ -98,6 +98,7 @@ public class Search_ArticleController implements Initializable {
         String[] id = new String[1];
         id[0] = article.getId();
         UserController.getInstance().addCart(customer, id, 1);
-        new Shopping().start((Stage) add_btn.getScene().getWindow());
+        ShoppingController.customer=customer;
+        //new Shopping().start((Stage) add_btn.getScene().getWindow());
     }
 }

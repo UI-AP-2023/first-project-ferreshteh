@@ -1,6 +1,7 @@
 package com.example.phase2;
 
 import com.jfoenix.controls.JFXButton;
+import controller.UserController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -66,7 +67,7 @@ public class ShoppingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         list.setVisible(true);
-        ArticleShow.setVisible(false);
+        ArticleShow.setVisible(true);
         for (int i = 0; i < customer.getCart().size(); i++) {
             toString[i] = customer.getCart().get(i).toString();
         }
@@ -78,7 +79,6 @@ public class ShoppingController implements Initializable {
                 for (int i = 0; i < customer.getCart().size(); i++) {
                     if (customer.getCart().get(i).toString().equals(chosen)) {
                         article = customer.getCart().get(i);
-                        break;
                     }
                 }
                 name2_lbl.setText(article.getName());
@@ -87,33 +87,27 @@ public class ShoppingController implements Initializable {
                 id2_lbl.setText(article.getId());
             }
         });
-        list.setOnMouseClicked(event -> {
-            if (list.isVisible()) {
-                ArticleShow.setVisible(true);
-                list.setVisible(false);
-            } else {
-                ArticleShow.setVisible(false);
-                list.setVisible(true);
-            }
-        });
+//        list.setOnMouseClicked(event -> {
+//            if (list.isVisible()) {
+//                ArticleShow.setVisible(true);
+//                list.setVisible(false);
+//            } else {
+//                ArticleShow.setVisible(false);
+//                list.setVisible(true);
+//            }
+//        });
         delete_btn.setOnMouseClicked(event -> {
             customer.getCart().remove(article);
         });
         buy_btn.setOnMouseClicked(event -> {
-            double credit = customer.getCredit();
-            for (int i = 0; i < customer.getCart().size(); i++) {
-                if (customer.getCart().get(i).getExist() != 0) {
-                    customer.lowerCredit(Double.parseDouble(customer.getCart().get(i).getPrice()));
-                }
-            }
-            if (customer.getCredit() < 0) {
-                customer.setCredit(credit);
+           if( UserController.getInstance().shoppingCart(customer)){
+               Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+               alert.setContentText("successful shopping");
+               alert.show();
+           }
+            else  {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("not enough money");
-                alert.show();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setContentText("successful shopping");
                 alert.show();
             }
         });

@@ -10,7 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.others.Score;
 import model.user.Customer;
 import model.user.SuperAdmin;
@@ -45,16 +47,21 @@ public class FactorsController implements Initializable {
     private final String[] toString = new String[customer.getFactors().size()];
     String chosen;
 
+    @FXML
+    private ImageView last_btn;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+            firstScore_pane.setVisible(true);
             score_pane.setVisible(false);
             firstScore_pane.setOnMouseClicked(event -> {
             firstScore_pane.setVisible(false);
             score_pane.setVisible(true);
             save_btn.setOnMouseClicked(event1 -> {
-                ArtContoroller.getInstance().score2(customer,id_textField.getText(),Integer.parseInt(score_textField.getText()));
+                 ArtContoroller.getInstance().score2(customer,id_textField.getText(),Integer.parseInt(score_textField.getText()));
             });
-    //----------------------------------------------------------------
+        //----------------------------------------------------------------
         });
         for (int i = 0; i < customer.getFactors().size(); i++) {
             toString[i] = customer.getFactors().get(i).getIdFactor();
@@ -81,5 +88,8 @@ public class FactorsController implements Initializable {
             ArtContoroller.getInstance().score(customer,function);
         });
         //------------------------------------------------------------
+    }
+    @FXML public void lastPage(MouseEvent event) throws Exception {
+        new MainPage().start((Stage) last_btn.getScene().getWindow());
     }
 }
