@@ -5,22 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Register extends Application {
-    Stage stage;
+public class Meal_Filter extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Register.class.getResource("register.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 603, 562);
-        this.stage=stage;
+        FXMLLoader fxmlLoader = new FXMLLoader(Register.class.getResource("meal_filter.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 710, 560);
         stage.setTitle("90'VISION!");
         stage.setScene(scene);
         stage.show();
     }
     public static void main(String[] args) {
-
         launch();
-    }
-    public Stage getStage(){
-        return this.stage;
     }
 }

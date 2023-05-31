@@ -20,7 +20,8 @@ import java.util.stream.Stream;
 public class User_InformationController implements Initializable {
     @FXML
     private ImageView pesron_image;
-
+    @FXML
+    private Label credit;
     @FXML
     private ImageView phone_image;
 
@@ -80,6 +81,7 @@ public class User_InformationController implements Initializable {
     @FXML
     void showUserName(MouseEvent event) {
         userName_lbl.setText(customer.getId());
+        credit.setText(String.valueOf(customer.getCredit()));
     }
 
     @FXML

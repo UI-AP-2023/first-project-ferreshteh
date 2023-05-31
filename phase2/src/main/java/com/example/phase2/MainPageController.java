@@ -3,6 +3,7 @@ package com.example.phase2;
 import com.jfoenix.controls.JFXButton;
 import controller.ArtContoroller;
 import javafx.animation.FadeTransition;
+import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,10 +16,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.articles.Article;
 import model.user.Customer;
+import model.user.SuperAdmin;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -172,11 +175,11 @@ public class MainPageController implements Initializable {
     @FXML
     private AnchorPane search_pane;
     @FXML
-    private Button next;
+    private JFXButton next;
     @FXML
     private VBox search_vbox;
     @FXML
-    private Button last;
+    private JFXButton last;
 
     double x, y = 0;
 
@@ -229,6 +232,14 @@ public class MainPageController implements Initializable {
                 last.setVisible(false);
                 next.setVisible(false);
                 meno_pane.setVisible(true);
+                RotateTransition rotate=new RotateTransition();
+                rotate.setAxis(Rotate.Z_AXIS);
+                rotate.setByAngle(45);
+                rotate.setCycleCount(3);
+                rotate.setDuration(Duration.millis(3000));
+                rotate.setAutoReverse(true);
+                rotate.setNode(filter_image);
+                rotate.play();
                 filter_image.setOnMouseClicked(event1 -> {
                     if (search_vbox.isVisible()) {
                         search_vbox.setVisible(false);
@@ -241,7 +252,7 @@ public class MainPageController implements Initializable {
                     String input = type_textField.getText();
                     ArtContoroller.getInstance().generalFilter(input);
                     try {
-                        new Filter().start((Stage) type_btn.getScene().getWindow());
+                        new Meal_Filter().start((Stage) type_btn.getScene().getWindow());
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -439,6 +450,9 @@ public class MainPageController implements Initializable {
     @FXML
     public void generalType(MouseEvent event) throws Exception {
         ArtContoroller.getInstance().generalFilter(type_textField.getText());
+        for(int i=0;i< SuperAdmin.getInstance().getArticles().size();i++){
+            System.out.println(SuperAdmin.getInstance().getArticles().get(i).getId());
+        }
         new AllArticle().start((Stage) type_btn.getScene().getWindow());
     }
     @FXML

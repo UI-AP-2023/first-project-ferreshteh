@@ -2,7 +2,7 @@ package model.user;
 
 import model.articles.Article;
 import model.others.Comment;
-import model.others.Off;
+import model.others.OffProduct;
 
 import java.util.ArrayList;
 
@@ -71,13 +71,13 @@ public class SuperAdmin extends Account{
 
     private   ArrayList<Request> requests=new ArrayList<>();
     private ArrayList<Article>articles=new ArrayList<>();
-    private ArrayList<Off>offs=new ArrayList<>();
+    private ArrayList<OffProduct>offs=new ArrayList<>();
 
-    public ArrayList<Off> getOffs() {
+    public ArrayList<OffProduct> getOffs() {
         return offs;
     }
 
-    public void setOffs(ArrayList<Off> offs) {
+    public void setOffs(ArrayList<OffProduct> offs) {
         this.offs = offs;
     }
 

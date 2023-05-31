@@ -54,6 +54,7 @@ public class Login extends Application {
         customer.setId("id1");
         LoginController.getInstance().getAllCostumers().add(customer);
         customer.setCredit(20000);
+        ShoppingController.customer=customer;
         //-----------------------------------------
         SuperCon.getInstance().productManagement("add pen penName 10 5 blue vcxs");
         SuperCon.getInstance().productManagement("add computer co1 23 4 mkj 500 10 20 30");

@@ -2,13 +2,13 @@ package model.others;
 
 import java.time.LocalDate;
 
-public class Off {
+public class OffProduct {
     private double percent;
     private LocalDate expiration;
     private int capacity;
     private String id;
 
-    public Off(double percent, LocalDate expiration, int capacity) {
+    public OffProduct(double percent, LocalDate expiration, int capacity) {
         this.percent = percent;
         this.expiration = expiration;
         this.capacity = capacity;
@@ -23,7 +23,7 @@ public class Off {
     }
 
     public static void setCounter(int counter) {
-        Off.counter = counter;
+        OffProduct.counter = counter;
     }
 
     public int getCapacity() {
@@ -60,7 +60,7 @@ public class Off {
 
     //------------------------------------
     //setter of id
-    private void Id_builder(Off off) {
+    private void Id_builder(OffProduct off) {
         String id = "Vision";
         id+=counter;
         id += String.valueOf(off.expiration);

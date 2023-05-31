@@ -1,7 +1,7 @@
 package model.user;
 import model.articles.Article;
 import model.others.Factor;
-import model.others.Off;
+import model.others.OffProduct;
 
 import java.util.ArrayList;
 
@@ -19,9 +19,9 @@ public class Customer extends Account {
     String cvv2;
     int numberOfOrder;
     String[]order=new String[numberOfOrder];
-    private ArrayList<Off>list_Offs=new ArrayList<Off>();
+    private ArrayList<OffProduct>list_Offs=new ArrayList<OffProduct>();
 
-    public ArrayList<Off> getList_Offs() {
+    public ArrayList<OffProduct> getList_Offs() {
         return list_Offs;
     }
 

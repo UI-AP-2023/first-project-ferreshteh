@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFDAB9; -fx-background-position: #808080;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.MainPageController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #708090; -fx-background-position: #808080;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.MainPageController">
    <children>
-      <AnchorPane fx:id="filters_pane" layoutX="249.0" layoutY="52.0" prefHeight="588.0" prefWidth="564.0">
+      <AnchorPane fx:id="filters_pane" layoutX="249.0" layoutY="52.0" prefHeight="588.0" prefWidth="498.0">
          <children>
             <ImageView fx:id="filter_image" fitHeight="293.0" fitWidth="275.0" layoutX="32.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -34,9 +34,10 @@
                   <TextField fx:id="note_textField" alignment="CENTER" promptText="enter number" />
                </children>
             </VBox>
+            <JFXButton fx:id="showAll_btn" buttonType="RAISED" layoutX="115.0" layoutY="467.0" onMouseClicked="#unFiltering" prefHeight="32.0" prefWidth="165.0" text="un Filtering" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="search_pane" layoutY="-2.0" prefHeight="52.0" prefWidth="813.0" style="-fx-background-color: #A9A9A9;" AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+      <AnchorPane fx:id="search_pane" layoutY="-2.0" prefHeight="52.0" prefWidth="813.0" style="-fx-background-color: #87CEFA;" AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
          <children>
             <ImageView fx:id="exit_btn" fitHeight="32.0" fitWidth="46.0" layoutX="773.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -59,7 +60,7 @@
          <children>
             <VBox layoutX="5.0" layoutY="-2.0" prefHeight="603.0" prefWidth="75.0" spacing="10.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane prefHeight="606.0" prefWidth="75.0" style="-fx-background-color: #A9A9A9;">
+                  <AnchorPane prefHeight="606.0" prefWidth="75.0" style="-fx-background-color: #87CEFA;">
                      <children>
                         <ImageView fx:id="credit_image" fitHeight="58.0" fitWidth="75.0" layoutX="4.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -91,7 +92,7 @@
                               <Image url="@1685026948168.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="home_image" fitHeight="58.0" fitWidth="75.0" layoutX="9.0" layoutY="486.0" onMouseClicked="#showRegisterPage" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="home_image" fitHeight="58.0" fitWidth="75.0" layoutX="9.0" layoutY="486.0" onMouseClicked="#last_page" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@1684945792025.png" />
                            </image>
@@ -186,10 +187,10 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <JFXButton fx:id="All_btn" buttonType="RAISED" layoutX="236.0" layoutY="349.0" onMouseClicked="#showAllProduct" ripplerFill="#da1f1f" text="ALL PRODUCTS" />
          </children>
       </AnchorPane>
-      <Button fx:id="next" layoutX="759.0" layoutY="219.0" minWidth="46.0" mnemonicParsing="false" onMouseClicked="#nextPane" prefHeight="217.0" prefWidth="46.0" text="&gt;&gt;" />
-      <Button fx:id="last" layoutX="83.0" layoutY="219.0" mnemonicParsing="false" onMouseClicked="#lastPane" prefHeight="217.0" prefWidth="56.0" text="&lt;&lt;" />
-      <JFXButton fx:id="showAll_btn" buttonType="RAISED" layoutX="324.0" layoutY="591.0" onMouseClicked="#unFiltering" prefHeight="32.0" prefWidth="165.0" text="un Filtering" />
+      <JFXButton fx:id="next" buttonType="RAISED" ellipsisString="&gt;&gt;" layoutX="753.0" layoutY="390.0" minWidth="46.0" onMouseClicked="#nextPane" prefHeight="46.0" prefWidth="46.0" ripplerFill="#d71515" text="&gt;&gt;" />
+      <JFXButton fx:id="last" buttonType="RAISED" layoutX="105.0" layoutY="397.0" onMouseClicked="#lastPane" prefHeight="46.0" prefWidth="56.0" ripplerFill="#c91c1c" text="&lt;&lt;" />
    </children>
 </AnchorPane>

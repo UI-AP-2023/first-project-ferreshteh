@@ -126,12 +126,12 @@ typePencil=type;
     }
     @Override
     public void add_Off( double percent) {
-        double price=Double.parseDouble(this.getPrice());
-        this.setPrice(String.valueOf(price-(price*percent/100)));
+        double first=Double.parseDouble(price);
+        price=String.valueOf(first*(100-percent));
     }
     @Override
     public void delete_Off( double percent) {
-        double price=Double.parseDouble(this.getPrice());
-        this.setPrice(String.valueOf(price-(price*percent/100)));
+        double first=Double.parseDouble(price);
+        price=String.valueOf(first*(100+percent));
     }
 }

@@ -3,7 +3,7 @@ package controller;
 import exception.ID_Off;
 import model.articles.*;
 import model.others.Comment;
-import model.others.Off;
+import model.others.OffProduct;
 import model.user.Customer;
 import model.user.Request;
 import model.user.SuperAdmin;
@@ -12,7 +12,6 @@ import view.Messages;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Formatter;
 
 public class SuperCon {
 
@@ -287,31 +286,32 @@ public class SuperCon {
     public void acceptCredit(String idUser) {
         for (int i = 0; i < LoginController.getInstance().getAllCostumers().size(); i++) {
             if (LoginController.getInstance().getAllCostumers().get(i).getId().equals(idUser)) {
-               Customer customer=LoginController.getInstance().getAllCostumers().get(i);
-               customer.upperCredit(customer.getDefaultValidity());
+                Customer customer = LoginController.getInstance().getAllCostumers().get(i);
+                customer.upperCredit(customer.getDefaultValidity());
+                System.out.println(customer.getCredit());
             }
         }
     }
 
     public String add_Off(Customer customer) {
         LocalDate lD = LocalDate.now();
-        double price=0;
+        double price = 0;
         lD = lD.plusDays(5);
         double sum = 0;
         for (int i = 0; i < customer.getCart().size(); i++) {
             sum += Double.parseDouble(customer.getCart().get(i).getPrice());
         }
         if (sum > 5) {
-            Off off = new Off(20, lD, 1);
+            OffProduct off = new OffProduct(20, lD, 1);
             customer.getList_Offs().add(off);
 
             return off.getId();
         } else if (customer.getFactors().size() == 3) {
-            Off off = new Off(30, lD, 1);
+            OffProduct off = new OffProduct(30, lD, 1);
             customer.getList_Offs().add(off);
-            for(int i=0;i<customer.getCart().size();i++){
-                price=Double.parseDouble(customer.getCart().get(i).getPrice());
-                price=price-price*30/100;
+            for (int i = 0; i < customer.getCart().size(); i++) {
+                price = Double.parseDouble(customer.getCart().get(i).getPrice());
+                price = price - price * 30 / 100;
                 customer.getCart().get(i).setPrice(String.valueOf(price));
             }
             return off.getId();
@@ -322,7 +322,7 @@ public class SuperCon {
     //------------------------------------------
     public void add_Off_Digi_pen_Pencil(String id, Customer customer) {
         Article find;
-        double price=0;
+        double price = 0;
         for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
             if (customer.getCart().get(i).getId().equals(id)) {
                 find = SuperAdmin.getInstance().getArticles().get(i);
@@ -339,24 +339,24 @@ public class SuperCon {
 
     //--------------------------------------------
     public double[] accept_Off(String id, Customer customer) throws ID_Off {
-        double []total=new double[2];
+        double[] total = new double[2];
         LocalDate currentTime = LocalDate.now();
-        double first=0;
-        double end=0;
+        double first = 0;
+        double end = 0;
         double price;
         int check = 0;
-        Off off;
+        OffProduct off;
         for (int i = 0; i < SuperAdmin.getInstance().getOffs().size(); i++) {
-            off=SuperAdmin.getInstance().getOffs().get(i);
+            off = SuperAdmin.getInstance().getOffs().get(i);
             if (SuperAdmin.getInstance().getOffs().get(i).getId().equals(id)) {
                 if (SuperAdmin.getInstance().getOffs().get(i).getCapacity() > 0) {
                     if (SuperAdmin.getInstance().getOffs().get(i).getExpiration().isAfter(currentTime) || SuperAdmin.getInstance().getOffs().get(i).getExpiration().equals(currentTime)) {
                         if (customer.getList_Offs().contains(SuperAdmin.getInstance().getOffs().get(i))) {
                             check++;
-                            for(int j=0;j<customer.getCart().size();j++){
-                                first+=Double.parseDouble(customer.getCart().get(j).getPrice());
-                                price= Double.parseDouble(customer.getCart().get(j).getPrice())*(100-off.getPercent());
-                                end+=Double.parseDouble(customer.getCart().get(j).getPrice())*(100-off.getPercent());
+                            for (int j = 0; j < customer.getCart().size(); j++) {
+                                first += Double.parseDouble(customer.getCart().get(j).getPrice());
+                                price = Double.parseDouble(customer.getCart().get(j).getPrice()) * (100 - off.getPercent());
+                                end += Double.parseDouble(customer.getCart().get(j).getPrice()) * (100 - off.getPercent());
                                 customer.getCart().get(j).setPrice(String.valueOf(price));
                             }
 
@@ -365,8 +365,8 @@ public class SuperCon {
                 }
             }
         }
-        total[0]=first;
-        total[1]=end;
+        total[0] = first;
+        total[1] = end;
 
         if (check == 0) {
             throw new ID_Off();
@@ -375,23 +375,58 @@ public class SuperCon {
     }
 
     //-------------------------------------------
-   public ArrayList<Article> filterCar(){
-        ArrayList<Article>total=new ArrayList<>();
-        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
-            if(SuperAdmin.getInstance().getArticles().get(i) instanceof  Machine){
-                total.add(SuperAdmin.getInstance().getArticles().get(i));
+    public double[] accept_FinalOff(String id, Customer customer) throws ID_Off {
+        double[] total = new double[2];
+        LocalDate currentTime = LocalDate.now();
+        double first = 0;
+        double end = 0;
+        double price;
+        int check = 0;
+        OffProduct off = null;
+        for (int i = 0; i < customer.getList_Offs().size(); i++) {
+            if(customer.getList_Offs().get(i).getId().equalsIgnoreCase(id)){
+            off = SuperAdmin.getInstance().getOffs().get(i);}}
+
+            for (int j = 0; j < customer.getCart().size(); j++) {
+                first += Double.parseDouble(customer.getCart().get(j).getPrice());
+                price = Double.parseDouble(customer.getCart().get(j).getPrice()) * (100 - off.getPercent());
+                end += Double.parseDouble(customer.getCart().get(j).getPrice()) * (100 - off.getPercent());
+                customer.getCart().get(j).setPrice(String.valueOf(price));
             }
-        }
+
+        total[0] = first;
+        total[1] = end;
         return total;
-   }
-    public ArrayList<Article> filterSSD(){
-        ArrayList<Article>total=new ArrayList<>();
-        for(int i=0;i<SuperAdmin.getInstance().getArticles().size();i++){
-            if(SuperAdmin.getInstance().getArticles().get(i) instanceof  SSD){
+    }
+
+    //-------------------------------------------
+    public ArrayList<Article> filterCar() {
+        ArrayList<Article> total = new ArrayList<>();
+        for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+            if (SuperAdmin.getInstance().getArticles().get(i) instanceof Machine) {
                 total.add(SuperAdmin.getInstance().getArticles().get(i));
             }
         }
         return total;
     }
 
+    public ArrayList<Article> filterSSD() {
+        ArrayList<Article> total = new ArrayList<>();
+        for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+            if (SuperAdmin.getInstance().getArticles().get(i) instanceof SSD) {
+                total.add(SuperAdmin.getInstance().getArticles().get(i));
+            }
+        }
+        return total;
+    }
+
+    public ArrayList<Vehicles> filterVehicle() {
+        ArrayList<Vehicles> total = new ArrayList<>();
+        for (int i = 0; i < SuperAdmin.getInstance().getArticles().size(); i++) {
+            if (SuperAdmin.getInstance().getArticles().get(i) instanceof Vehicles) {
+                total.add((Vehicles) SuperAdmin.getInstance().getArticles().get(i));
+            }
+        }
+        return total;
+    }
 }

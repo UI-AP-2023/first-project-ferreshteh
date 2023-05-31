@@ -57,6 +57,7 @@ public class SuperMeno {
                 System.out.println("write: accept  user info");
                 sc.nextLine();
                 customer = SuperCon.getInstance().requestUser(sc.nextLine());
+                System.out.println(customer.getId());
                 UserMeno.getInstance().setCustomer(customer);
                 RegisterController.customer=customer;
                 RegisterController.check = 1;
@@ -82,7 +83,7 @@ public class SuperMeno {
                 SuperCon.getInstance().requestsManagement(sc.nextLine());
                 System.out.println("1-Responding to Registration requests  2-view comments 3-Product management(add\\delete\\edit) 4-viewProducts ");
                 System.out.println(" 5-Responding to Requests for comments  6-Responding to Requests for credit enhancement 7-exit");
-                scanner=7;
+
                 break;
             } else if (scanner == 2) {
                 for (int i = 0; i < SuperAdmin.getInstance().getComments().size(); i++) {

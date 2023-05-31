@@ -5,6 +5,7 @@ import controller.ArtContoroller;
 import controller.SuperCon;
 import controller.UserController;
 import exception.ID_Off;
+import javafx.animation.RotateTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -16,7 +17,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.articles.Article;
 import model.user.Customer;
 import model.user.SuperAdmin;
@@ -66,6 +69,9 @@ public class ShoppingController implements Initializable {
     private Label name2_lbl;
 
     @FXML
+    private JFXButton accept_btn;
+
+    @FXML
     private Label price2_lbl;
 
     @FXML
@@ -76,9 +82,19 @@ public class ShoppingController implements Initializable {
     @FXML
     private AnchorPane off_pane;
     Article article;
-    
+    @FXML
+    private ImageView off_image;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        RotateTransition rotate=new RotateTransition();
+        rotate.setAxis(Rotate.Z_AXIS);
+        rotate.setByAngle(45);
+        rotate.setCycleCount(3);
+        rotate.setDuration(Duration.millis(3000));
+        rotate.setAutoReverse(true);
+        rotate.setNode(off_image);
+        rotate.play();
         list.setVisible(true);
         ArticleShow.setVisible(true);
         for (int i = 0; i < customer.getCart().size(); i++) {
@@ -113,30 +129,46 @@ public class ShoppingController implements Initializable {
             customer.getCart().remove(article);
         });
         buy_btn.setOnMouseClicked(event -> {
-           if( UserController.getInstance().shoppingCart(customer)){
-               Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-               alert.setContentText("successful shopping");
-               alert.show();
-           }
-            else  {
+            if (UserController.getInstance().shoppingCart(customer)) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("successful shopping");
+                alert.show();
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("not enough money");
                 alert.show();
             }
         });
     }
+
     @FXML
     public void lastPage(MouseEvent event) throws Exception {
         new MainPage().start((Stage) last_btn.getScene().getWindow());
     }
-        @FXML
-        public void off(MouseEvent event) throws ID_Off {
-        Alert alert=new Alert(Alert.AlertType.INFORMATION);
+
+    @FXML
+    public void off(MouseEvent event) throws ID_Off {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(SuperCon.getInstance().add_Off(customer));
         alert.show();
-       double[]total= SuperCon.getInstance().accept_Off(off_textField.getText(),customer);
-       firstPrice_lbl.setText(String.valueOf(total[0]));
-       secondPrice_lbl.setText(String.valueOf(total[1]));
+
     }
+    @FXML
+    public void accept(MouseEvent event) throws ID_Off {
+        double sum=0;
+        double[] total = SuperCon.getInstance().accept_FinalOff(off_textField.getText(), customer);
+        if (total != null) {
+            firstPrice_lbl.setText(String.valueOf(total[0]));
+            secondPrice_lbl.setText(String.valueOf(total[1]));
+        } else {
+            for (int i = 0; i < customer.getCart().size(); i++) {
+                sum += Double.parseDouble(customer.getCart().get(i).getPrice());
+            }
+            firstPrice_lbl.setText(String.valueOf(sum));
+            secondPrice_lbl.setText(String.valueOf(sum));
+        }
+    }
+
 
 }

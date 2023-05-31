@@ -39,10 +39,10 @@
       <Line endX="497.0" endY="93.50003051757812" layoutX="-7.0" layoutY="280.0" startX="357.29290771484375" startY="93.50001525878906" />
       <Line endX="497.0" endY="93.50003051757812" layoutX="-7.0" layoutY="409.0" startX="357.29290771484375" startY="93.50001525878906" />
       <Label fx:id="phone_lbl" alignment="CENTER" layoutX="395.0" layoutY="207.0" prefHeight="21.0" prefWidth="111.0" text="phone" />
-      <Label fx:id="userName_lbl" alignment="CENTER" layoutX="395.0" layoutY="73.0" prefHeight="21.0" prefWidth="111.0" text="UserNmame" />
+      <Label fx:id="userName_lbl" alignment="CENTER" layoutX="395.0" layoutY="73.0" prefHeight="21.0" prefWidth="139.0" text="UserNmame" />
       <Label fx:id="email_lbl" alignment="CENTER" layoutX="365.0" layoutY="348.0" prefHeight="21.0" prefWidth="111.0" text="email" />
       <Label fx:id="password_lbl" alignment="CENTER" layoutX="377.0" layoutY="477.0" prefHeight="21.0" prefWidth="111.0" text="password" />
-      <Button fx:id="showUserName_btn" layoutX="345.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#showUserName" prefHeight="31.0" prefWidth="36.0" text="..." />
+      <Button fx:id="showUserName_btn" layoutX="338.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#showUserName" prefHeight="31.0" prefWidth="36.0" text="..." />
       <Button fx:id="showPhone_btn" layoutX="338.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#showPhone" prefHeight="31.0" prefWidth="36.0" text="..." />
       <Button fx:id="showEmail_btn" layoutX="338.0" layoutY="344.0" mnemonicParsing="false" onMouseClicked="#showEmail" prefHeight="31.0" prefWidth="36.0" text="..." />
       <Button fx:id="showPassword_btn" layoutX="338.0" layoutY="472.0" minWidth="33.0" mnemonicParsing="false" onMouseClicked="#showPassword" prefHeight="31.0" prefWidth="33.0" text="..." />
@@ -55,5 +55,6 @@
             <Image url="@1685001206629.png" />
          </image>
       </ImageView>
+      <Label fx:id="credit" alignment="CENTER" layoutX="24.0" layoutY="90.0" prefHeight="18.0" prefWidth="77.0" text="credit" />
    </children>
 </AnchorPane>

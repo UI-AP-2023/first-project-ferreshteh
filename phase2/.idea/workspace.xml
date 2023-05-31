@@ -5,19 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8302e6a0-022d-4315-aafc-37d3d246104b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Meal_Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Meal_FilterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/meal_filter.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/FilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/FilterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/CreditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/CreditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/Shopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Shopping.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/ShoppingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/ShoppingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ArtContoroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ArtContoroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/User_InformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/User_InformationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/SuperCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SuperCon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Machine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Machine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/filter.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/filter.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Digital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Digital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Pen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Pen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Pencil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Pencil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/others/Off.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/others/OffProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/SuperAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/SuperAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SuperMeno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SuperMeno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/mainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/mainPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/shopping.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/shopping.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/user'Information.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/user'Information.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -72,6 +72,7 @@ public class CreditController implements Initializable {
         try {
             String input = amount_textField1.getText();
             credit = Double.parseDouble(input);
+            customer.setDefaultCredit(credit);
             string[0] = accountNumber_textField.getText();
             string[1] = cvv_textField.getText();
             String month = (month_textField.getText());
