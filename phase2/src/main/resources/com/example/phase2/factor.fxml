@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="529.0" prefWidth="770.0" style="-fx-background-color: #F0E68C;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.FactorsController">
+   <children>
+      <ListView fx:id="list" layoutX="377.0" layoutY="11.0" prefHeight="423.0" prefWidth="379.0" />
+      <AnchorPane fx:id="score_pane" layoutX="9.0" layoutY="20.0" prefHeight="212.0" prefWidth="349.0">
+         <children>
+            <Line endX="303.0" endY="316.0" layoutX="40.0" layoutY="-117.0" startX="-39.0" startY="316.0" />
+            <ImageView fx:id="score_image" fitHeight="155.0" fitWidth="92.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1685360975053.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="score_textField" alignment="CENTER" layoutX="14.0" layoutY="134.0" promptText="score" />
+            <JFXButton fx:id="save_btn" buttonType="RAISED" defaultButton="true" layoutX="219.0" layoutY="134.0" ripplerFill="#10cd62" text="accept" />
+            <TextField fx:id="id_textField" alignment="CENTER" layoutX="14.0" layoutY="166.0" promptText="id Article" />
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="firstScore_pane" fitHeight="150.0" fitWidth="200.0" layoutX="52.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@1685360975053.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="last_btn" fitHeight="79.0" fitWidth="108.0" layoutX="13.0" layoutY="525.0" onMouseClicked="#lastPage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1685001206629.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="show_lbl" layoutX="8.0" layoutY="251.0" prefHeight="252.0" prefWidth="348.0" />
+   </children>
+</AnchorPane>

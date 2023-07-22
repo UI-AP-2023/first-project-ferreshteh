@@ -4,11 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8302e6a0-022d-4315-aafc-37d3d246104b" name="Changes" comment="" />
+    <list default="true" id="8302e6a0-022d-4315-aafc-37d3d246104b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Meal_Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Meal_FilterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/meal_filter.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/CreditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/CreditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/MainPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/Shopping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/Shopping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/ShoppingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/ShoppingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phase2/User_InformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phase2/User_InformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SuperCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SuperCon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Digital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Digital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Pen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Pen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/articles/Pencil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/articles/Pencil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/others/Off.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/others/OffProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/user/SuperAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/user/SuperAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SuperMeno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SuperMeno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/mainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/mainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/shopping.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/shopping.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/phase2/user'Information.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/phase2/user'Information.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -18,19 +58,28 @@
     </option>
   </component>
   <component name="ProjectId" id="2PsTYDkUOivkG5yi5ORfk39wTjp" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/NA/IdeaProjects/phase2/src/main/java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/NA/gitHub-phase2/phase2/src/main/resources/com/example/phase2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\NA\gitHub-phase2\phase2\src\main\resources\com\example\phase2" />
       <recent name="C:\Users\NA\IdeaProjects\phase2\src\main\java" />
     </key>
   </component>
@@ -44,5 +93,8 @@
       <updated>1684244838021</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

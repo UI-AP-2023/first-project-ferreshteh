@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #708090; -fx-background-position: #808080;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.phase2.MainPageController">
+   <children>
+      <AnchorPane fx:id="filters_pane" layoutX="249.0" layoutY="52.0" prefHeight="588.0" prefWidth="498.0">
+         <children>
+            <ImageView fx:id="filter_image" fitHeight="293.0" fitWidth="275.0" layoutX="32.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1685117153076.png" />
+               </image>
+            </ImageView>
+            <VBox fx:id="search_vbox" layoutX="305.0" layoutY="7.0" prefHeight="563.0" prefWidth="185.0" spacing="15.0" style="-fx-background-color: #D3D3D3;">
+               <children>
+                  <Button fx:id="type_btn" minWidth="46.0" mnemonicParsing="false" onMouseClicked="#generalType" prefHeight="40.0" prefWidth="187.0" text="Type of Article" />
+                  <TextField fx:id="type_textField" alignment="CENTER" prefHeight="33.0" prefWidth="185.0" promptText="enter type of button" />
+                  <Button fx:id="expiration_btn" mnemonicParsing="false" onMouseClicked="#exist" prefHeight="40.0" prefWidth="187.0" text="Expiration(Meal)" />
+                  <TextField fx:id="expiration_textField" alignment="CENTER" promptText="enter expiration" />
+                  <Button fx:id="exist_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="187.0" text="exist or not" />
+                  <TextField fx:id="exist_textField" alignment="CENTER" promptText="true&gt;exist  /  false&gt;not" />
+                  <Button fx:id="price_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="189.0" text="Price" />
+                  <TextField fx:id="price_textField" alignment="CENTER" promptText="range of price" />
+                  <Button fx:id="TypeOfBicycle_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="187.0" text="type Of Bicycle" />
+                  <TextField fx:id="bic_textField" alignment="CENTER" promptText="enter type of bicycle" />
+                  <Button fx:id="numberNoteBokk_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="186.0" text="number Of NoteBook Papers" textAlignment="CENTER" wrapText="true" />
+                  <TextField fx:id="note_textField" alignment="CENTER" promptText="enter number" />
+               </children>
+            </VBox>
+            <JFXButton fx:id="showAll_btn" buttonType="RAISED" layoutX="115.0" layoutY="467.0" onMouseClicked="#unFiltering" prefHeight="32.0" prefWidth="165.0" text="un Filtering" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="search_pane" layoutY="-2.0" prefHeight="52.0" prefWidth="813.0" style="-fx-background-color: #87CEFA;" AnchorPane.bottomAnchor="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+         <children>
+            <ImageView fx:id="exit_btn" fitHeight="32.0" fitWidth="46.0" layoutX="773.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1684963494026.png" />
+               </image>
+            </ImageView>
+            <Rectangle fx:id="searchRectangle" arcHeight="5.0" arcWidth="5.0" fill="#dacfd4" height="46.0" layoutX="263.0" layoutY="4.0" stroke="#c31818" strokeType="INSIDE" width="305.0" />
+            <ImageView fx:id="search_img" fitHeight="53.0" fitWidth="80.0" layoutX="210.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1685117153076.png" />
+               </image></ImageView>
+            <TextField fx:id="search_textField" layoutX="273.0" layoutY="14.0" prefHeight="26.0" prefWidth="295.0" promptText="Enter ID of products" />
+            <ImageView fx:id="meno_btn" fitHeight="53.0" fitWidth="70.0" layoutX="14.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@1684963494042.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane layoutX="-9.0" layoutY="50.0" prefHeight="608.0" prefWidth="92.0" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="-9.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <VBox layoutX="5.0" layoutY="-2.0" prefHeight="603.0" prefWidth="75.0" spacing="10.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane prefHeight="606.0" prefWidth="75.0" style="-fx-background-color: #87CEFA;">
+                     <children>
+                        <ImageView fx:id="credit_image" fitHeight="58.0" fitWidth="75.0" layoutX="4.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1684945791932.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="user_image" fitHeight="58.0" fitWidth="75.0" layoutX="4.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1684945792002.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="cart_image" fitHeight="58.0" fitWidth="75.0" layoutX="-4.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1684945791969.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="factors_image" fitHeight="58.0" fitWidth="75.0" layoutX="4.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1684945791951.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="comment_image" fitHeight="58.0" fitWidth="75.0" layoutX="5.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1684945791985.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="off_btn" fitHeight="58.0" fitWidth="75.0" layoutX="9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1685026948168.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="home_image" fitHeight="58.0" fitWidth="75.0" layoutX="9.0" layoutY="486.0" onMouseClicked="#last_page" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1684945792025.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="meno_pane" layoutX="83.0" layoutY="58.0" prefHeight="554.0" prefWidth="156.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="58.0">
+         <children>
+            <VBox fx:id="meno_Vbox" layoutY="10.0" prefHeight="454.0" prefWidth="177.0" spacing="45.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <JFXButton fx:id="credit_btn" buttonType="RAISED" layoutX="10.0" layoutY="10.0" onMouseClicked="#off" prefHeight="52.0" prefWidth="164.0" style="-fx-background-color: #cd5c5c;" text="View the list of discounts" textAlignment="CENTER" underline="true" wrapText="true" />
+                  <JFXButton fx:id="account_btn" onMouseClicked="#addCredit" prefHeight="32.0" prefWidth="164.0" style="-fx-background-color: #cd5c5c;" text="account increase" underline="true" wrapText="true" />
+                  <JFXButton fx:id="user_btn" layoutX="10.0" layoutY="42.0" onMouseClicked="#showInformation" prefHeight="32.0" prefWidth="168.0" style="-fx-background-color: #cd5c5c;" text="Informations" />
+                  <JFXButton fx:id="cart_btn" buttonType="RAISED" layoutX="10.0" layoutY="115.0" onMouseClicked="#showCart" prefHeight="32.0" prefWidth="168.0" style="-fx-background-color: #cd5c5c;" text="Your Cart" />
+                  <JFXButton fx:id="factor_btn" onMouseClicked="#showFactors" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #cd5c5c;" text="Your Factors" />
+                  <JFXButton fx:id="comment_btn" onMouseClicked="#comment" prefHeight="32.0" prefWidth="167.0" style="-fx-background-color: #cd5c5c;" text="Comment" />
+               </children></VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="products" layoutX="149.0" layoutY="116.0" prefHeight="341.0" prefWidth="557.0">
+         <children>
+            <AnchorPane fx:id="Pane1" layoutX="69.0" layoutY="73.0" prefHeight="280.0" prefWidth="459.0" visible="false">
+               <children>
+                  <ImageView fx:id="carBlack_image1" fitHeight="266.0" fitWidth="403.0" layoutX="89.0" layoutY="27.0" onMouseClicked="#filterCar" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@1684933062400.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pane2" layoutX="98.0" layoutY="41.0" prefHeight="315.0" prefWidth="451.0" visible="false">
+               <children>
+                  <ImageView fx:id="laptop_image1" fitHeight="266.0" fitWidth="266.0" layoutX="139.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="30.0">
+                     <image>
+                        <Image url="@download.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pane3" layoutX="146.0" layoutY="65.0" prefHeight="281.0" prefWidth="354.0" visible="false">
+               <children>
+                  <ImageView fx:id="ssd_image2" fitHeight="266.0" fitWidth="305.0" layoutX="31.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@5586-fotor-bg-remover-20230524105621.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="flash_image1" fitHeight="197.0" fitWidth="220.0" layoutX="217.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@flash.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pane4" layoutX="60.0" layoutY="40.0" prefHeight="266.0" prefWidth="463.0" visible="false">
+               <children>
+                  <ImageView fx:id="carWhite_image1" fitHeight="382.0" fitWidth="523.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@1684932848722.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pane5" layoutX="94.0" layoutY="29.0" prefHeight="286.0" prefWidth="221.0" visible="false">
+               <children>
+                  <ImageView fx:id="pen_image1" fitHeight="388.0" fitWidth="315.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@5590-fotor-bg-remover-2023052411947.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="flash_image2" fitHeight="46.0" fitWidth="142.0" layoutX="226.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@flash.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ssd_image11" fitHeight="46.0" fitWidth="24.0" layoutX="274.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@5586-fotor-bg-remover-20230524105621.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pane6" layoutX="73.0" layoutY="35.0" prefHeight="273.0" prefWidth="438.0" visible="false">
+               <children>
+                  <ImageView fx:id="bicycle_image2" fitHeight="294.0" fitWidth="393.0" layoutX="118.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@bicycle-delivering-flowers-design-element-fotor-bg-remover-20230524111358.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <JFXButton fx:id="All_btn" buttonType="RAISED" layoutX="236.0" layoutY="349.0" onMouseClicked="#showAllProduct" ripplerFill="#da1f1f" text="ALL PRODUCTS" />
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="next" buttonType="RAISED" ellipsisString="&gt;&gt;" layoutX="753.0" layoutY="390.0" minWidth="46.0" onMouseClicked="#nextPane" prefHeight="46.0" prefWidth="46.0" ripplerFill="#d71515" text="&gt;&gt;" />
+      <JFXButton fx:id="last" buttonType="RAISED" layoutX="105.0" layoutY="397.0" onMouseClicked="#lastPane" prefHeight="46.0" prefWidth="56.0" ripplerFill="#c91c1c" text="&lt;&lt;" />
+   </children>
+</AnchorPane>
